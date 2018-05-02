@@ -1,0 +1,257 @@
+<template>
+   <el-header>
+     <el-menu
+      :default-active="activeIndex"
+      class="el-menu-demo"
+      mode="horizontal"
+      @select="handleSelect"
+      background-color="#000"
+      text-color="#fff"
+      active-text-color="#fff">
+      <el-menu-item index='0'>
+        <router-link :to="{name:'home'}"><img src='../../../../assets/cnlp_logo.png'/></router-link>
+      </el-menu-item>
+      <el-submenu index="1">
+          <template slot="title">产品服务 </template>
+          <div class="sub-meun-panel" >
+            <el-row style='padding-left: 40px; margin-bottom: 20px;'>
+              <el-input placeholder="请输入内容" v-model="searchKey" v-on:change='querySearch' @keyup.enter.native="querySearch" class="input-with-select">
+                <el-button slot="append" icon="el-icon-search"></el-button>
+              </el-input>
+            </el-row>
+            <el-row>    
+              <div class='meunItemDiv' >
+                <div class="submeunitem" v-for="child in serviceMeunList" :key="child.id">
+                  <div class='meunItemFont01'><label ><i class="fa fa-bookmark-o" aria-hidden="true"></i>&nbsp;&nbsp;{{ child.name}}</label></div>
+                  <ul  v-for="item in child.children" :key="item.id">
+                    <label class='meunItemFont02'>{{ item.name }}</label>
+                    <li v-for="subChild in item.children" :key="subChild.id" v-if="subChild.show == true" @click="linkServiceListPage(subChild.id)">
+                      {{ subChild.name }}  
+                    </li>
+                  </ul>
+                </div> 
+              </div>
+            </el-row>
+          </div>
+      </el-submenu>
+      <el-submenu index="2">
+        <template slot="title">解决方案 </template>
+        <div class="sub-meun-panel" >
+
+          <el-row>
+            <el-col class="dataSetItem" :span="12" v-for="child in dataSetList" :key="child.id" >
+              <el-col :span="8" class="item-left"> 
+                <img :src="'static/solution/'+child.solutionIcon"/>
+              </el-col>
+              <el-col :span="16" class="item-right">
+                <template></template>
+                <template v-if="child.forwardType == 1">
+                  <label>
+                    <svg-icon icon-class="tag" ></svg-icon> 
+                    <a @click="linkSolutionPage(child.id,child.solutionUrl)"> {{ child.solutionName }} </a>
+                    <!-- <router-link :to="{name:child.solutionUrl,params:{id:child.id}}">{{ child.solutionName }}</router-link> -->
+                  </label>
+                </template>
+                <template v-else>
+                <label><svg-icon icon-class="tag" ></svg-icon> <a :href="child.solutionUrl" target="_blank">{{ child.solutionName }}</a></label>
+                </template>
+                <p class="small font_color_grey2 no_more_line_3"> {{ child.solutionDesc | subStringNoMore3line}} </p>
+              </el-col>
+              
+            </el-col>
+
+          </el-row>
+          
+        </div>
+      </el-submenu>
+
+      <el-menu-item index='3'>
+        <router-link :to="{name:'dataset'}">数据集</router-link>
+      </el-menu-item>
+      <el-menu-item index='4'>
+        创新平台
+      </el-menu-item>
+      <el-menu-item index='5'>
+        NLP学院
+      </el-menu-item>      
+      <el-menu-item index='login' class='loginItem' v-if="!isLogin">
+        登录
+      </el-menu-item>
+      <el-menu-item index='userInfo' class="userInfo" v-if="isLogin">
+        {{userName}}
+      </el-menu-item>
+      <el-menu-item index='controlPanel' class='controlPanel'>
+         控制台
+      </el-menu-item>
+     
+    </el-menu>
+   </el-header>
+</template>
+
+<script>
+import { getMenus } from '@/api/header'
+import Cookies from 'js-cookie'
+import { getSolutionList } from '@/api/solutions'
+import { subStringNoMore3line } from '@/utils/index'
+import { getToken, getUserName } from '@/utils/auth'
+  export default {
+    data() {
+      return {
+        activeIndex: '1',
+        serviceMeunList:[],
+        originalMeunList:[],
+        searchKey:'',
+        searchSetDataKey:'',
+        dataSetList:[],
+        userName:getUserName(),
+        isLogin:false
+      }
+    },
+    filters:{
+      subStringNoMore3line (str){
+        return subStringNoMore3line(str,75)
+      }
+    },
+    methods: {
+      handleSelect (key, keyPath) {
+        console.log(key, keyPath);
+        if(key == "login"){
+          this.$emit('login', true);
+        }
+      },
+    
+      // 跳转到服务详情页面 
+      linkServiceListPage (id) {
+        Cookies.set("service_id",id)
+        //  this.$router.push({name: 'serviceLists', params: { service_id: id }})
+        // console.log(document.querySelectorAll(".el-menu").length)
+        document.querySelectorAll(".el-menu")[1].style.display="none"
+        this.$router.push({name: 'serviceLists',params:{ randomValue: Math.random().toString(36).substr(2) }})
+        // console.log(Cookies.get("service_id"))
+        // this.$store.dispatch('getServiceInfo',{service_id:id}).then(() => {
+      
+        // }).catch(() => {
+       
+        // })
+      },
+      // 跳转到解决方案列表页面
+      linkSolutionPage(id ,url){
+        document.querySelectorAll(".el-menu")[2].style.display="none"
+        this.$router.push({name:url,params:{id:id}})
+      },
+      //查询
+      querySearch(){
+        console.log("当前查询字符串为" + this.searchKey )
+        this.getSearchResult(this.serviceMeunList)
+        // console.log(this.serviceMeunList)
+      },
+      // 对数据进行查询，并添加字段show
+      getSearchResult(list){
+        for(let i=0;i<list.length;i++){
+          if( list[i].children ){
+            this.getSearchResult(list[i].children)
+          }else{
+            if(list[i].name.indexOf(this.searchKey) != -1){
+              list[i].show = true
+            }else{
+              list[i].show = false
+            }
+          }
+        }
+      },
+      // 遍历数据  添加show 字段 用于控制显影
+      initMeunList(list){
+        for(let i=0;i<list.length;i++){
+          if( list[i].children ){
+            this.initMeunList(list[i].children)
+          }else{
+            list[i].show = true
+          }
+        }
+      }
+    },
+    computed: {
+      
+    },
+    mounted () {
+      // 初始化
+      getMenus().then(response => {
+        this.initMeunList(response.data)
+        this.serviceMeunList = response.data
+        this.originalMeunList = response.data
+        console.log(this.serviceMeunList)
+      })
+      getSolutionList().then(response => {
+        this.dataSetList = response.data
+      })
+      console.log(getToken())
+      if(getToken() != "" && getToken()){
+        this.isLogin = true
+      }
+      
+    }
+  }
+</script>
+<style rel="stylesheet/scss" lang="scss" scoped>
+
+  .meunItemDiv {
+    display: inline-flex;
+    .submeunitem{
+      padding: 0 38px;
+      .meunItemFont01{
+        color: #9d9a96;
+      }
+      .meunItemFont02{
+        color: #e9e7e3;
+        font-size: small;
+      }
+      ul{
+        li{
+          max-width: 100px;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          margin-top: 15px;
+          color: #9d9a96;
+          font-size: smaller;
+          cursor:pointer;
+          &:hover{
+            color: #4949fe;
+          }
+        }
+        &:first-of-type{
+          padding: 20px;
+        }
+      }
+     
+      &:not(:first-child) {
+        border-left: 1px solid #5f5858;
+      }
+    }
+    
+  }
+  .dataSetItem{
+    padding: 0 40px 25px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    img{
+        width: 100%;
+    }  
+    .item-right {
+        padding: 0 10px;
+        label{
+          // margin-left: 15px;
+          .svg-icon[data-v-5d4549d3] {
+            color: #969292;
+          }
+          color: #d7d5d5;
+          &:hover{
+            color: #4c4cfc;
+            cursor: pointer;
+          }
+        }
+      
+    }
+  }
+</style>

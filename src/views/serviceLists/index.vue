@@ -1,0 +1,394 @@
+<template>
+  <div class="serviceLists-container">
+    <el-row class='service_info'>
+      <img class='service_bg_img' src='../../assets/sevice_details/u536.jpg'/>
+      <div class='title_desc'>
+        <h2> {{ serviceInfo.service_title }} </h2>
+        <p> {{ serviceInfo.service_desc }} </p>
+      </div>
+    </el-row>
+    <el-container class='service_class'>
+      <el-aside width="200px" class='aside_style'>
+        <el-collapse v-model="activeNames" @change="handleChange">
+          <el-collapse-item v-for='item in collapseData' :key='item.id'  :name="item.id">
+             <template slot="title">
+               <svg-icon :icon-class="item.icon" ></svg-icon>
+               {{ item.name }}
+            </template>
+            <ul>
+              <li v-for="child in item.children" :class="currentServiceId == child.id ?'active':''" :key="child.id" @click="chooseServiceItem(child.id)">
+                {{ child.name }}
+              </li>
+            </ul>
+          </el-collapse-item>
+         
+        </el-collapse>
+      </el-aside>
+      <el-main class='service_content'>
+        <el-row class='service_tools'>
+          <el-col :span='12'>
+            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+            <span class='small'>{{ serviceInfo.service_title }}</span>
+            &nbsp;&nbsp;
+            <span>  
+              <el-input placeholder="请输入内容" size="mini" v-model="search_key" v-on:change="searchThirdList" class="search_input" suffix-icon="el-icon-search"></el-input>
+            </span>
+          </el-col>
+          <el-col  :span='12' class='text_right'>
+            <span class='smaller'>排序：</span>
+            &nbsp;
+            <span class='small tool-sort-icon' :class="sortType != 1 ? '' : (countSort ? 'sort_desc' : 'sort_asc')"   @click="sortList(1)">使用次数&nbsp;<i class="fa fa-sort-desc"></i><i class="fa fa-sort-asc"></i></span>
+            &nbsp;
+            <span class='small tool-sort-icon' :class="sortType != 2 ? '' : (timeSort ? 'sort_desc' : 'sort_asc')" @click="sortList(2)">发布时间&nbsp;<i class="fa fa-sort-desc"></i><i class="fa fa-sort-asc"></i></span>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <span class='tool-style-icon active'><i class="fa fa-bars" aria-hidden="true"></i></span>
+            <span class='tool-style-icon'><i class="el-icon-menu" aria-hidden="true"></i></span>
+          </el-col>
+        </el-row>
+        <el-row class='service_list'>
+            <el-row class='item' v-for="item in thridList" :key='item.id'>
+              <el-col :span='8' class='item_img'>
+                <img :src=" item.serviceIcon | getImage">
+              </el-col>
+              <el-col :span='16' class='item_info'>
+                <h4>
+                  {{ item.serviceName }}
+                </h4>
+                <div class='f_c_grey'>
+                  <span class="smaller">
+                    服务类型:&nbsp;&nbsp;  {{item.className}}&nbsp; &nbsp; &nbsp; 
+                    提供者：{{ item.academyName }}&nbsp; &nbsp; 
+                    发布时间：{{ item.rel_time | formatTime}}
+                  </span>
+                </div>
+                <p class="small">
+                  {{ item.serviceDescr}}
+                </p>
+                <div>
+                  <el-button type="primary">立即使用</el-button>
+                  <el-button @click="seeDetailPage(item.id,item.fromType)">
+                    查看详情
+                  </el-button>
+                </div>
+              </el-col>
+            </el-row>
+        </el-row>
+        <el-row class="text_center">
+          <el-pagination
+            layout="prev, pager, next"
+            :total="paginationTotal"
+            :page-size="paginationPageSize"
+            :current-page="paginationCurrentPage"
+            @current-change="changePaginationCurrentPage">
+          </el-pagination>
+        </el-row>
+      </el-main>
+    </el-container>
+ 
+  </div>
+</template>
+
+<script>
+
+import { getMenus } from '@/api/header'
+import { getThirdServiceList } from '@/api/serviceLists'
+// import { RightListContent, 
+//         LeftCollaspeContent2, 
+//         LeftCollaspeContent1 } from '@/views/serviceLists/components'
+import Cookies from 'js-cookie'
+export default {
+  data (){
+    return {
+      activeNames:['1'],
+      collapseData:[],
+      search_key:'',
+      currentServiceId:0,
+      activeItemId:0,
+      thridList: [],
+      serviceInfo:{
+        service_title:'',
+        service_desc:''
+      },
+      paginationPageSize:2,
+      paginationTotal:0,
+      paginationCurrentPage:1,
+      countSort:false,
+      timeSort:false,
+      sortType:1,
+      storeDate:this.$store.state
+    }
+  },
+  components:{
+    RightListContent, 
+    LeftCollaspeContent2, 
+    LeftCollaspeContent1 
+  },
+  filters: {
+    getImage (name) {
+      // console.log(name)
+       var url ="static/services/"+name.toString()
+      return url
+    },
+    formatTime (time){
+      return time.split(" ")[0]
+    }
+  },
+  methods:{
+    // 排序
+    sortList(type){
+      if(type == 1){
+        // 使用次数
+        this.sortType = 1
+        this.countSort = !this.countSort
+      }else if(type == 2){
+        // 发布时间
+        this.sortType = 2
+        this.timeSort = !this.timeSort
+      }
+      
+      // 刷新分页计数
+      this.paginationTotal = 0
+      this.paginationCurrentPage = 1
+      // 刷新列表
+      this.refrushThridList()
+    },
+    handleChange(val) {
+      // console.log(val);
+    },
+    // 按关键字查询
+    searchThirdList(){
+       console.log("查询关键字："+this.search_key)
+      // 刷新分页计数
+      this.paginationTotal = 0
+      this.paginationCurrentPage = 1
+ 
+      this.refrushThridList()
+      
+    },
+    // 点击第几页
+    changePaginationCurrentPage(currentPage){
+      console.log(currentPage)
+      this.paginationCurrentPage = currentPage
+      this.refrushThridList()
+    },
+    // 点击左侧，刷新右侧列表
+    chooseServiceItem(id) {
+      //  console.log(id);
+      Cookies.set("service_id",id)
+      this.currentServiceId = id
+      // 刷新分页计数
+      this.paginationTotal = 0
+      this.paginationCurrentPage = 1
+      // 清空搜索栏
+      this.search_key = ''
+      this.refrushThridList ()
+    },
+    // 初始化
+    init (){
+      console.log("初始化"+Cookies.get("service_id"))
+      if(Cookies.get("service_id")){
+        this.currentServiceId = Cookies.get("service_id") 
+      }
+      getMenus().then(response => {
+        if(response.data.length == 0 ) return
+        var parentId 
+        if(this.currentServiceId != 0){
+          parentId = this.currentServiceId.substring(0,3)
+        }else{
+          parentId = response.data[0].children.substring(0,3)
+        }
+        for(let i=0;i<response.data.length;i++){
+          if(response.data[i].id == parentId){
+            this.collapseData = response.data[i].children
+          }
+        } 
+        this.activeNames = [ this.currentServiceId.substring(0,6)+""]
+        this.refrushThridList ()
+        
+      }) 
+    },
+    refrushThridList(){
+      var data ={
+        class_id:this.currentServiceId, //id
+        pageNow:this.paginationCurrentPage, //当前页
+        pageSize:this.paginationPageSize,//每页条数
+        keyword:this.search_key,//查询的关键字
+        useNum:"",//使用次数排序
+        relTime:"",//接入时间排序
+      }
+      if(this.sortType == 1){//使用次数排序
+        if(this.countSort){
+          data.useNum = 1//1:倒序排列  2：升序排列
+        }else{
+          data.useNum = 2
+        }
+        data.relTime = ""
+      }else{//接入时间排序
+        if(this.timeSort){
+          data.relTime = 1//1:倒序排列  2：升序排列
+        }else{
+          data.relTime = 2
+        }
+        data.useNum = ""
+      }
+      console.log(this.sortType)
+      console.log(data)
+      getThirdServiceList(data).then(responce =>{
+        this.thridList = responce.data 
+        this.paginationTotal = responce.total
+        this.getCurrentServiceInfoById ()
+      })
+    },
+    getCurrentServiceInfoById () {
+      var secondId = this.currentServiceId.substring(0,6)
+      for( let i=0; i < this.collapseData.length; i++ ){
+        if(secondId === this.collapseData[i].id){
+          let Third = this.collapseData[i].children 
+          for(let j = 0 ; j < Third.length; j++){
+             if(this.currentServiceId == Third[j].id){
+               console.log(Third[j].name)
+                this.serviceInfo.service_title = Third[j].name 
+                this.serviceInfo.service_desc = Third[j].descr 
+                break 
+             }
+          }
+        }
+      }
+    },
+    // 跳转到详情页
+    seeDetailPage (id,type) {
+      // 跳转到详情页
+      
+      console.log("---------------跳转到详情页--------------------")
+      console.log("id:"+id)
+      console.log("type:"+type)
+      this.$router.push({name:'serviceDetail',params:{'service_id':id,'type':type}})
+    },
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+    
+  },
+  mounted () {
+    this.init()
+  },
+  watch:{
+    '$route': "init"
+  }
+    
+}
+</script>
+
+<style rel="stylesheet/scss" lang="scss" scoped>
+.serviceLists-container {
+  background-color: #fafafa;
+  .service_info{
+    position: relative;
+    .service_bg_img{
+      width: 100%;
+      max-height: 300px;
+      background-color: #9d9a96;
+      min-height: 300px;
+    }
+    .title_desc {
+      position: absolute;
+      top: 22%;
+      color: #fff;
+      left: 20%;
+    }
+  }
+  .service_class{
+    padding:22px 12%;
+    .aside_style{
+      overflow: hidden;
+      ul{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li{
+          line-height: 35px;
+          padding-left: 30px;
+          cursor: pointer;
+          &:hover,&.active{
+            border-right:3px solid blue;
+            background-color: #dcdcdf78;
+          }
+        }
+      }
+      .el-collapse .el-collapse-item{
+        .el-collapse-item__header , .el-collapse-item__wrap{
+          border: none!important;
+          .el-icon-arrow-right{
+            display: none!important;
+          }
+        }
+      }
+    }
+    .service_content{
+      .service_tools{
+        margin-bottom: 20px;
+        margin-top: -12px;
+        .smaller{
+          color: #827f7f;
+        }
+        .search_input{
+          width: auto;
+        }
+        .tool-style-icon{
+          cursor: pointer;
+          &:hover,&.active{
+            color: #5454ed;
+          }
+        }
+        .tool-sort-icon{
+          cursor: pointer;
+          position: relative;
+          i.fa.fa-sort-asc {
+            position: absolute;
+            right: 0;
+            top: 1px;
+          }
+          &.sort_desc{
+            i.fa.fa-sort-desc {
+              color: blue;
+            }
+          }
+          &.sort_asc{
+            i.fa.fa-sort-asc {
+              color: blue;
+            }
+          }
+        }
+      }
+    }
+    .service_list{
+      .item{
+        background-color: #fff;
+        padding: 20px 20px 20px 0;
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        cursor: pointer;
+        &:hover{
+          -webkit-box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+          box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+        }
+        h4{
+          margin-top: 0;
+          font-weight: 500;
+        }
+        img{
+          max-width:100%;
+        }
+        .item_info{
+          padding-left: 10px;
+          .f_c_grey{
+            color: #827f7f;
+          }
+        }
+        
+      }
+    }
+  }
+}
+
+
+</style>

@@ -1,0 +1,66 @@
+#app {
+  $headerHeight:50px;
+    // 主体区域
+    .main-container {
+      min-height: 100%;
+      margin-top: $headerHeight;
+      // margin-bottom: 50px;
+    } 
+    // header
+    .header-container {
+      padding: 0;
+      position: fixed;
+      top: 0;
+      z-index: 999;
+      left: 0;
+      right: 0;
+      .el-menu--horizontal .el-submenu>.el-menu {
+        position: fixed;
+        background-color: rgba(9, 9, 9, 0.98)!important;
+        top:$headerHeight;
+        padding-top:25px;
+        
+      }
+      .el-menu--horizontal{
+        border-bottom-color: #000;
+        .el-submenu .el-submenu__title, .el-menu-item{
+          height: $headerHeight;
+          line-height: $headerHeight;
+        }  
+      }
+      .sub-meun-panel{
+          color: #fff;
+          ul{
+              list-style: none;
+              display: inline-table;
+          }
+      }    
+      .el-menu {
+        padding: 0 5%;
+        .loginItem{
+          background-color: #2b9eeb !important;
+          float:right;
+        }
+        .controlPanel,.userInfo{
+          float:right;
+        }
+      } 
+      .el-input-group {
+        width: auto;
+        .el-input-group__append {
+          background-color: #000;
+          border: none;
+          padding: 0;
+        }
+        input.el-input__inner {
+          background-color: #000;
+          border: none;
+        }
+      }
+      .el-menu-item.is-active:not(.loginItem ){
+        color: #2b9eeb!important;
+        border-color: #000!important;
+      }
+    }
+  }
+  
