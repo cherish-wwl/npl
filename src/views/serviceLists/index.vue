@@ -84,12 +84,10 @@
         </el-row>
       </el-main>
     </el-container>
- 
   </div>
 </template>
 
 <script>
-
 import { getMenus } from '@/api/header'
 import { getThirdServiceList } from '@/api/serviceLists'
 // import { RightListContent, 
