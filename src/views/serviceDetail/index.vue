@@ -3,8 +3,8 @@
     <el-row class='service_info'>
       <img class='service_bg_img' src='../../assets/sevice_details/u536.jpg'/>
       <div class='title_desc'>
-        <h2> <span class="small">{{ service_type_name }}/</span>{{ service_title }} </h2>
-        <p class="no_more_line_3"> {{ service_desc }} </p>
+        <h2 class="font36"> <span class="font18">{{ service_type_name }}&nbsp;/</span>&nbsp;{{ service_title }} </h2>
+        <p class="font18"> {{ service_desc | subStringNoMore3line}} </p>
         <div>
           <el-button type="primary">立即使用</el-button>
           <el-button>技术文档</el-button>
@@ -31,6 +31,7 @@
 
 <script>
 import { getServiceDetails, getServiceTypeNameById } from '@/api/serviceLists'
+import { subStringNoMore3line } from '@/utils/index.js'
 import { TechnicalFeatures, FunctionalEmbodiment, ApplicationScene2 } from '@/views/serviceDetail/components'
 export default {
    data (){
@@ -64,6 +65,11 @@ export default {
     TechnicalFeatures,
     FunctionalEmbodiment,
     ApplicationScene2
+  },
+  filters: {
+    subStringNoMore3line (str){
+      return subStringNoMore3line(str, 50)
+    }
   },
   mounted (){
     console.log(this.$route.params.service_id)

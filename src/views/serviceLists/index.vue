@@ -90,9 +90,6 @@
 <script>
 import { getMenus } from '@/api/header'
 import { getThirdServiceList } from '@/api/serviceLists'
-// import { RightListContent, 
-//         LeftCollaspeContent2, 
-//         LeftCollaspeContent1 } from '@/views/serviceLists/components'
 import Cookies from 'js-cookie'
 export default {
   data (){
@@ -116,11 +113,7 @@ export default {
       storeDate:this.$store.state
     }
   },
-  components:{
-    RightListContent, 
-    LeftCollaspeContent2, 
-    LeftCollaspeContent1 
-  },
+ 
   filters: {
     getImage (name) {
       // console.log(name)

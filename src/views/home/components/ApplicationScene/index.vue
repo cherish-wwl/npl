@@ -7,13 +7,14 @@
       <div v-for='item in datalist' :key='item.id'>
         <div class="grid-content item">
           <div class="normol_panel">
-            <img src="../../../../assets/home/xinwen01.jpg">
+            <img :src="'static/index/'+item.icon+'.jpg'">
             
             <div class='mask'>
               <div class="bg other-bg"></div>
               <div class="content text_center">
                 <div class='title'>
-                  <img src='../../../../assets/home/news02.png'>
+                  <!-- <img src='../../../../assets/home/news02.png'> -->
+                  <svg-icon :icon-class="item.icon"></svg-icon>
                   <h2>{{ item.name }}</h2>
                 </div>
                 <div class='content_text'>
@@ -108,10 +109,10 @@
               right: 0;
               top: 25%;
               bottom: 0;
+              color:rgba(255, 255, 255, 0.66);
               filter: alpha(opacity=0);
               -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=(0));
               transition: all .4s cubic-bezier(.4,0,.2,1);
-              color: #fff;
               .content_text{
                 opacity: 0;
                  filter: alpha(opacity=0);
@@ -119,9 +120,10 @@
                 transition: all .4s cubic-bezier(.4,0,.2,1);
               }
               .title {
-                img{
-                  width: 100px;
-                  height: 100px;
+
+                .svg-icon{
+                  width: 80px;
+                  height: 80px;
                 }
                 h2{
                   margin-top:0; 
@@ -156,6 +158,7 @@
         }
         &:hover .content {
             top: 5%;
+            color: #fff;
             filter: alpha(opacity=100);
             -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=(100));
              transition: all .4s cubic-bezier(.4,0,.2,1);

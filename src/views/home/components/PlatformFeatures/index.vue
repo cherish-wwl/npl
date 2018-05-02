@@ -3,32 +3,44 @@
     <el-row>
       <el-col :span="6">
         <div class="grid-content">
-          <label>权威学者</label>
-          <p>
+          <label class="font20">
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            权威学者
+          </label>
+          <p class="font16">
             国内外大部分自然语言权威学者入驻
           </p>
         </div>
       </el-col>
       <el-col :span="6">
         <div class="grid-content">
-          <label>权威学者</label>
-          <p>
+          <label class="font20">
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            权威学者入驻
+          </label>
+          <p class="font16">
             国内外大部分自然语言权威学者入驻
           </p>
         </div>
       </el-col>
       <el-col :span="6">
         <div class="grid-content">
-          <label>权威学者</label>
-          <p>
+          <label class="font20">
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+             创新合作院校
+          </label>
+          <p class="font16">
             国内外大部分自然语言权威学者入驻
           </p>
         </div>
       </el-col>
       <el-col :span="6">
         <div class="grid-content">
-          <label>权威学者</label>
-          <p>
+          <label class="font20">
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            中国中文信息学会
+          </label>
+          <p class="font16">
             国内外大部分自然语言权威学者入驻
           </p>
         </div>
@@ -54,10 +66,11 @@ export default {
     .el-col{
        padding: 15px 30px 0 30px;
        p{
-         color: #918b8b;
+         color:rgb(153, 153, 153)
        }
        label{
-         font-weight:bold;
+         font-weight:400;
+         color: rgb(51, 51, 51);
        }
     }
 }

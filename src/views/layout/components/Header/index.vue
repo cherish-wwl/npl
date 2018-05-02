@@ -69,10 +69,11 @@
         <router-link :to="{name:'dataset'}">数据集</router-link>
       </el-menu-item>
       <el-menu-item index='4'>
-        创新平台
+        
+        <router-link :to="{name:'innovation'}">创新平台</router-link>
       </el-menu-item>
       <el-menu-item index='5'>
-        NLP学院
+        <router-link :to="{name:'innovation'}">NLP学院</router-link>
       </el-menu-item>      
       <el-menu-item index='login' class='loginItem' v-if="!isLogin">
         登录
