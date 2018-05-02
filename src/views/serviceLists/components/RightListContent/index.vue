@@ -16,6 +16,9 @@
         &nbsp;
         <span class='small tool-sort-icon' :class="sortType != 2 ? '' : (timeSort ? 'sort_desc' : 'sort_asc')" @click="sortList(2)">发布时间&nbsp;<i class="fa fa-sort-desc"></i><i class="fa fa-sort-asc"></i></span>
         &nbsp;&nbsp;&nbsp;&nbsp;
+
+
+        
         <span class='tool-style-icon active'><i class="fa fa-bars" aria-hidden="true"></i></span>
         <span class='tool-style-icon'><i class="el-icon-menu" aria-hidden="true"></i></span>
       </el-col>
