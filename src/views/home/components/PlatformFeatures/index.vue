@@ -1,6 +1,6 @@
 <template>
   <el-container class='platform_features'>
-    <el-row>
+    <el-row style="width: 100%;">
       <el-col :span="6">
         <div class="grid-content">
           <label class="font20">
@@ -61,6 +61,10 @@ export default {
     padding: 0 8%;
     .el-col:not(:first-child) {
       border-left: 1px solid #ddd;
+     
+    }
+    .el-col:last-child {
+      padding-right:0;
      
     }
     .el-col{

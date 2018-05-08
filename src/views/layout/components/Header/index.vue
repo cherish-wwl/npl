@@ -11,7 +11,7 @@
       <el-menu-item index='0'>
         <router-link :to="{name:'home'}"><img src='../../../../assets/cnlp_logo.png'/></router-link>
       </el-menu-item>
-      <el-submenu index="1">
+      <el-submenu index="1" class="font16">
           <template slot="title">产品服务 </template>
           <div class="sub-meun-panel" >
             <el-row style='padding-left: 40px; margin-bottom: 20px;'>
@@ -22,10 +22,10 @@
             <el-row>    
               <div class='meunItemDiv' >
                 <div class="submeunitem" v-for="child in serviceMeunList" :key="child.id">
-                  <div class='meunItemFont01'><label ><i class="fa fa-bookmark-o" aria-hidden="true"></i>&nbsp;&nbsp;{{ child.name}}</label></div>
+                  <div class='meunItemFont01 font18'><label ><i class="fa fa-bookmark-o" aria-hidden="true"></i>&nbsp;&nbsp;{{ child.name}}</label></div>
                   <ul  v-for="item in child.children" :key="item.id">
-                    <label class='meunItemFont02'>{{ item.name }}</label>
-                    <li v-for="subChild in item.children" :key="subChild.id" v-if="subChild.show == true" @click="linkServiceListPage(subChild.id)">
+                    <label class='meunItemFont02 font16'>{{ item.name }}</label>
+                    <li class="font14" v-for="subChild in item.children" :key="subChild.id" v-if="subChild.show == true" @click="linkServiceListPage(subChild.id)">
                       {{ subChild.name }}  
                     </li>
                   </ul>
@@ -34,7 +34,7 @@
             </el-row>
           </div>
       </el-submenu>
-      <el-submenu index="2">
+      <el-submenu index="2" class="font16">
         <template slot="title">解决方案 </template>
         <div class="sub-meun-panel" >
 
@@ -44,18 +44,17 @@
                 <img :src="'static/solution/'+child.solutionIcon"/>
               </el-col>
               <el-col :span="16" class="item-right">
-                <template></template>
                 <template v-if="child.forwardType == 1">
                   <label>
                     <svg-icon icon-class="tag" ></svg-icon> 
-                    <a @click="linkSolutionPage(child.id,child.solutionUrl)"> {{ child.solutionName }} </a>
+                    <a  class="font16" @click="linkSolutionPage(child.id,child.solutionUrl)"> {{ child.solutionName }} </a>
                     <!-- <router-link :to="{name:child.solutionUrl,params:{id:child.id}}">{{ child.solutionName }}</router-link> -->
                   </label>
                 </template>
                 <template v-else>
-                <label><svg-icon icon-class="tag" ></svg-icon> <a :href="child.solutionUrl" target="_blank">{{ child.solutionName }}</a></label>
+                <label class="font16"><svg-icon icon-class="tag" ></svg-icon> <a :href="child.solutionUrl" target="_blank">{{ child.solutionName }}</a></label>
                 </template>
-                <p class="small font_color_grey2 no_more_line_3"> {{ child.solutionDesc | subStringNoMore3line}} </p>
+                <p class="small font_color_grey2 no_more_line_3 font14"> {{ child.solutionDesc | subStringNoMore3line}} </p>
               </el-col>
               
             </el-col>
@@ -66,14 +65,14 @@
       </el-submenu>
 
       <el-menu-item index='3'>
-        <router-link :to="{name:'dataset'}">数据集</router-link>
+        <router-link :to="{name:'dataset'}" class="font16">数据集</router-link>
       </el-menu-item>
       <el-menu-item index='4'>
         
-        <router-link :to="{name:'innovation'}">创新平台</router-link>
+        <router-link :to="{name:'innovation'}" class="font16">创新平台</router-link>
       </el-menu-item>
       <el-menu-item index='5'>
-        <router-link :to="{name:'innovation'}">NLP学院</router-link>
+        <router-link :to="{name:'innovation'}" class="font16">NLP学院</router-link>
       </el-menu-item>      
       <el-menu-item index='login' class='loginItem' v-if="!isLogin">
         登录
@@ -204,7 +203,7 @@ import { getToken, getUserName } from '@/utils/auth'
       }
       .meunItemFont02{
         color: #e9e7e3;
-        font-size: small;
+        // font-size: small;
       }
       ul{
         li{

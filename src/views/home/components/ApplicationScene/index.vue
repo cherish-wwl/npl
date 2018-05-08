@@ -126,7 +126,7 @@
                   height: 80px;
                 }
                 h2{
-                  margin-top:0; 
+                  margin-top:20px; 
                   margin-bottom:0; 
                 }
               }
@@ -157,7 +157,7 @@
           }
         }
         &:hover .content {
-            top: 5%;
+            top: 14%;
             color: #fff;
             filter: alpha(opacity=100);
             -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=(100));

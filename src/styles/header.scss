@@ -21,12 +21,17 @@
         padding-top:25px;
         
       }
+      // .el-submenu__title,.el-menu-item{
+        
+      // }
       .el-menu--horizontal{
         border-bottom-color: #000;
         .el-submenu .el-submenu__title, .el-menu-item{
           height: $headerHeight;
           line-height: $headerHeight;
+          font-size: 18px;
         }  
+        
       }
       .sub-meun-panel{
           color: #fff;
