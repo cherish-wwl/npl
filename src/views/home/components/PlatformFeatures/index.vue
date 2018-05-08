@@ -61,7 +61,6 @@ export default {
     padding: 0 8%;
     .el-col:not(:first-child) {
       border-left: 1px solid #ddd;
-     
     }
     .el-col:last-child {
       padding-right:0;
