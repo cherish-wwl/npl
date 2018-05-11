@@ -11,7 +11,7 @@
       <el-menu-item index='0'>
         <router-link :to="{name:'home'}"><img src='../../../../assets/cnlp_logo.png'/></router-link>
       </el-menu-item>
-      <el-submenu index="1" class="font16">
+      <el-submenu index="1">
           <template slot="title">产品服务 </template>
           <div class="sub-meun-panel" >
             <el-row style='padding-left: 40px; margin-bottom: 20px;'>
@@ -34,7 +34,7 @@
             </el-row>
           </div>
       </el-submenu>
-      <el-submenu index="2" class="font16">
+      <el-submenu index="2" >
         <template slot="title">解决方案 </template>
         <div class="sub-meun-panel" >
 
@@ -65,14 +65,14 @@
       </el-submenu>
 
       <el-menu-item index='3'>
-        <router-link :to="{name:'dataset'}" class="font16">数据集</router-link>
+        <router-link :to="{name:'dataset'}">数据集</router-link>
       </el-menu-item>
       <el-menu-item index='4'>
         
-        <router-link :to="{name:'innovation'}" class="font16">创新平台</router-link>
+        <router-link :to="{name:'innovation'}" >创新平台</router-link>
       </el-menu-item>
       <el-menu-item index='5'>
-        <router-link :to="{name:'innovation'}" class="font16">NLP学院</router-link>
+        <router-link :to="{name:'innovation'}">NLP学院</router-link>
       </el-menu-item>      
       <el-menu-item index='login' class='loginItem' v-if="!isLogin">
         登录

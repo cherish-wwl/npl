@@ -42,6 +42,7 @@
       }    
       .el-menu {
         padding: 0 5%;
+        display: -webkit-box;
         .loginItem{
           background-color: #2b9eeb !important;
           float:right;
@@ -62,7 +63,7 @@
           border: none;
         }
       }
-      .el-menu-item.is-active:not(.loginItem ){
+      .el-menu-item.is-active:not(.loginItem ),.el-menu-item:not(.loginItem ):hover{
         color: #2b9eeb!important;
         border-color: #000!important;
       }

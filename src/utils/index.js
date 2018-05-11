@@ -58,7 +58,13 @@ export function formatTime(time, option) {
 }
 
 export function subStringNoMore3line (str ,num) {
-   console.log(str.trim().length)
+   
+   if(str == null){
+     return ''
+   }
+   if(str == ''){
+     return ''
+   }
   if(str.length && str.length > num){
     return str.trim().substring(0,num)+"..."
   }else{

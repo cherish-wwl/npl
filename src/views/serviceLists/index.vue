@@ -121,7 +121,12 @@ export default {
       return url
     },
     formatTime (time){
-      return time.split(" ")[0]
+      console.log(time)
+      if(time){
+        return time.split(" ")[0]
+      }
+      return ''
+      
     }
   },
   methods:{
