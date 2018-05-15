@@ -1,44 +1,46 @@
 <template>
   <el-container class='about_platform'>
-    <el-row class="text_center">
-      <h2>关于平台</h2>
-    </el-row>
-    <el-row class="display_panel">
-      <div class="display_content" >
-        <p>接受中国信息学会指导并得到计算机学会自然语言处理专委会周明博士的建议依托国内外人工智能特别是自然语言处理领域所有专家学者，
-          神州泰岳以及有志合作伙伴，覆盖了中文（不限于汉语）信息深度处理最先进、最新、最全成果的，由神州泰岳为建设和运营主体的产学研一体化开放创新生态平台。<p>
-        <p>平台旨在为NLP领域聚智、聚知、聚人、聚力、做行业全面领先的自然语言领域平台；做科研成果和行业产品的沟通桥梁；做多机构的优势互补中间站；做NLP领域开发创新的温床；做NLP教育的第一战线</p>
-        <div v-on:mouseenter='loadingCount'>
-          <el-row class='text_center display_count' >
-            <el-col :span='6'  class='item'>
-              <div class='item_num'>
-                <span class='countNum'>{{ num1 }}</span> 个
-              </div>
-              <div class='item_name'>基础服务</div>
-            </el-col>
-            <el-col :span='6'  class='item'>
-              <div class='item_num'>
-                <span class='countNum'>{{ num2 }}</span> 个
-              </div>
-              <div class='item_name'>应用方案</div>
-            </el-col>
-            <el-col :span='6'  class='item'>
-              <div class='item_num'>
-                <span class='countNum'>{{ num3 }}</span> 个
-              </div>
-              <div class='item_name'>解决方案</div>
-            </el-col>
-            <el-col :span='6'  class='item'>
-              <div class='item_num'>
-                <span class='countNum'>{{ num4 }}</span> 个
-              </div>
-              <div class='item_name'>数据集</div>
-            </el-col>
-          </el-row>
+    <div v-on:mouseenter='loadingCount'>
+      <el-row class="text_center">
+        <h2 class="font30">关于平台</h2>
+      </el-row>
+      <el-row class="display_panel" >
+        <div class="display_content"  >
+          <p>接受中国信息学会指导并得到计算机学会自然语言处理专委会周明博士的建议依托国内外人工智能特别是自然语言处理领域所有专家学者，
+            神州泰岳以及有志合作伙伴，覆盖了中文（不限于汉语）信息深度处理最先进、最新、最全成果的，由神州泰岳为建设和运营主体的产学研一体化开放创新生态平台。<p>
+          <p>平台旨在为NLP领域聚智、聚知、聚人、聚力、做行业全面领先的自然语言领域平台；做科研成果和行业产品的沟通桥梁；做多机构的优势互补中间站；做NLP领域开发创新的温床；做NLP教育的第一战线</p>
+          <div >
+            <el-row class='text_center display_count' >
+              <el-col :span='6'  class='item'>
+                <div class='item_num'>
+                  <span class='countNum'>{{ num1 }}</span> 个
+                </div>
+                <div class='item_name'>基础服务</div>
+              </el-col>
+              <el-col :span='6'  class='item'>
+                <div class='item_num'>
+                  <span class='countNum'>{{ num2 }}</span> 个
+                </div>
+                <div class='item_name'>应用方案</div>
+              </el-col>
+              <el-col :span='6'  class='item'>
+                <div class='item_num'>
+                  <span class='countNum'>{{ num3 }}</span> 个
+                </div>
+                <div class='item_name'>解决方案</div>
+              </el-col>
+              <el-col :span='6'  class='item'>
+                <div class='item_num'>
+                  <span class='countNum'>{{ num4 }}</span> 个
+                </div>
+                <div class='item_name'>数据集</div>
+              </el-col>
+            </el-row>
+          </div>
         </div>
-      </div>
-      <img class='zhehe' src='../../../../assets/home/zhehe.png'>
-    </el-row>
+        <img class='zhehe' src='../../../../assets/home/zhehe.png'>
+      </el-row>
+    </div>
   </el-container>
 </template>
 
@@ -54,6 +56,7 @@ export default {
   },
   methods: {
     loadingCount(){
+      console.log("进入区域")
       var endNum1 = 44
       var endNum2 = 5
       var endNum3 = 44

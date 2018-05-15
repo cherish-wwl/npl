@@ -13,7 +13,8 @@
       </el-menu-item>
       <el-submenu index="1">
           <template slot="title">产品服务 </template>
-          <div class="sub-meun-panel" >
+          <el-menu-item index="1-1" style="display:none;"></el-menu-item>
+          <div class="sub-meun-panel">
             <el-row style='padding-left: 40px; margin-bottom: 20px;'>
               <el-input placeholder="请输入内容" v-model="searchKey" v-on:change='querySearch' @keyup.enter.native="querySearch" class="input-with-select">
                 <el-button slot="append" icon="el-icon-search"></el-button>
@@ -24,7 +25,7 @@
                 <div class="submeunitem" v-for="child in serviceMeunList" :key="child.id">
                   <div class='meunItemFont01 font18'><label ><i class="fa fa-bookmark-o" aria-hidden="true"></i>&nbsp;&nbsp;{{ child.name}}</label></div>
                   <ul  v-for="item in child.children" :key="item.id">
-                    <label class='meunItemFont02 font16'>{{ item.name }}</label>
+                    <label class='meunItemFont02 font18'>{{ item.name }}</label>
                     <li class="font14" v-for="subChild in item.children" :key="subChild.id" v-if="subChild.show == true" @click="linkServiceListPage(subChild.id)">
                       {{ subChild.name }}  
                     </li>
@@ -36,25 +37,26 @@
       </el-submenu>
       <el-submenu index="2" >
         <template slot="title">解决方案 </template>
+        <el-menu-item index="2-1" style="display:none;"></el-menu-item>
         <div class="sub-meun-panel" >
 
           <el-row>
             <el-col class="dataSetItem" :span="12" v-for="child in dataSetList" :key="child.id" >
-              <el-col :span="8" class="item-left"> 
+              <el-col :span="10" class="item-left"> 
                 <img :src="'static/solution/'+child.solutionIcon"/>
               </el-col>
-              <el-col :span="16" class="item-right">
+              <el-col :span="14" class="item-right">
                 <template v-if="child.forwardType == 1">
                   <label>
                     <svg-icon icon-class="tag" ></svg-icon> 
-                    <a  class="font16" @click="linkSolutionPage(child.id,child.solutionUrl)"> {{ child.solutionName }} </a>
+                    <a  class="font18" @click="linkSolutionPage(child.id,child.solutionUrl)"> {{ child.solutionName }} </a>
                     <!-- <router-link :to="{name:child.solutionUrl,params:{id:child.id}}">{{ child.solutionName }}</router-link> -->
                   </label>
                 </template>
                 <template v-else>
-                <label class="font16"><svg-icon icon-class="tag" ></svg-icon> <a :href="child.solutionUrl" target="_blank">{{ child.solutionName }}</a></label>
+                <label class="font18"><svg-icon icon-class="tag" ></svg-icon> <a :href="child.solutionUrl" target="_blank">{{ child.solutionName }}</a></label>
                 </template>
-                <p class="small font_color_grey2 no_more_line_3 font14"> {{ child.solutionDesc | subStringNoMore3line}} </p>
+                <p class="small font_color_grey2 no_more_line_3 font14" :title="child.solutionDesc"> {{ child.solutionDesc | subStringNoMore3line}} </p>
               </el-col>
               
             </el-col>
@@ -64,26 +66,27 @@
         </div>
       </el-submenu>
 
-      <el-menu-item index='3'>
+      <el-menu-item index='3' >
         <router-link :to="{name:'dataset'}">数据集</router-link>
       </el-menu-item>
       <el-menu-item index='4'>
-        
         <router-link :to="{name:'innovation'}" >创新平台</router-link>
       </el-menu-item>
       <el-menu-item index='5'>
         <router-link :to="{name:'innovation'}">NLP学院</router-link>
-      </el-menu-item>      
-      <el-menu-item index='login' class='loginItem' v-if="!isLogin">
-        登录
       </el-menu-item>
-      <el-menu-item index='userInfo' class="userInfo" v-if="isLogin">
-        {{userName}}
-      </el-menu-item>
-      <el-menu-item index='controlPanel' class='controlPanel'>
-         控制台
-      </el-menu-item>
-     
+      <div class="rightPanel">
+        <el-menu-item index='controlPanel' class='controlPanel'>
+          控制台
+        </el-menu-item>
+        <el-menu-item index='login' class='loginItem' v-if="!isLogin">
+          登录
+        </el-menu-item>
+        <el-menu-item index='userInfo' class="userInfo" v-if="isLogin">
+          {{userName}}
+        </el-menu-item>
+        
+     </div>      
     </el-menu>
    </el-header>
 </template>
@@ -109,7 +112,7 @@ import { getToken, getUserName } from '@/utils/auth'
     },
     filters:{
       subStringNoMore3line (str){
-        return subStringNoMore3line(str,75)
+        return subStringNoMore3line(str,68)
       }
     },
     methods: {
@@ -122,11 +125,13 @@ import { getToken, getUserName } from '@/utils/auth'
     
       // 跳转到服务详情页面 
       linkServiceListPage (id) {
+        this.activeIndex = "1-1"
         Cookies.set("service_id",id)
         //  this.$router.push({name: 'serviceLists', params: { service_id: id }})
         // console.log(document.querySelectorAll(".el-menu").length)
         document.querySelectorAll(".el-menu")[1].style.display="none"
-        this.$router.push({name: 'serviceLists',params:{ randomValue: Math.random().toString(36).substr(2) }})
+        
+         this.$router.push({name: 'serviceLists',params:{ randomValue: Math.random().toString(36).substr(2) }})
         // console.log(Cookies.get("service_id"))
         // this.$store.dispatch('getServiceInfo',{service_id:id}).then(() => {
       
@@ -136,6 +141,7 @@ import { getToken, getUserName } from '@/utils/auth'
       },
       // 跳转到解决方案列表页面
       linkSolutionPage(id ,url){
+        this.activeIndex = "2-1"
         document.querySelectorAll(".el-menu")[2].style.display="none"
         this.$router.push({name:url,params:{id:id}})
       },
@@ -206,6 +212,7 @@ import { getToken, getUserName } from '@/utils/auth'
         // font-size: small;
       }
       ul{
+         padding: 20px;
         li{
           max-width: 100px;
           white-space: nowrap;
@@ -218,9 +225,6 @@ import { getToken, getUserName } from '@/utils/auth'
           &:hover{
             color: #4949fe;
           }
-        }
-        &:first-of-type{
-          padding: 20px;
         }
       }
      
@@ -236,7 +240,8 @@ import { getToken, getUserName } from '@/utils/auth'
     align-items: center;
     cursor: pointer;
     img{
-        width: 100%;
+      width: 189px;
+      height: 95px;
     }  
     .item-right {
         padding: 0 10px;
@@ -254,4 +259,5 @@ import { getToken, getUserName } from '@/utils/auth'
       
     }
   }
+  
 </style>

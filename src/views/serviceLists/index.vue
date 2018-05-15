@@ -10,13 +10,13 @@
     <el-container class='service_class'>
       <el-aside width="200px" class='aside_style'>
         <el-collapse v-model="activeNames" @change="handleChange">
-          <el-collapse-item v-for='item in collapseData' :key='item.id'  :name="item.id">
+          <el-collapse-item  v-for='item in collapseData' :key='item.id'  :name="item.id">
              <template slot="title">
                <svg-icon :icon-class="item.icon" ></svg-icon>
-               {{ item.name }}
+               <span class="font18">{{ item.name }}</span>
             </template>
             <ul>
-              <li v-for="child in item.children" :class="currentServiceId == child.id ?'active':''" :key="child.id" @click="chooseServiceItem(child.id)">
+              <li class='font16' v-for="child in item.children" :class="currentServiceId == child.id ?'active':''" :key="child.id" @click="chooseServiceItem(child.id)">
                 {{ child.name }}
               </li>
             </ul>
@@ -24,11 +24,11 @@
          
         </el-collapse>
       </el-aside>
-      <el-main class='service_content'>
-        <el-row class='service_tools'>
-          <el-col :span='12'>
+      <el-main class='service_content' >
+        <el-row class='service_tools' >
+          <el-col :span='12' class='font16 nowarp'>
             <i class="fa fa-paper-plane" aria-hidden="true"></i>
-            <span class='small'>{{ serviceInfo.service_title }}</span>
+            <span >{{ serviceInfo.service_title | noMoreThenFonts}}</span>
             &nbsp;&nbsp;
             <span>  
               <el-input placeholder="请输入内容" size="mini" v-model="search_key" v-on:change="searchThirdList" class="search_input" suffix-icon="el-icon-search"></el-input>
@@ -45,33 +45,34 @@
             <span class='tool-style-icon'><i class="el-icon-menu" aria-hidden="true"></i></span>
           </el-col>
         </el-row>
-        <el-row class='service_list'>
+        <el-row class='service_list' >
             <el-row class='item' v-for="item in thridList" :key='item.id'>
               <el-col :span='8' class='item_img'>
-                <img :src=" item.serviceIcon | getImage">
+                <img :src=" item.serviceIcon | getImage" >
               </el-col>
               <el-col :span='16' class='item_info'>
                 <h4>
                   {{ item.serviceName }}
                 </h4>
                 <div class='f_c_grey'>
-                  <span class="smaller">
+                  <span class="font14">
                     服务类型:&nbsp;&nbsp;  {{item.className}}&nbsp; &nbsp; &nbsp; 
                     提供者：{{ item.academyName }}&nbsp; &nbsp; 
                     发布时间：{{ item.rel_time | formatTime}}
                   </span>
                 </div>
-                <p class="small">
+                <p class="font16">
                   {{ item.serviceDescr}}
                 </p>
                 <div>
-                  <el-button type="primary">立即使用</el-button>
-                  <el-button @click="seeDetailPage(item.id,item.fromType)">
+                  <el-button type="primary" class="font16">立即使用</el-button>
+                  <el-button  class="font16" @click="seeDetailPage(item.id)">
                     查看详情
                   </el-button>
                 </div>
               </el-col>
             </el-row>
+           
         </el-row>
         <el-row class="text_center">
           <el-pagination
@@ -127,6 +128,8 @@ export default {
       }
       return ''
       
+    },noMoreThenFonts(str){
+      return str
     }
   },
   methods:{
@@ -252,13 +255,12 @@ export default {
       }
     },
     // 跳转到详情页
-    seeDetailPage (id,type) {
+    seeDetailPage (id) {
       // 跳转到详情页
       
       console.log("---------------跳转到详情页--------------------")
       console.log("id:"+id)
-      console.log("type:"+type)
-      this.$router.push({name:'serviceDetail',params:{'service_id':id,'type':type}})
+      this.$router.push({name:'serviceDetail',params:{'service_id':id}})
     },
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
     

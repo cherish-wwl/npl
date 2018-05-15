@@ -41,14 +41,15 @@
           }
       }    
       .el-menu {
-        padding: 0 5%;
+        padding: 0 4%;
         display: -webkit-box;
         .loginItem{
           background-color: #2b9eeb !important;
-          float:right;
         }
-        .controlPanel,.userInfo{
-          float:right;
+        .rightPanel {
+          position: absolute;
+          right: 4%;
+          top: 0;
         }
       } 
       .el-input-group {
@@ -63,7 +64,8 @@
           border: none;
         }
       }
-      .el-menu-item.is-active:not(.loginItem ),.el-menu-item:not(.loginItem ):hover{
+      .el-menu-item.is-active:not(.loginItem ),.el-menu-item:not(.loginItem ):hover,
+      .el-submenu.is-active .el-submenu__title{
         color: #2b9eeb!important;
         border-color: #000!important;
       }

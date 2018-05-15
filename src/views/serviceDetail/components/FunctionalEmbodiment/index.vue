@@ -2,7 +2,7 @@
    <el-container class='functionalEmbodiment'>
     <el-row>
       <el-col :span="24" class='text_center'>
-        <h2>功能体验</h2>  
+        <h2 class="font30">功能体验</h2>  
         <p class="small font_color_grey">采用双向最大匹配方法实现最长分词匹配</p>    
       </el-col>
     </el-row>
@@ -45,7 +45,7 @@
         waiting:false
       }
     },
-    props:["inArg","url"],
+    props:["inArg","url",'type'],
     watch:{
       inArg(val){
         this.beforeValue = val
@@ -54,7 +54,7 @@
     methods:{
       execute () {
         this.waiting = true
-        var params ={'type':this.$route.params.type,'url': this.url,'param': this.beforeValue,}
+        var params ={'type':this.type,'url': this.url,'param': this.beforeValue,}
       
         serviceDetailsExecute(params).then( response =>{
           this.afterValue = JSON.stringify(response.data.returnData)

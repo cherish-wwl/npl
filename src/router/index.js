@@ -36,29 +36,6 @@ export const constantRouterMap = [
       component: () => import('@/views/home/index')
     }]
   },
-
-  // {
-  //   path: '/example',
-  //   component: Layout,
-  //   redirect: '/example/table',
-  //   name: 'Example',
-  //   meta: { title: 'Example', icon: 'example' },
-  //   children: [
-  //     {
-  //       path: 'table',
-  //       name: 'Table',
-  //       component: () => import('@/views/table/index'),
-  //       meta: { title: 'Table', icon: 'table' }
-  //     },
-      // {
-      //   path: 'tree',
-      //   name: 'Tree',
-      //   component: () => import('@/views/tree/index'),
-      //   meta: { title: 'Tree', icon: 'tree' }
-      // }
-  //   ]
-  // },
-
   {
     path: '/services',
     component: Layout,
@@ -66,13 +43,12 @@ export const constantRouterMap = [
     children: [
       {
         path: 'list/:randomValue',
-        // path:'index',
         name: 'serviceLists',
         component: () => import('@/views/serviceLists/index'),
         meta: { title: 'serviceLists' }
       },
       {
-        path:'serviceDetail/:service_id/:type',
+        path:'serviceDetail/:service_id',
         name: 'serviceDetail',
         component: () => import('@/views/serviceDetail/index'),
         meta: { title: 'serviceDetail' }

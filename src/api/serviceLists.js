@@ -18,12 +18,9 @@ export function getThirdServiceList(params) {
 }
 // 获取服务详情页数据
 export function getServiceDetails(id) {
-  // var params1 = new URLSearchParams()
-  // params1.append('id', id)
   return request({
     url: '/service/details/list?id='+id,
     method: 'get',
-    // data:params1
   })
 }
 // 服务详情页-执行

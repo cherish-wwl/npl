@@ -1,5 +1,5 @@
 <template>
-    <el-carousel height="450px">
+    <el-carousel height="470px">
       <el-carousel-item v-for="(item, index) in datalist" :key="index">
         
         <a :href='item.link'>

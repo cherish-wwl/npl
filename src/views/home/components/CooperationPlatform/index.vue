@@ -1,7 +1,7 @@
 <template>
   <el-container class='cooperation_platform'>
     <el-row class="text_center">
-      <h2>创新合作</h2>
+      <h2 class="font30">创新合作</h2>
     </el-row>
     <el-row class="display_panel">
       <div v-on:mouseenter="currentIndex = 0">

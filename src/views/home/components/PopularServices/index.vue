@@ -2,7 +2,7 @@
    <el-container class='popularServices' id="popularServices">
     <el-row>
       <el-col :span="24" class='text_center'>
-        <h2>热门服务</h2> 
+        <h2 class="font30">热门服务</h2> 
       </el-col>
     </el-row>
     <el-row class="icon_panel">

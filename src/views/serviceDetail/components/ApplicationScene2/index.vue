@@ -2,35 +2,17 @@
    <el-container class='applicationScene2'>
     <el-row>
       <el-col :span="24" class='text_center'>
-        <h2>推荐场景</h2>  
+        <h2 class="font30">推荐场景</h2>  
       </el-col>
     </el-row>
     <el-row class='panel'>
-      <div class='item'>
+      <div class='item' v-for="(item,index) in sceneData" :key="index" v-if="item.relateType=='006002'">
         <div>
-          <img class="img " src="../../../../assets/sevice_details/u600.png">
+          <img class="img " :src="item.banner">
         </div>
         <div  class="content">
-          <label>{{ sceneData.app_scene }}</label>
-          <p>{{ sceneData.app_content }}</p>
-        </div>
-      </div>
-       <div class='item'>
-        <div>
-          <img  class="img " src="../../../../assets/sevice_details/u602.png">
-        </div>
-        <div class="content">
-          <label>{{ sceneData.app_onetitle }}</label>
-          <p>{{ sceneData.app_onecont }}</p>
-        </div>
-      </div>
-       <div class='item'>
-        <div>
-          <img  class="img " src="../../../../assets/sevice_details/u604.png">
-        </div>
-        <div class="content">
-          <label>{{ sceneData.app_twotitle }}</label>
-          <p>{{ sceneData.app_twocont }}</p>
+          <label class="font18">{{ item.title }}</label>
+          <p class="font16">{{ item.content }}</p>
         </div>
       </div>
     </el-row>
@@ -77,9 +59,7 @@
         }
         .content{
           padding-left: 10px;
-          p{
-            font-size: small;
-          }
+         
           label{
             font-weight: 500;
           }

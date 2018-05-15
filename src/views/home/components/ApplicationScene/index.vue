@@ -1,14 +1,13 @@
 <template>
   <el-container class='applicatin_scene'>
     <el-row class='text_center'>
-      <h2>应用场景</h2>
+      <h2 class="font30">应用场景</h2>
     </el-row>
     <el-row class='display_panel'>    
       <div v-for='item in datalist' :key='item.id'>
         <div class="grid-content item">
           <div class="normol_panel">
-            <img :src="'static/index/'+item.icon+'.jpg'">
-            
+            <img :src="'static/index/'+item.icon+'.jpg'">      
             <div class='mask'>
               <div class="bg other-bg"></div>
               <div class="content text_center">
@@ -157,16 +156,22 @@
           }
         }
         &:hover .content {
-            top: 14%;
+            top: 7%;
             color: #fff;
             filter: alpha(opacity=100);
             -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=(100));
-             transition: all .4s cubic-bezier(.4,0,.2,1);
+            transition: all .4s cubic-bezier(.4,0,.2,1);
+            .title{
+              h2{
+                margin-top:10px; 
+              }
+            }
             .content_text{
               opacity: 1;
               filter: alpha(opacity=100);
-            -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=(100));
-             transition: all .4s cubic-bezier(.4,0,.2,1);
+              -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=(100));
+              transition: all .4s cubic-bezier(.4,0,.2,1);
+              
             }
           }
           &:hover .bg.other-bg{

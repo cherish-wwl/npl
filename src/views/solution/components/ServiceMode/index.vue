@@ -18,7 +18,7 @@
     <el-row class="text_center">
       <br />
       <br />
-      <el-button type="primary">马上使用</el-button>
+      <el-button type="primary"><a target="_blank" href="http://fanyi.niutrans.com/">马上使用</a></el-button>
       <br />
       <br />
     </el-row>

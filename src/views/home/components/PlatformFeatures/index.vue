@@ -1,7 +1,7 @@
 <template>
   <el-container class='platform_features'>
     <el-row style="width: 100%;">
-      <el-col :span="6">
+      <el-col :span="6" class="item">
         <div class="grid-content">
           <label class="font20">
             <i class="fa fa-angle-double-right" aria-hidden="true"></i>
@@ -12,7 +12,7 @@
           </p>
         </div>
       </el-col>
-      <el-col :span="6">
+      <el-col :span="6" class="item">
         <div class="grid-content">
           <label class="font20">
             <i class="fa fa-angle-double-right" aria-hidden="true"></i>
@@ -23,7 +23,7 @@
           </p>
         </div>
       </el-col>
-      <el-col :span="6">
+      <el-col :span="6" class="item">
         <div class="grid-content">
           <label class="font20">
             <i class="fa fa-angle-double-right" aria-hidden="true"></i>
@@ -34,7 +34,7 @@
           </p>
         </div>
       </el-col>
-      <el-col :span="6">
+      <el-col :span="6" class="item">
         <div class="grid-content">
           <label class="font20">
             <i class="fa fa-angle-double-right" aria-hidden="true"></i>
@@ -75,6 +75,9 @@ export default {
          font-weight:400;
          color: rgb(51, 51, 51);
        }
+    }
+    .item:hover{
+      background-color: #fcfafa;
     }
 }
 </style>

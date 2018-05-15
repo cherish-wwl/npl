@@ -10,17 +10,17 @@
     <el-container class='service_class'>
       <el-aside width="200px" class='aside_style'>
         <ul>
-          <li v-for="item in levelOneData"
+          <li v-for="item in levelOneData" class="font16"
             :class="activeLevelOneData.id == item.id?'active':''" :key="item.id" @click="chooseLevelOne(item)">
             {{ item.name }}
           </li>
         </ul>
       </el-aside>
       <el-main class='service_content'>
-        <el-row class='service_tools'>
-          <el-col :span='12'>
+        <el-row class='service_tools' >
+          <el-col :span='12' class='font16 nowrap'>
             <i class="fa fa-paper-plane" aria-hidden="true"></i>
-            <span class='small'>{{ activeLevelOneData.name }}</span>
+            <span>{{ activeLevelOneData.name }}</span>
             &nbsp;&nbsp;
             <span>  
               <el-input placeholder="请输入内容" size="mini" v-model="search_key" v-on:change="searchThirdList" class="search_input" suffix-icon="el-icon-search"></el-input>
@@ -39,8 +39,8 @@
         </el-row>
         <el-row>
           <el-radio-group v-model="currentTwoLevelId"  text-color="#409EFF" fill="#fff" @change="chooseServiceItem">
-            <el-radio-button  label="null">全部</el-radio-button>
-            <el-radio-button  v-for="item in levelTwoData" :key="item.id" :label="item.id">{{ item.name }}</el-radio-button>
+            <el-radio-button class="font14" label="null">全部</el-radio-button>
+            <el-radio-button class="font14" v-for="item in levelTwoData" :key="item.id" :label="item.id">{{ item.name }}</el-radio-button>
           </el-radio-group>
         </el-row>
         <el-row class='service_list'>
@@ -53,18 +53,18 @@
                   {{ item.name }}
                 </h4>
                 <div class='f_c_grey'>
-                  <span class="smaller">
+                  <span class="font14">
                     服务类型:&nbsp;&nbsp; 
                     {{ item.type_name }}&nbsp; &nbsp; &nbsp; 
                     提供者：{{ item.uploader }}&nbsp; &nbsp; 
                     发布时间：{{ item.uploadTime}}
                   </span>
                 </div>
-                <p class="small">
+                <p class="font16">
                   {{ item.serviceDescr}}
                 </p>
                 <div>
-                  <el-button>
+                  <el-button class="font16">
                    添加到我的数据集
                   </el-button>
                 </div>
