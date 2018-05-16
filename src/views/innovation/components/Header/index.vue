@@ -5,9 +5,11 @@
       mode="horizontal"
       background-color="#000"
       text-color="#fff"
-      active-text-color="#fff">
+      active-text-color="#fff"
+      >
       <el-menu-item index='0'>
-        <router-link :to="{name:'home'}"><img src='../../../../assets/innovation/u2473.png'/></router-link>
+        <!-- <router-link :to="{name:'home'}"><img src='../../../../assets/innovation/u2473.png'/></router-link> -->
+        <img src='../../../../assets/innovation/u2473.png'/>
       </el-menu-item>
       <el-menu-item index='5' >
         扶持计划
@@ -24,16 +26,20 @@
       <el-menu-item index='1' >
         技术咨询
       </el-menu-item>
-
-      <el-menu-item index='login' class='loginItem' v-if="!isLogin">
-        登录
-      </el-menu-item>
-      <el-menu-item index='userInfo' class="userInfo" v-if="isLogin">
-        {{userName}}
-      </el-menu-item>
-      <el-menu-item index='controlPanel' class='controlPanel'>
-         控制台
-      </el-menu-item>
+      <div class="rightPanel">
+        <el-menu-item index="10">
+         <router-link :to="{name:'home'}">>>返回开放平台首页</router-link>
+        </el-menu-item>
+        <el-menu-item index='controlPanel' class='controlPanel'>
+          控制台
+        </el-menu-item>
+        <el-menu-item index='login' class='loginItem' v-if="!isLogin">
+          登录
+        </el-menu-item>
+        <el-menu-item index='userInfo' class="userInfo" v-if="isLogin">
+          {{userName}}
+        </el-menu-item>
+     </div>      
     </el-menu>
     
    </el-header>

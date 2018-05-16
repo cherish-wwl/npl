@@ -8,7 +8,7 @@
     <el-row class='panel'>
       <div class='item' v-for="(item,index) in sceneData" :key="index" v-if="item.relateType=='006002'">
         <div>
-          <img class="img " :src="item.banner">
+          <img class="img " :src="'static\services\serviceDetails'+item.banner">
         </div>
         <div  class="content">
           <label class="font18">{{ item.title }}</label>

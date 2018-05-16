@@ -70,7 +70,7 @@
 <style rel="stylesheet/scss" lang="scss" scoped>
   .functionalEmbodiment {
     display: block;
-    background-color: #f1eded;
+    background-color: #f2f2f2;
     padding-bottom: 50px;
     h2{
       font-weight:500;

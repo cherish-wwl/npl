@@ -3,8 +3,10 @@
     <el-row class='service_info'>
       <img class='service_bg_img' src='../../assets/sevice_details/u536.jpg'/>
       <div class='title_desc'>
-        <h2> {{ serviceInfo.service_title }} </h2>
-        <p> {{ serviceInfo.service_desc }} </p>
+        <div class='title_content'>
+          <h2 class="nomargin font36"> {{ serviceInfo.service_title }} </h2>
+          <p class="font18"> {{ serviceInfo.service_desc }} </p>
+        </div>
       </div>
     </el-row>
     <el-container class='service_class'>
@@ -239,7 +241,10 @@ $activeColor: #409EFF;
     }
     .title_desc {
       position: absolute;
-      top: 22%;
+      top: 0;
+      bottom:0;
+      display:flex;
+      align-items:center;
       color: #fff;
       left: 20%;
       right: 32%;

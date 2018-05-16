@@ -4,23 +4,21 @@
       <h2 class="font30">应用场景</h2>
     </el-row>
     <el-row class='display_panel'>    
-      <div v-for='item in datalist' :key='item.id'>
-        <div class="grid-content item">
-          <div class="normol_panel">
-            <img :src="'static/index/'+item.icon+'.jpg'">      
-            <div class='mask'>
-              <div class="bg other-bg"></div>
-              <div class="content text_center">
-                <div class='title'>
-                  <!-- <img src='../../../../assets/home/news02.png'> -->
-                  <svg-icon :icon-class="item.icon"></svg-icon>
-                  <h2>{{ item.name }}</h2>
-                </div>
-                <div class='content_text'>
-                  <p>{{ item.descr}}</p>
-                  <div><a>新闻分类</a>|<a>其他</a></div>
-                  <div><el-button size="mini" @click="seeDetails(item.id)">查看详情</el-button></div>
-                </div>
+      <div class="grid-content item" v-for='item in datalist' :key='item.id'>
+        <div class="normol_panel">
+          <img :src="'static/index/'+item.icon+'.jpg'">      
+          <div class='mask'>
+            <div class="bg other-bg"></div>
+            <div class="content text_center">
+              <div class='title'>
+                <!-- <img src='../../../../assets/home/news02.png'> -->
+                <svg-icon :icon-class="item.icon"></svg-icon>
+                <h2>{{ item.name }}</h2>
+              </div>
+              <div class='content_text'>
+                <p>{{ item.descr}}</p>
+                <!-- <div><a>新闻分类</a>|<a>其他</a></div> -->
+                <div><el-button size="mini" @click="seeDetails(item.id)">查看详情</el-button></div>
               </div>
             </div>
           </div>
@@ -39,16 +37,6 @@
         currentIndex: 0,
         datalist:[],
         imglist:[require('../../../../assets/home/xinwen01.jpg'),require('../../../../assets/home/kefu01.jpg'),require('../../../../assets/home/sifa01.jpg')],
-      }
-    },
-    computed:{
-      getIMG(index){
-        if( index > 3 ){
-          index = index%3
-          return this.imglist[index]
-        }else{
-          return this.imglist[index]
-        }
       }
     },
     methods: {
@@ -156,7 +144,8 @@
           }
         }
         &:hover .content {
-            top: 7%;
+            top: 8%;
+            bottom:0;
             color: #fff;
             filter: alpha(opacity=100);
             -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=(100));
@@ -184,8 +173,9 @@
       }  
     }
     img{
-      width: 100%;
-      height: 100%;
+      width:100%;
+      min-width: 150px;
+      height: 330px;
     }
   }
 </style>

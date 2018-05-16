@@ -9,9 +9,10 @@
       <div class="icon_panel_item" v-for='(item,index) in featureData' :key="index" 
       v-if="item.relateType == '006001'">
         <div class="grid-content">
-          <svg-icon :icon-class="item.banner+''" ></svg-icon> 
+          <!-- <svg-icon :icon-class="item.banner+''" ></svg-icon>  -->
+           <img class="img " :src="'static\services\serviceDetails'+item.banner">
           <p class="font18">{{ item.title }}</p>
-          <p class="font_color_grey font16">
+          <p class="font_color_grey font14">
             {{ item.content }}
           </p>
         </div>

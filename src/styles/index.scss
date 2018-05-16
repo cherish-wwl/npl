@@ -11,7 +11,11 @@ body {
   text-rendering: optimizeLegibility;
   font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
   // font-family: Microsoft YaHei;
+  // overflow-x: hidden;
+  min-width: 1240px;
+  margin: 0;
 }
+
 
 html {
   box-sizing: border-box;
@@ -136,4 +140,11 @@ footer {
 }
 .nowrap{
   white-space: nowrap;
+}
+
+.nomargin{
+  margin: 0;
+}
+img{
+  width: 100%;
 }

@@ -85,7 +85,6 @@
         <el-menu-item index='userInfo' class="userInfo" v-if="isLogin">
           {{userName}}
         </el-menu-item>
-        
      </div>      
     </el-menu>
    </el-header>

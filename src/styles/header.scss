@@ -16,9 +16,11 @@
       right: 0;
       .el-menu--horizontal .el-submenu>.el-menu {
         position: fixed;
-        background-color: rgba(9, 9, 9, 0.98)!important;
+        // background-color: rgba(9, 9, 9, 0.98)!important;
+        background-color: #1b1b1bf0 !important;
         top:$headerHeight;
         padding-top:25px;
+        padding-bottom: 25px;
         
       }
       // .el-submenu__title,.el-menu-item{
@@ -42,7 +44,8 @@
       }    
       .el-menu {
         padding: 0 4%;
-        display: -webkit-box;
+        min-width: 1240px;
+        // display: -webkit-box;
         .loginItem{
           background-color: #2b9eeb !important;
         }
