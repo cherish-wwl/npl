@@ -12,13 +12,13 @@
         <img src='../../../../assets/innovation/u2473.png'/>
       </el-menu-item>
       <el-menu-item index='5' >
-        扶持计划
+        <a href="#innovation_support">扶持计划</a>
       </el-menu-item>
       <el-menu-item index='4' >
         产品管理
       </el-menu-item>
       <el-menu-item index='3' >
-        优秀案例
+        <a href="#innovation_example">优秀案例</a>
       </el-menu-item>
       <el-menu-item index='2' >
         AI辅助工具集

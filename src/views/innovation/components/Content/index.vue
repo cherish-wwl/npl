@@ -15,7 +15,8 @@
           </div>
         </el-col>
       </el-row>
-      <el-row class="content content_support">
+      <br />
+      <el-row class="content content_support" id="innovation_support">
         <h2 class="text_center font30">扶持计划</h2>
         <p class="text_center">旨在收集泰岳及合作伙伴的优势，为自然语言处理创新团队提供优质的自然语言研究资源。</p>
         <el-row class="item">
@@ -59,7 +60,8 @@
           </el-col>
         </el-row>
       </el-row>
-      <el-row class="content text_center">
+      <br />
+      <el-row class="content text_center" id="innovation_example">
         <el-row>
           <h2 class="font30">优秀案例</h2>
         </el-row>
@@ -75,6 +77,8 @@
           </div>
         </el-row>
       </el-row>
+      <br />
+      <br />
       <cooperation :cooperation-data="cooperationData"></cooperation>
   </div>
 </template>
