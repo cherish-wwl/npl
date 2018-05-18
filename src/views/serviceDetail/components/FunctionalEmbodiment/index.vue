@@ -23,11 +23,13 @@
       </el-col>
       <el-col :span='10'>
         <div class='right'>
-          <el-input
+          <!-- <el-input
             type="textarea"
             placeholder="请输入内容"
             v-model="afterValue">
-          </el-input>
+
+          </el-input> -->
+          {{afterValue}}
         </div>
       </el-col>
     </el-row>
@@ -57,7 +59,12 @@
         var params ={'type':this.type,'url': this.url,'param': this.beforeValue,}
       
         serviceDetailsExecute(params).then( response =>{
-          this.afterValue = JSON.stringify(response.data.returnData)
+          if(response.data.data){
+            this.afterValue =response.data.data
+          }else{
+            this.afterValue =response.data
+          }
+          
           this.waiting = false
        })
       },
@@ -91,8 +98,14 @@
         width: 79%;
         height: 300px;
         float: left;
-        // background-color: #fff;
-        // border: 1px solid #ddd;
+        background-color: #fff;
+        overflow: scroll;
+        overflow-x: hidden;
+        padding: 10px;
+        color: #606266;
+        font-size: 14px;
+        border: 1px solid #ddd;
+        line-height: 21px;
       }
       
     }

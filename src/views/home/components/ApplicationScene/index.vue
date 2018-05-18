@@ -44,7 +44,12 @@
     },
     mounted () {
       getApplicationSceneList().then(response =>{
-        this.datalist = response.data
+        if( response.data.length > 3 ){
+          this.datalist = response.data.slice(0,3)
+        }else{
+          this.datalist = response.data
+        }
+       
       })
     }
   }

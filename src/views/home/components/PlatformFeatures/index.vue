@@ -1,8 +1,8 @@
 <template>
   <el-container class='platform_features'>
     <el-row style="width: 100%;">
-      <el-col :span="6" class="item">
-        <div class="grid-content">
+      <el-col :span="6" class="item" >
+        <div class="grid-content" @click="linkSpecialist">
           <label class="font20">
             <i class="fa fa-angle-double-right" aria-hidden="true"></i>
             权威学者
@@ -52,7 +52,11 @@
 <script>
 export default {
   
-
+    methods:{
+      linkSpecialist (){
+        this.$router.push({name:"specialist"})
+      }
+    }
 }
 </script>
 <style lang="scss" scoped>
