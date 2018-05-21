@@ -71,7 +71,7 @@
       },
 
       refrushIconPanel(){
-        getpopularSubServicesList ({ "id": this.icon_panel_index,"size": 4 }).then(response => {
+        getpopularSubServicesList ({ "id": this.icon_panel_index,"size": 3 }).then(response => {
             this.list2 = response.data
         })
       },
