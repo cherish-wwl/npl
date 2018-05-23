@@ -11,10 +11,7 @@
     <application-scene></application-scene>
     <about-platform></about-platform>
     <cooperation-platform></cooperation-platform>
-    <br />
-    <br />
-    <br />
-    <br />
+   
   </div>
 </template>
 

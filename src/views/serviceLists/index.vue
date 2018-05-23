@@ -3,20 +3,20 @@
     <el-row class='service_info'>
       <img class='service_bg_img' src='../../assets/sevice_details/u536.jpg'/>
       <div class='title_desc'>
-        <h2> {{ serviceInfo.service_title }} </h2>
+        <h1> {{ serviceInfo.service_title }} </h1>
         <p> {{ serviceInfo.service_desc }} </p>
       </div>
     </el-row>
     <el-container class='service_class'>
       <el-aside width="200px" class='aside_style'>
-        <el-collapse v-model="activeNames" @change="handleChange">
+        <el-collapse v-model="activeNames" @change="handleChange" >
           <el-collapse-item  v-for='item in collapseData' :key='item.id'  :name="item.id">
              <template slot="title">
                <svg-icon :icon-class="item.icon" ></svg-icon>
                <span class="font18">{{ item.name }}</span>
             </template>
             <ul>
-              <li class='font16' v-for="child in item.children" :class="currentServiceId == child.id ?'active':''" :key="child.id" @click="chooseServiceItem(child.id)">
+              <li class='font14' v-for="child in item.children" :class="currentServiceId == child.id ?'active':''" :key="child.id" @click="chooseServiceItem(child.id)">
                 {{ child.name }}
               </li>
             </ul>
@@ -48,12 +48,12 @@
         <el-row class='service_list' >
             <el-row class='item' v-for="item in thridList" :key='item.id'>
               <el-col :span='8' class='item_img'>
-                <img :src=" item.serviceIcon | getImage" >
+                <img :src=" item.serviceIcon | getImage" onerror="this.src='/static/default.png'" />
               </el-col>
               <el-col :span='16' class='item_info'>
-                <h4>
+                <h3>
                   {{ item.serviceName }}
-                </h4>
+                </h3>
                 <div class='f_c_grey'>
                   <span class="font14">
                     服务类型:&nbsp;&nbsp;  {{item.className}}&nbsp; &nbsp; &nbsp; 
@@ -61,11 +61,11 @@
                     发布时间：{{ item.rel_time | formatTime}}
                   </span>
                 </div>
-                <p class="font16">
+                <p class="font14">
                   {{ item.serviceDescr}}
                 </p>
                 <div>
-                  <el-button type="primary" class="font16">立即使用</el-button>
+                  <el-button type="primary" class="font14 custom_button_blue">立即使用</el-button>
                   <el-button  class="font16" @click="seeDetailPage(item.id)">
                     查看详情
                   </el-button>
@@ -76,11 +76,13 @@
         </el-row>
         <el-row class="text_center">
           <el-pagination
-            layout="prev, pager, next"
+            layout="sizes,prev, pager, next"
             :total="paginationTotal"
+            :page-sizes="[2, 5, 10, 20]"
             :page-size="paginationPageSize"
             :current-page="paginationCurrentPage"
-            @current-change="changePaginationCurrentPage">
+            @current-change="changePaginationCurrentPage"
+            @size-change="handlePaginationPageSize">
           </el-pagination>
         </el-row>
       </el-main>
@@ -98,7 +100,7 @@ export default {
       activeNames:['1'],
       collapseData:[],
       search_key:'',
-      currentServiceId:0,
+      currentServiceId:"",
       activeItemId:0,
       thridList: [],
       serviceInfo:{
@@ -152,7 +154,7 @@ export default {
       this.refrushThridList()
     },
     handleChange(val) {
-      // console.log(val);
+      console.log("handleChange");
     },
     // 按关键字查询
     searchThirdList(){
@@ -168,6 +170,12 @@ export default {
     changePaginationCurrentPage(currentPage){
       console.log(currentPage)
       this.paginationCurrentPage = currentPage
+      this.refrushThridList()
+    },
+    // 显示条数
+    handlePaginationPageSize(pageSize){
+      console.log(pageSize)
+      this.paginationPageSize = pageSize
       this.refrushThridList()
     },
     // 点击左侧，刷新右侧列表
@@ -191,16 +199,27 @@ export default {
       getMenus().then(response => {
         if(response.data.length == 0 ) return
         var parentId 
-        if(this.currentServiceId != 0){
+        if(this.currentServiceId != ""){
           parentId = this.currentServiceId.substring(0,3)
         }else{
-          parentId = response.data[0].children.substring(0,3)
+          parentId = response.data[0].children[0].id.substring(0,3)
+          this.currentServiceId = response.data[0].children[0].id
         }
+        // 获取二级数据
         for(let i=0;i<response.data.length;i++){
           if(response.data[i].id == parentId){
-            this.collapseData = response.data[i].children
+            this.collapseData = response.data[i].children 
           }
         } 
+        if(this.currentServiceId.length == "6"){
+          // 获取三级数据
+          for(let j=0; j< this.collapseData.length;j++){
+            if(this.collapseData[j].id == this.currentServiceId){
+              this.currentServiceId = this.collapseData[j].children[0].id
+            }
+          }
+        }
+       
         this.activeNames = [ this.currentServiceId.substring(0,6)+""]
         this.refrushThridList ()
         
@@ -245,7 +264,7 @@ export default {
           let Third = this.collapseData[i].children 
           for(let j = 0 ; j < Third.length; j++){
              if(this.currentServiceId == Third[j].id){
-               console.log(Third[j].name)
+              //  console.log(Third[j].name)
                 this.serviceInfo.service_title = Third[j].name 
                 this.serviceInfo.service_desc = Third[j].descr 
                 break 
@@ -290,11 +309,11 @@ export default {
       position: absolute;
       top: 22%;
       color: #fff;
-      left: 20%;
+      left: 10%;
     }
   }
   .service_class{
-    padding:22px 12%;
+    padding:22px 8%;
     .aside_style{
       overflow: hidden;
       ul{
@@ -378,6 +397,7 @@ export default {
         }
         .item_info{
           padding-left: 10px;
+          padding-bottom: 10px;
           .f_c_grey{
             color: #827f7f;
           }

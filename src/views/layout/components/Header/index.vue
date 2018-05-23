@@ -25,7 +25,7 @@
                 <div class="submeunitem" v-for="child in serviceMeunList" :key="child.id">
                   <div class='meunItemFont01 font18'><label ><i class="fa fa-bookmark-o" aria-hidden="true"></i>&nbsp;&nbsp;{{ child.name}}</label></div>
                   <ul  v-for="item in child.children" :key="item.id">
-                    <label class='meunItemFont02 font18'>{{ item.name }}</label>
+                    <label class='meunItemFont02 font16'>{{ item.name }}</label>
                     <li class="font14" v-for="subChild in item.children" :key="subChild.id" v-if="subChild.show == true" @click="linkServiceListPage(subChild.id)">
                       {{ subChild.name }}  
                     </li>
@@ -41,11 +41,11 @@
         <div class="sub-meun-panel" >
 
           <el-row>
-            <el-col class="dataSetItem" :span="12" v-for="child in dataSetList" :key="child.id" >
-              <el-col :span="10" class="item-left"> 
-                <img :src="'static/solution/'+child.solutionIcon"/>
+            <el-col class="dataSetItem" :span="12" v-for="child in dataSetList" :key="child.id" @click.native="seeSolutionDetails(child)" >
+              <el-col :span="8" class="item-left"> 
+                <img :src="'static/solution/'+child.solutionIcon" onerror="this.src='/static/default.png'"/>
               </el-col>
-              <el-col :span="14" class="item-right">
+              <el-col :span="16" class="item-right">
                 <template v-if="child.forwardType == 1">
                   <label>
                     <svg-icon icon-class="tag" ></svg-icon> 
@@ -76,7 +76,7 @@
         <router-link :to="{name:'innovation'}">NLP学院</router-link>
       </el-menu-item>
       <div class="rightPanel">
-        <el-menu-item index='controlPanel' class='controlPanel'>
+        <!-- <el-menu-item index='controlPanel' class='controlPanel'>
           控制台
         </el-menu-item>
         <el-menu-item index='login' class='loginItem' v-if="!isLogin">
@@ -84,7 +84,7 @@
         </el-menu-item>
         <el-menu-item index='userInfo' class="userInfo" v-if="isLogin">
           {{userName}}
-        </el-menu-item>
+        </el-menu-item> -->
      </div>      
     </el-menu>
    </el-header>
@@ -121,7 +121,16 @@ import { getToken, getUserName } from '@/utils/auth'
           this.$emit('login', true);
         }
       },
-    
+      //跳转到解决方案详情页面
+      seeSolutionDetails(child){
+      // 跳转详情页判断：011002
+      // 跳转URL判断：011001        
+        if(child.forwardType == "011002"){
+          this.linkSolutionPage(child.id,child.solutionUrl)    
+        }else{
+          window.open(child.solutionUrl,"_blank")
+        }
+      },
       // 跳转到服务详情页面 
       linkServiceListPage (id) {
         this.activeIndex = "1-1"
@@ -187,7 +196,7 @@ import { getToken, getUserName } from '@/utils/auth'
         console.log(this.serviceMeunList)
       })
       getSolutionList().then(response => {
-        this.dataSetList = response.data
+        this.dataSetList = response.data.slice(0,8)
       })
       console.log(getToken())
       if(getToken() != "" && getToken()){
@@ -217,18 +226,18 @@ import { getToken, getUserName } from '@/utils/auth'
           white-space: nowrap;
           text-overflow: ellipsis;
           overflow: hidden;
-          margin-top: 15px;
+          margin-top: 10px;
           color: #9d9a96;
           font-size: smaller;
           cursor:pointer;
           &:hover{
-            color: #4949fe;
+            color: #389FFF;
           }
         }
       }
      
       &:not(:first-child) {
-        border-left: 1px solid #5f5858;
+        border-left: 1px solid #333;
       }
     }
     
@@ -238,12 +247,20 @@ import { getToken, getUserName } from '@/utils/auth'
     display: flex;
     align-items: center;
     cursor: pointer;
-    img{
-      width: 189px;
-      height: 95px;
-    }  
+    .item-left{
+      img{
+        // width: 189px;
+        height: 112px;
+        
+        transition: all 0.6s;  
+        &:hover{  
+          transform: scale(1.1);  
+        }  
+      }  
+    }
+    
     .item-right {
-        padding: 0 10px;
+        padding: 0 30px;
         label{
           // margin-left: 15px;
           .svg-icon[data-v-5d4549d3] {

@@ -30,7 +30,7 @@
         <el-menu-item index="10">
          <router-link :to="{name:'home'}">>>返回开放平台首页</router-link>
         </el-menu-item>
-        <el-menu-item index='controlPanel' class='controlPanel'>
+        <!-- <el-menu-item index='controlPanel' class='controlPanel'>
           控制台
         </el-menu-item>
         <el-menu-item index='login' class='loginItem' v-if="!isLogin">
@@ -38,7 +38,7 @@
         </el-menu-item>
         <el-menu-item index='userInfo' class="userInfo" v-if="isLogin">
           {{userName}}
-        </el-menu-item>
+        </el-menu-item> -->
      </div>      
     </el-menu>
     

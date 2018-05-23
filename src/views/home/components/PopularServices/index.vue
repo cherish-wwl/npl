@@ -19,11 +19,13 @@
           <i class="fa fa-angle-double-down" aria-hidden="true"></i> 
           {{ item.name }}
         </label>
-        <p class="font16">
+        <p class="font14">
           {{ item.descr |subStringNoMore3line }}
         </p>
         <ul>
-          <li v-for="child in item.children" class="font16" :key='child.id' @click="linkServiceListPage(child.class_id)">{{ child.name }}</li>
+          <li v-for="child in item.children" class="font16" 
+          :key='child.id' 
+          @click="linkServiceListPage(child.class_id)">{{ child.serviceName }}</li>
         </ul>
       </div>      
     </el-row>
@@ -89,7 +91,7 @@
 </script>
 <style rel="stylesheet/scss" lang="scss" scoped>
 $blueColor:rgba(19, 147, 237, 1);
-$fontColor:rgba(255, 255, 255, 0.85);
+$fontColor:rgba(255, 255, 255, 0.6);
    .popularServices {
      display: block;
       h2{
@@ -99,12 +101,13 @@ $fontColor:rgba(255, 255, 255, 0.85);
       .icon_panel{
         display: flex;
         justify-content: space-around;
+        padding: 0 8%;
         .icon_panel_item {
             position: relative;
             cursor: pointer;
-            padding: 10px 30px;
+            padding: 10px 48px;
             .svg-icon{
-              font-size: 100px;
+              font-size: 84px;
               color: #aaaaaa;
             }
             &:hover{
@@ -114,13 +117,13 @@ $fontColor:rgba(255, 255, 255, 0.85);
             }
         }
         .icon_panel_item.active {
-          background-color: $blueColor;
-          color: #fff;
+          background-color: #F2F2F2;
+          color: #1393ed;
           
         }
         .icon_panel_item.active{
           .svg-icon{
-            color: #fff;
+            color: #1393ed;
           }
         }
        
@@ -130,22 +133,23 @@ $fontColor:rgba(255, 255, 255, 0.85);
         display: flex;
         display: -webkit-flex; /* Safari */
         justify-content: center;
-        background-color: $blueColor;
+        background-color: #F2F2F2;
         padding: 20px 0;
-        color: #fff;
+        color: #333;
         min-height: 220px;
         flex-wrap: wrap;
         .font_panel_item {
           padding-right: 20px;
           min-width: 18%;
-          max-width: 20%;
+          max-width: 22%;
           margin-top: 20px;
+          margin-bottom: 20px;
           label i, p{
-            color:$fontColor;
+            color:rgba(51,51,51,0.6);
           }
         }
         .font_panel_item:not(:first-child){
-          border-left: 1px solid #ddd;
+          border-left: 1px solid #e4e4e4;
           padding-left: 20px;
         }
         ul{

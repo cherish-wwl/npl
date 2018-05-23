@@ -4,7 +4,7 @@
 @import './element-ui.scss';
 // @import './sidebar.scss';
 @import './header.scss';
-
+@import './css-animate.scss';
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -67,7 +67,7 @@ footer {
   line-height: 60px;
   height: 60px;
   color: #888;
-  background-color: #f1eded;
+  background-color: #EAEAEA;
   text-align: center;
 }
 
@@ -103,6 +103,7 @@ footer {
 }
 .font14{
   font-size: 14px;
+  line-height: 22px;
 }
 .font15{
   font-size: 15px;
@@ -147,4 +148,12 @@ footer {
 }
 img{
   width: 100%;
+}
+
+//自定义button样式
+.custom_button_blue{
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  padding-left: 20px;
 }

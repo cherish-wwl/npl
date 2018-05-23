@@ -67,14 +67,25 @@
         </el-row>
         <el-row>
           <div class="colums-3" v-for="(item,index) in exampleData" :key="index">
-            <img :src="item.img"/>
+            <!-- <img :src="item.img"/>
             <div class="example-panel">
               <span>{{ item.title }}</span>
               <p>{{ item.descr1 }}</p>
               <p class="hidden-panel">{{ item.descr2 }}</p>
-            </div>
-            
+            </div> -->
+            <figure class="effect-lily">
+              <img :src="item.img"/>
+              
+              <figcaption>
+                <div>
+                  <h2>Nice <span>Lily</span></h2>
+                  <p>Lily likes to play with crayons and pencils</p>
+                </div>
+                <a href="#">View more</a>
+              </figcaption>			
+            </figure> 
           </div>
+          
         </el-row>
       </el-row>
       <br />

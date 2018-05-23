@@ -18,7 +18,7 @@
     <functional-embodiment :in-arg="inArg" :url="url" :type="type"></functional-embodiment>
     <application-scene2 :scene-data='sceneData'></application-scene2>
     <div class="text_center">
-      <el-button type="primary" class="font16">立即使用</el-button>
+      <el-button type="primary" class="font14  custom_button_blue">立即使用</el-button>
       <el-button class="font16">技术文档</el-button>
     </div>
     <br />

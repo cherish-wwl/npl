@@ -25,6 +25,13 @@ export function getApplicationSceneList() {
     method: 'get'
   })
 }
+// 获取关于平台 数据展示
+export function getCountBytype() {
+  return request({
+    url: '/index/getCountBytype',
+    method: 'post'
+  })
+}
 
 
 

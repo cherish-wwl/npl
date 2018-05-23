@@ -1,5 +1,5 @@
 #app {
-  $headerHeight:50px;
+  $headerHeight:60px;
     // 主体区域
     .main-container {
       min-height: 100%;
@@ -17,11 +17,12 @@
       .el-menu--horizontal .el-submenu>.el-menu {
         position: fixed;
         // background-color: rgba(9, 9, 9, 0.98)!important;
-        background-color: #1b1b1bf0 !important;
+        background-color: #0d0d0d !important;
         top:$headerHeight;
         padding-top:25px;
         padding-bottom: 25px;
-        
+        left: 0;
+        right: 0; 
       }
       // .el-submenu__title,.el-menu-item{
         
@@ -31,7 +32,7 @@
         .el-submenu .el-submenu__title, .el-menu-item{
           height: $headerHeight;
           line-height: $headerHeight;
-          font-size: 18px;
+          font-size: 16px;
         }  
         
       }
@@ -58,12 +59,12 @@
       .el-input-group {
         width: auto;
         .el-input-group__append {
-          background-color: #000;
+          background-color: #1b1b1b;
           border: none;
           padding: 0;
         }
         input.el-input__inner {
-          background-color: #000;
+          background-color: #1b1b1b;
           border: none;
         }
       }

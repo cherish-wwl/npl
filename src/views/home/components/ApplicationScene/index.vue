@@ -4,21 +4,24 @@
       <h2 class="font30">应用场景</h2>
     </el-row>
     <el-row class='display_panel'>    
-      <div class="grid-content item" v-for='item in datalist' :key='item.id'>
+      <div class="grid-content item" v-for='item in datalist' :key='item.p_id'>
         <div class="normol_panel">
           <img :src="'static/index/'+item.icon+'.jpg'">      
+          <!-- <img :src="imglist[(index < 3)? index : index % 3]" /> -->
           <div class='mask'>
             <div class="bg other-bg"></div>
             <div class="content text_center">
-              <div class='title'>
-                <!-- <img src='../../../../assets/home/news02.png'> -->
-                <svg-icon :icon-class="item.icon"></svg-icon>
-                <h2>{{ item.name }}</h2>
-              </div>
-              <div class='content_text'>
-                <p>{{ item.descr}}</p>
-                <!-- <div><a>新闻分类</a>|<a>其他</a></div> -->
-                <div><el-button size="mini" @click="seeDetails(item.id)">查看详情</el-button></div>
+              <div class="mask-content">
+                <div class='title'>
+                  <!-- <img src='../../../../assets/home/news02.png'> -->
+                  <svg-icon :icon-class="item.icon"></svg-icon>
+                  <h2>{{ item.name }}</h2>
+                </div>
+                <div class='content_text'>
+                  <p>{{ item.descr}}</p>
+                  <!-- <div><a>新闻分类</a>|<a>其他</a></div> -->
+                  <div><el-button class="custom-animate-btn1" @click="seeDetails(item.id)">查看详情</el-button></div>
+                </div>
               </div>
             </div>
           </div>
@@ -31,21 +34,31 @@
 
 <script>
   import { getApplicationSceneList} from '@/api/home'
+  import Cookies from 'js-cookie'
   export default {
     data() {
       return {
         currentIndex: 0,
         datalist:[],
-        imglist:[require('../../../../assets/home/xinwen01.jpg'),require('../../../../assets/home/kefu01.jpg'),require('../../../../assets/home/sifa01.jpg')],
+        imglist:[
+          require('../../../../assets/home/xinwen01.jpg'),
+          require('../../../../assets/home/kefu01.jpg'),
+          // require('../../../../assets/home/sifa01.jpg'),
+          require('../../../../assets/home/wenben01.jpg'),
+          // require('../../../../assets/home/yiliao01.jpg'),
+        ],
       }
     },
     methods: {
-      
+        seeDetails (id) {
+          Cookies.set("service_id",id) 
+          this.$router.push({name: 'serviceLists',params:{ randomValue: Math.random().toString(36).substr(2) }})
+        }
     },
     mounted () {
       getApplicationSceneList().then(response =>{
         if( response.data.length > 3 ){
-          this.datalist = response.data.slice(0,3)
+          this.datalist = response.data.slice(0,5)
         }else{
           this.datalist = response.data
         }
@@ -63,8 +76,9 @@
       margin: 45px 0;
     }
     .display_panel{
-      padding: 0 15%;
+      padding: 0 8%;
       display: flex;   
+      justify-content: center;
       .item{
         position: relative;
         cursor:pointer;
@@ -76,7 +90,6 @@
           left: 0;
           right: 0;
           top: 0;
-          bottom: 0;
           bottom: 4px;
           .bg {
               position: absolute;
@@ -149,8 +162,11 @@
           }
         }
         &:hover .content {
-            top: 8%;
-            bottom:0;
+            top: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: #fff;
             filter: alpha(opacity=100);
             -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=(100));
@@ -169,19 +185,19 @@
             }
           }
           &:hover .bg.other-bg{
-              background-color: #00c2de;
-              opacity: .9;
+              background-color: #0F89E0;
+              opacity:0.7;
               filter: alpha(opacity=90);
               -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=(90));
           }
         
       }  
     }
-    img{
-      width:100%;
-      min-width: 150px;
-      height: 330px;
-    }
+    // img{
+      // width:100%;
+      // min-width: 150px;
+      // height: 330px;
+    // }
   }
 </style>
 

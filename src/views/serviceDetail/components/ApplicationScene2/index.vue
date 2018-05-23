@@ -7,13 +7,13 @@
     </el-row>
     <el-row class='panel'>
       <div class='item' v-for="(item,index) in sceneData" :key="index" v-if="item.relateType=='006002'">
-        <div>
-          <img class="img " :src="'static\services\serviceDetails'+item.banner">
-        </div>
-        <div  class="content">
+        <el-col :span="5">
+          <img class="img " :src="'static/services/serviceDetails/'+item.banner">
+        </el-col>
+        <el-col :span="19"  class="content">
           <label class="font18">{{ item.title }}</label>
           <p class="font16">{{ item.content }}</p>
-        </div>
+        </el-col>
       </div>
     </el-row>
    </el-container>
