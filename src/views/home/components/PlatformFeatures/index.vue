@@ -2,38 +2,27 @@
   <el-container class='platform_features'>
     <el-row style="width: 100%;">
       <el-col :span="6" class="item" >
-        <div class="grid-content" @click="linkSpecialist">
+        <div class="grid-content" @click="jumpPage({name:'specialist'})">
           <label class="font18">
             <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            权威学者
+            权威专家学者
           </label>
           <p class="font14">
-            国内外大部分自然语言权威学者入驻
+            国内外大部分自然语言专家学者入驻
           </p>
         </div>
       </el-col>
       <el-col :span="6" class="item">
-        <div class="grid-content">
+        <div class="grid-content" @click="jumpPage({name:'universities'})">
           <label class="font18">
             <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            权威学者入驻
+            创新合作院校
           </label>
           <p class="font14">
-            国内外大部分自然语言权威学者入驻
+           20+创新合作院校及科研机构
           </p>
         </div>
-      </el-col>
-      <el-col :span="6" class="item">
-        <div class="grid-content">
-          <label class="font18">
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-             创新合作院校
-          </label>
-          <p class="font14">
-            国内外大部分自然语言权威学者入驻
-          </p>
-        </div>
-      </el-col>
+      </el-col>  
       <el-col :span="6" class="item">
         <div class="grid-content" @click="jumpCCIC">
           <label class="font18">
@@ -41,7 +30,18 @@
             中国中文信息学会
           </label>
           <p class="font14">
-            国内外大部分自然语言权威学者入驻
+           中国权威学术性群众团体指导
+          </p>
+        </div>
+      </el-col>
+      <el-col :span="6" class="item" >
+        <div class="grid-content" @click="jumpSZTY">
+          <label class="font18">
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+             神州泰岳
+          </label>
+          <p class="font14">
+            专业技术研发团队支持
           </p>
         </div>
       </el-col>
@@ -53,12 +53,16 @@
 export default {
   
     methods:{
-      linkSpecialist () {
-        this.$router.push({name:"specialist"})
+      jumpPage (param) {
+        this.$router.push(param)
       },
       jumpCCIC () {
         window.open("http://www.cipsc.org.cn/",'_blank')
+      },
+      jumpSZTY(){
+         window.open("http://www.ultrapower.com.cn",'_blank')
       }
+
     }
 }
 </script>

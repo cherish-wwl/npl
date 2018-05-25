@@ -1,7 +1,7 @@
 <template>
   <div class="serviceLists-container">
     <el-row class='service_info'>
-      <img class='service_bg_img' src='../../../assets/sevice_details/u536.jpg'/>
+      <img class='service_bg_img' v-bind:src='service_bg_img'/>
       <div class='title_desc'>
         <h1> {{ serviceInfo.service_title }} </h1>
         <p> {{ serviceInfo.service_desc }} </p>
@@ -16,7 +16,11 @@
                <span class="font18">{{ item.name }}</span>
             </template>
             <ul>
-              <li class='font14' v-for="child in item.children" :class="currentServiceId == child.id ?'active':''" :key="child.id" @click="chooseServiceItem(child.id)">
+              <li class='font14' 
+                v-for="child in item.children" 
+                :class="currentServiceId == child.id ?'active':''" 
+                :key="child.id" 
+                @click="chooseServiceItem(child)">
                 {{ child.name }}
               </li>
             </ul>
@@ -97,6 +101,7 @@ import Cookies from 'js-cookie'
 export default {
   data (){
     return {
+      service_bg_img:require("../../../assets/sevice_details/u536.jpg"),
       activeNames:['1'],
       collapseData:[],
       search_key:'',
@@ -179,16 +184,22 @@ export default {
       this.refrushThridList()
     },
     // 点击左侧，刷新右侧列表
-    chooseServiceItem(id) {
+    chooseServiceItem(child) {
       //  console.log(id);
-      Cookies.set("service_id",id)
-      this.currentServiceId = id
+
+      Cookies.set("service_id",child.id)
+      this.currentServiceId = child.id
       // 刷新分页计数
       this.paginationTotal = 0
       this.paginationCurrentPage = 1
       // 清空搜索栏
       this.search_key = ''
       this.refrushThridList ()
+      // 更换页面背景图片
+      if (child.img != "null" && child.img && child.img != null){
+        this.service_bg_img ="/static/services/service_list/"+child.img
+      }
+      
     },
     // 初始化
     init (){
@@ -199,26 +210,39 @@ export default {
       getMenus().then(response => {
         if(response.data.length == 0 ) return
         var parentId 
+        var rootId
         if(this.currentServiceId != ""){
-          parentId = this.currentServiceId.substring(0,3)
+          rootId = this.currentServiceId.substring(0,3)
         }else{
-          parentId = response.data[0].children[0].id.substring(0,3)
+          rootId = response.data[0].children[0].id.substring(0,3)
           this.currentServiceId = response.data[0].children[0].id
         }
         // 获取二级数据
         for(let i=0;i<response.data.length;i++){
-          if(response.data[i].id == parentId){
+          if(response.data[i].id == rootId){
             this.collapseData = response.data[i].children 
           }
         } 
-        if(this.currentServiceId.length == "6"){
+       
+          this.parentId = this.currentServiceId.substring(0,6)
+        
           // 获取三级数据
           for(let j=0; j< this.collapseData.length;j++){
-            if(this.collapseData[j].id == this.currentServiceId){
-              this.currentServiceId = this.collapseData[j].children[0].id
+            if(this.collapseData[j].id == this.parentId){
+              if(this.currentServiceId.length <= "6"){
+                // 当前服务id 不正确  默认加载第一条数据
+                this.currentServiceId = this.collapseData[j].children[0].id
+                this.service_bg_img = "/static/services/service_list/"+this.collapseData[j].children[0].img
+              }else{
+                for(var c = 0; c<this.collapseData[j].children.length;c++){
+                  if(this.collapseData[j].children[c].id == this.currentServiceId){
+                    this.service_bg_img = "/static/services/service_list/"+this.collapseData[j].children[c].img
+                  }
+                }
+              }
             }
           }
-        }
+        
        
         this.activeNames = [ this.currentServiceId.substring(0,6)+""]
         this.refrushThridList ()

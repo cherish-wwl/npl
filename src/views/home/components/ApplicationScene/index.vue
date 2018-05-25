@@ -1,7 +1,7 @@
 <template>
   <el-container class='applicatin_scene'>
     <el-row class='text_center'>
-      <h2 class="font30">应用场景</h2>
+      <h2 class="font30">应用服务</h2>
     </el-row>
     <el-row class='display_panel'>    
       <div class="grid-content item" v-for='item in datalist' :key='item.p_id'>

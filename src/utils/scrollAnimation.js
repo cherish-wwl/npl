@@ -4,7 +4,7 @@ var jump = 0
 var distance = 0
 var total = 0
 var step = 0
-export function scrollAnimation(className) {
+export function scrollAnimation(className,scrollheight) {
     // 用 class 添加锚点
     jump = document.querySelectorAll(className)
     total = jump[0].offsetTop
@@ -15,9 +15,12 @@ export function scrollAnimation(className) {
  
     if (total > distance) {
         // 向下滑动
-        if( distance > 550){
-            return 
+        if(scrollheight){
+            if( distance > scrollheight){
+                return 
+            }
         }
+        
         smoothDown()
     } else {
         let newTotal = distance - total

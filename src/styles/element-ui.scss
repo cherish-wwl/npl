@@ -122,3 +122,11 @@ table.el-table__header{
     font-size: small;
   }
 }
+
+.ellipse_input.el-input {
+  width: 200px;
+  input.el-input__inner {
+    border: none;
+    border-radius: 30px;
+  } 
+}

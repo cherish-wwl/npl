@@ -1896,7 +1896,11 @@ export default {
       
     },
     returnBack () {
-      this.$router.push({path:"/specialist"})
+      if(this.title1 == "首页"){
+        this.$router.push({name:"home"})
+      }else{
+        this.$router.push({name:"specialist"})
+      } 
       this.init()
     },
     init(){
@@ -1955,7 +1959,7 @@ export default {
       var index = this.$route.params.specialistId
       this.detailInit(index)
     }else{
-      console.log("12312")
+    
        this.init()
     }
   }
@@ -1974,6 +1978,9 @@ export default {
       left: 17%;
       align-items: center;
       color: #fff;
+      a:first-child:hover{
+        text-decoration: underline;
+      }
   }
   .back-img {
       min-width: 1240px;

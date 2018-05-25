@@ -11,17 +11,17 @@
         <img src='../../../../assets/nlpschool/u4309.png'/>
       </el-menu-item>
       <el-menu-item index='5' >
-        <a href="#innovation_support">AI课程</a>
+        <a>AI课程</a>
       </el-menu-item>
       <el-menu-item index='4' >
         智能问答
       </el-menu-item>
       <el-menu-item index='3' >
-        <a href="#innovation_example">专家互动</a>
+        <a >专家互动</a>
       </el-menu-item>
       <div class="rightPanel">
-        <el-menu-item index="10">
-         <router-link :to="{name:'home'}">>>返回开放平台首页</router-link>
+        <el-menu-item index="10" @click="jumpPage({name:'home'})">
+          >>返回开放平台首页
         </el-menu-item>
         <!-- <el-menu-item index='controlPanel' class='controlPanel'>
           控制台
@@ -51,6 +51,10 @@
     methods: {
       handleSelect () {
         this.$emit('login', true);
+      },
+      // 跳转页面
+      jumpPage(params){
+        this.$router.push(params)
       }
     }
   }

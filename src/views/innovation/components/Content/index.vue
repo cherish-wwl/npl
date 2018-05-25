@@ -66,24 +66,27 @@
           <h2 class="font30">优秀案例</h2>
         </el-row>
         <el-row>
-          <div class="colums-3" v-for="(item,index) in exampleData" :key="index">
+          <div class="colums-3 grid" v-for="(item,index) in exampleData" :key="index">
             <!-- <img :src="item.img"/>
             <div class="example-panel">
               <span>{{ item.title }}</span>
               <p>{{ item.descr1 }}</p>
               <p class="hidden-panel">{{ item.descr2 }}</p>
             </div> -->
-            <figure class="effect-lily">
-              <img :src="item.img"/>
-              
+            <figure class="effect-sadie">
+              <img :src="item.img" onerror="this.src='/static/default.png'"/>
               <figcaption>
-                <div>
-                  <h2>Nice <span>Lily</span></h2>
-                  <p>Lily likes to play with crayons and pencils</p>
-                </div>
-                <a href="#">View more</a>
+                <h2>
+                  <span>
+                    {{ item.title }}
+                    <br>
+                    {{ item.descr1 }}
+                  </span>
+                </h2>
+                <p>{{ item.descr2 }}</p>
               </figcaption>			
-            </figure> 
+            </figure>
+            
           </div>
           
         </el-row>
@@ -91,10 +94,12 @@
       <br />
       <br />
       <cooperation :cooperation-data="cooperationData"></cooperation>
+      
   </div>
 </template>
 <script> 
 import cooperation  from '@/components/cooperation'
+import { scrollAnimation } from '@/utils/scrollAnimation.js'
 export default {
   components:{
     cooperation
@@ -240,26 +245,138 @@ export default {
     width: 30%;
     display: inline-block;
     position: relative;
-    .example-panel{
-      position: absolute;
-      top: 20%;
-      color: #fff;
-      .hidden-panel{
-        display: none;
+  }
+  .grid {
+   
+    figure {
+      position: relative;
+      float: left;
+      overflow: hidden;
+      margin: 0;
+      background: #3085a3;
+      text-align: center;
+      cursor: pointer;
+      img {
+        position: relative;
+        display: block;
+        min-height: 100%;
+        max-width: 100%;
+        opacity: 0.8;
       }
-      
-    }
-    &:hover{
-     
-       .example-panel{
+      figcaption, figcaption > a {
+        position: absolute;
         top: 0;
-        bottom:0;
-        background-color: #2b9eeb;
-        .hidden-panel{
-          display: block;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      figcaption {
+        padding: 2em;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 1.25em;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        &::before,&::after {
+          pointer-events: none;
         }
+      }
+      &.effect-sadie figcaption::before, &.effect-sadie p {
+        -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+        transition: opacity 0.35s, transform 0.35s;
+      }
+      &.effect-sadie {
+        p{
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          padding: 2em;
+          width: 100%;
+          font-size: 14px;
+          opacity: 0;
+          line-height: 22px;
+          -webkit-transform: translate3d(0,10px,0);
+          transform: translate3d(0,10px,0);
+          -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+          transition: opacity 0.35s, transform 0.35s;
+          letter-spacing: 1px;
+        }
+        h2 {
+          position: absolute;
+          top: 50%;
+          left: 0;
+          padding:12px;
+          font-size: 24px;
+          width: 100%;
+          color: #FFFFFF;
+          opacity: 0.8;
+          -webkit-transition: -webkit-transform 0.35s, color 0.35s;
+          transition: transform 0.35s, color 0.35s;
+          -webkit-transform: translate3d(0,-50%,0);
+          transform: translate3d(0,-50%,0);
+          margin: 0;
+          word-spacing: -0.15em;
+          font-weight: 500;
+        }
+      }
+     
+      &.effect-sadie figcaption::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: -webkit-linear-gradient(top, rgba(72,76,97,0) 0%, rgba(72,76,97,0.8) 75%);
+        background: linear-gradient(to bottom, rgba(72,76,97,0) 0%, rgba(72,76,97,0.8) 75%);
+        content: '';
+        opacity: 0;
+        -webkit-transform: translate3d(0,50%,0);
+        transform: translate3d(0,50%,0);
+      }
+      &.effect-sadie figcaption::before, &.effect-sadie p {
+        -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+        transition: opacity 0.35s, transform 0.35s;
+      }
+      &.effect-sadie:hover{
+        figcaption::before, p {
+          opacity: 1;
+          -webkit-transform: translate3d(0,0,0);
+          transform: translate3d(0,0,0);
+        }
+        h2 {
+          top: 42%;
+          color: #fff;
+          -webkit-transform: translate3d(0,-50%,0) translate3d(0,-40px,0);
+          transform: translate3d(0,-50%,0) translate3d(0,-40px,0);
+        } 
       }
     }
   }
+  // .colums-3{
+  //   width: 30%;
+  //   display: inline-block;
+  //   position: relative;
+  //   .example-panel{
+  //     position: absolute;
+  //     top: 20%;
+  //     color: #fff;
+  //     .hidden-panel{
+  //       display: none;
+  //     }
+      
+  //   }
+  //   &:hover{
+     
+  //      .example-panel{
+  //       top: 0;
+  //       bottom:0;
+  //       background-color: #2b9eeb;
+  //       .hidden-panel{
+  //         display: block;
+  //       }
+  //     }
+  //   }
+  // }
   
 </style>

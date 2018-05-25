@@ -7,8 +7,12 @@
     </el-carousel> -->
     <carousel></carousel>
     <platform-features></platform-features>
-    <popular-services></popular-services>
+   
     <application-scene></application-scene>
+    
+    <popular-services></popular-services>
+    <br />
+    <br />
     <about-platform></about-platform>
     <cooperation-platform></cooperation-platform>
    

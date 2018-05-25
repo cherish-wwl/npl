@@ -6,7 +6,7 @@
       </el-col>
     </el-row>
     <el-row class="icon_panel">
-      <div class="icon_panel_item" v-for="item in list1" :key='item.id' :class="icon_panel_index == item.id ? 'active':''" v-on:click="toggleIconPanel(item.id)">
+      <div class="icon_panel_item" v-for="item in list1" :key='item.id' :class="icon_panel_index == item.id ? 'active':''" v-on:mouseenter="toggleIconPanel(item.id)">
         <div class="grid-content text_center">
           <svg-icon :icon-class="item.icon" ></svg-icon>
           <p class="font20">{{ item.name }}</p>
@@ -69,7 +69,7 @@
         this.icon_panel_index = index
         this.refrushIconPanel()
         // 滚动动画
-        scrollAnimation(".popularServices")
+        scrollAnimation(".popularServices",550)
       },
 
       refrushIconPanel(){

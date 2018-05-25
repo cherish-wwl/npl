@@ -11,24 +11,24 @@
         <!-- <router-link :to="{name:'home'}"><img src='../../../../assets/innovation/u2473.png'/></router-link> -->
         <img src='../../../../assets/innovation/u2473.png'/>
       </el-menu-item>
-      <el-menu-item index='5' >
-        <a href="#innovation_support">扶持计划</a>
+      <el-menu-item index='5'  @click="scrollAnimation('#innovation_support')">
+        扶持计划
       </el-menu-item>
-      <el-menu-item index='4' >
+      <!-- <el-menu-item index='4' >
         产品管理
+      </el-menu-item> -->
+      <el-menu-item index='3' @click="scrollAnimation('#innovation_example')">
+        优秀案例
       </el-menu-item>
-      <el-menu-item index='3' >
-        <a href="#innovation_example">优秀案例</a>
-      </el-menu-item>
-      <el-menu-item index='2' >
+      <!-- <el-menu-item index='2' >
         AI辅助工具集
-      </el-menu-item>
-      <el-menu-item index='1' >
+      </el-menu-item> -->
+      <!-- <el-menu-item index='1' >
         技术咨询
-      </el-menu-item>
+      </el-menu-item> -->
       <div class="rightPanel">
-        <el-menu-item index="10">
-         <router-link :to="{name:'home'}">>>返回开放平台首页</router-link>
+        <el-menu-item index="10" @click="jumpPage({name:'home'})">
+          >>返回开放平台首页
         </el-menu-item>
         <!-- <el-menu-item index='controlPanel' class='controlPanel'>
           控制台
@@ -46,6 +46,7 @@
 </template>
 
 <script>
+import { scrollAnimation } from '@/utils/scrollAnimation.js'
   export default {
     data() {
       return {
@@ -58,6 +59,14 @@
     methods: {
       handleSelect () {
         this.$emit('login', true);
+      },
+      // 滚动动画
+      scrollAnimation(dom){
+        scrollAnimation(dom)
+      },
+      // 跳转页面
+      jumpPage(params){
+        this.$router.push(params)
       }
     }
   }

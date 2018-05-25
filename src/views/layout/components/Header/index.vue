@@ -24,12 +24,14 @@
               <div class='meunItemDiv' >
                 <div class="submeunitem" v-for="child in serviceMeunList" :key="child.id">
                   <div class='meunItemFont01 font18'><label ><i class="fa fa-bookmark-o" aria-hidden="true"></i>&nbsp;&nbsp;{{ child.name}}</label></div>
-                  <ul  v-for="item in child.children" :key="item.id">
-                    <label class='meunItemFont02 font16'>{{ item.name }}</label>
-                    <li class="font14" v-for="subChild in item.children" :key="subChild.id" v-if="subChild.show == true" @click="linkServiceListPage(subChild.id)">
-                      {{ subChild.name }}  
-                    </li>
-                  </ul>
+                  <div class="itemlist">
+                    <ul  v-for="item in child.children" :key="item.id">
+                      <label class='meunItemFont02 font16'>{{ item.name }}</label>
+                      <li class="font14" v-for="subChild in item.children" :key="subChild.id" v-if="subChild.show == true" @click="linkServiceListPage(subChild.id)">
+                        {{ subChild.name }}  
+                      </li>
+                    </ul>
+                  </div>
                 </div> 
               </div>
             </el-row>
@@ -46,7 +48,7 @@
                 <img :src="'static/solution/'+child.solutionIcon" onerror="this.src='/static/default.png'"/>
               </el-col>
               <el-col :span="16" class="item-right">
-                <template v-if="child.forwardType == 1">
+                <template v-if="child.forwardType == '011002'">
                   <label>
                     <svg-icon icon-class="tag" ></svg-icon> 
                     <a  class="font18" @click="linkSolutionPage(child.id,child.solutionUrl)"> {{ child.solutionName }} </a>
@@ -66,14 +68,14 @@
         </div>
       </el-submenu>
 
-      <el-menu-item index='3' >
-        <router-link :to="{name:'dataset'}">数据集</router-link>
+      <el-menu-item index='3'  @click="jumpPage({name:'dataset'})">
+        数据集
       </el-menu-item>
-      <el-menu-item index='4'>
-        <router-link :to="{name:'innovation'}" >创新平台</router-link>
+      <el-menu-item index='4'  @click="jumpPage({name:'innovation'})">
+        创新平台
       </el-menu-item>
-      <el-menu-item index='5'>
-        <router-link :to="{name:'innovation'}">NLP学院</router-link>
+      <el-menu-item index='5' @click="jumpPage({name:'nlpschool'})">
+        NLP学院
       </el-menu-item>
       <div class="rightPanel">
         <!-- <el-menu-item index='controlPanel' class='controlPanel'>
@@ -121,10 +123,15 @@ import { getToken, getUserName } from '@/utils/auth'
           this.$emit('login', true);
         }
       },
+      // 跳转页面
+      jumpPage(params){
+        this.$router.push(params)
+      },
       //跳转到解决方案详情页面
       seeSolutionDetails(child){
       // 跳转详情页判断：011002
       // 跳转URL判断：011001        
+      console.log(child)
         if(child.forwardType == "011002"){
           this.linkSolutionPage(child.id,child.solutionUrl)    
         }else{
@@ -212,6 +219,11 @@ import { getToken, getUserName } from '@/utils/auth'
     display: inline-flex;
     .submeunitem{
       padding: 0 38px;
+      .itemlist{
+        margin-top: 15px;
+        column-count: 4;  // 设置列数
+        column-gap: 0;    // 设置列间距
+      }
       .meunItemFont01{
         color: #9d9a96;
       }
@@ -220,7 +232,9 @@ import { getToken, getUserName } from '@/utils/auth'
         // font-size: small;
       }
       ul{
-         padding: 20px;
+        break-inside: avoid; 
+        box-sizing: border-box; 
+        padding: 10px; 
         li{
           max-width: 100px;
           white-space: nowrap;
@@ -240,7 +254,17 @@ import { getToken, getUserName } from '@/utils/auth'
         border-left: 1px solid #333;
       }
     }
-    
+    // 判断不同屏幕设置列数
+    /* @media (min-width: 400px) { 
+      .itemlist { 
+          column-count: 2; 
+      } 
+    } 
+    @media (min-width: 1200px) { 
+      .itemlist { 
+          column-count: 4; 
+      } 
+    }  */
   }
   .dataSetItem{
     padding: 0 40px 25px;
@@ -251,7 +275,6 @@ import { getToken, getUserName } from '@/utils/auth'
       img{
         // width: 189px;
         height: 112px;
-        
         transition: all 0.6s;  
         &:hover{  
           transform: scale(1.1);  
