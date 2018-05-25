@@ -1,7 +1,7 @@
 <template>
   <div class="serviceDetail-container">
     <el-row class='service_info'>
-      <img class='service_bg_img' src='../../assets/sevice_details/u536.jpg'/>
+      <img class='service_bg_img' src='../../../assets/sevice_details/u536.jpg'/>
       <div class='title_desc'>
         <div class="title_content">
           <h2 class="font36 nomargin"> <span class="font20">{{ service_type_name }}&nbsp;/</span>&nbsp;{{ service_title }} </h2>
@@ -34,7 +34,7 @@
 <script>
 import { getServiceDetails, getServiceTypeNameById } from '@/api/serviceLists'
 import { subStringNoMore3line } from '@/utils/index.js'
-import { TechnicalFeatures, FunctionalEmbodiment, ApplicationScene2 } from '@/views/serviceDetail/components'
+import { TechnicalFeatures, FunctionalEmbodiment, ApplicationScene2 } from '@/views/service/serviceDetail/components'
 export default {
    data (){
     return { 
@@ -95,8 +95,8 @@ export default {
       display:flex;
       align-items:center;
       color: #fff;
-      left: 10%;
-      right: 35%;
+      left: 20%;
+      right: 20%;
       bottom: 0;
       top: 0
     }

@@ -14,11 +14,14 @@
     data() {
       return {
         datalist:[{
-          imgUrl:require('../../../../assets/home/banner_2.jpg'),
-          link:''
+            imgUrl:require('../../../../assets/home/banner_2.jpg'),
+            link:''
           },{
-          imgUrl:require('../../../../assets/home/banner_1.jpg'),
-          link:''
+            imgUrl:require('../../../../assets/home/banner_1.jpg'),
+            link:''
+          },{
+            imgUrl:require('../../../../assets/home/banner_3.jpg'),
+            link:''
         }],
       }
     },

@@ -55,13 +55,13 @@ export const constantRouterMap = [
       {
         path: 'list/:randomValue',
         name: 'serviceLists',
-        component: () => import('@/views/serviceLists/index'),
+        component: () => import('@/views/service/serviceLists/index'),
         meta: { title: 'serviceLists' }
       },
       {
         path:'serviceDetail/:service_id',
         name: 'serviceDetail',
-        component: () => import('@/views/serviceDetail/index'),
+        component: () => import('@/views/service/serviceDetail/index'),
         meta: { title: 'serviceDetail' }
       }
     ]
@@ -97,6 +97,12 @@ export const constantRouterMap = [
     path:"/innovation",
     name:'innovation',
     component:() =>import('@/views/innovation/index'),
+    
+  },
+  {
+    path:"/nlpschool",
+    name:'nlpschool',
+    component:() =>import('@/views/nlpschool/index'),
     
   },
 

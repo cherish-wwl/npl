@@ -246,8 +246,8 @@ $activeColor: #409EFF;
       display:flex;
       align-items:center;
       color: #fff;
-      left: 20%;
-      right: 32%;
+      left: 10%;
+      right: 35%;
     }
   }
   .service_class{
