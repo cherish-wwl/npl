@@ -51,7 +51,7 @@
         </el-row>
         <el-row class='service_list' >
             <el-row class='item' v-for="item in thridList" :key='item.id'>
-              <el-col :span='8' class='item_img'>
+              <el-col :span='8' class='item_img' style="width:330px;"> 
                 <img :src=" item.serviceIcon | getImage" onerror="this.src='/static/default.png'" />
               </el-col>
               <el-col :span='16' class='item_info'>
@@ -303,7 +303,13 @@ export default {
       
       console.log("---------------跳转到详情页--------------------")
       console.log("id:"+id)
-      this.$router.push({name:'serviceDetail',params:{'service_id':id}})
+      console.log(id == "xiaoniu")
+      if(id == "xiaoniu"){
+         this.$router.push({path:'/solution/xiaoniu/5'})
+      }else{
+         this.$router.push({name:'serviceDetail',params:{'service_id':id}})
+      }
+     
     },
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
     

@@ -48,5 +48,6 @@
   .carouse-img{
     width: auto;
   }
+   
 </style>
 

@@ -1,7 +1,7 @@
 <template>
   <div class="serviceDetail-container">
     <el-row class='service_info'>
-      <img class='service_bg_img' src='../../../assets/sevice_details/u536.jpg'/>
+      <img class='service_bg_img' :src="service_bg_img"/>
       <div class='title_desc'>
         <div class="title_content">
           <h2 class="font36 nomargin"> <span class="font20">{{ service_type_name }}&nbsp;/</span>&nbsp;{{ service_title }} </h2>
@@ -47,7 +47,8 @@ export default {
       inArg:'',
       featureData: {},
       sceneData: {},
-      type:''
+      type:'',
+      service_bg_img:require("../../../assets/sevice_details/u536.jpg"),
     }
   },
   components: {
@@ -68,13 +69,18 @@ export default {
       this.service_desc = response.data.serviceDescr
       this.featureData =  response.data.serviceRelates
       this.sceneData = response.data.serviceRelates
+      
       // 执行所需参数
       this.url = response.data.url
       this.inArg = response.data.in_arg
       this.type = response.data.methodType
       var params ={class_id:response.data.class_id}
       getServiceTypeNameById(params).then(res =>{
-          this.service_type_name = res.data.classifyName
+        this.service_type_name = res.data.classifyName
+         if (res.data.img != "null" && res.data.img && res.data.img != null){
+           this.service_bg_img = '/static/services/service_list/'+ res.data.img
+         }
+        
       })
     })
   }
@@ -86,9 +92,12 @@ export default {
   // background-color: #fafafa;
   .service_info{
     position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
     .service_bg_img{
-      width: 100%;
-      max-height: 300px;
+      width: auto;
+      height: 300px;
     }
     .title_desc {
       position: absolute;

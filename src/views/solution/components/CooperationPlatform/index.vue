@@ -32,7 +32,7 @@ export default {
     .item{
       padding: 5px;
       img{
-        cursor: pointer;
+        // cursor: pointer;
         width: 100%;
         border: 1px solid #e5e5e5;
       }

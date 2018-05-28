@@ -526,22 +526,36 @@ export default {
     .item{
       background-color: #fff;
       padding: 0 24px 12px 24px;
-      .specialistName{
-        padding-left: 12px;
-        position: relative;
-        height: 45px;
-        &:before {
-          content: "";
-          height: 11px;
-          width: 2%;
-          background-color: #2b9eeb;
-          position: absolute;
-          top: 6px;
-          bottom: 0;
-          left: 0;
-    /* margin: auto 0; */
+      .info-line{
+        .specialistName{
+          padding-left: 12px;
+          position: relative;
+          height: 45px;
+          cursor: pointer;
+          &:hover{
+            text-decoration: underline;
+          }
+          &:before {
+            content: "";
+            height: 11px;
+            width: 5px;
+            background-color: #2b9eeb;
+            position: absolute;
+            top: 6px;
+            bottom: 0;
+            left: 0;
+      /* margin: auto 0; */
+          }
+        }
+        a{
+          color: #389FFF;
+          &:hover{
+            text-decoration: underline;
+           
+          }
         }
       }
+      
     }
     .item1{
       background-color: #fff;

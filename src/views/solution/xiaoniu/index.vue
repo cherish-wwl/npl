@@ -75,10 +75,10 @@ export default {
         data:[
         {teamname:'NiuTrans团队',principal:'朱靖波',
         detail:'国内顶级自然语言处理领域专家，任东北大学计算机学院教授、博士生导师。曾先后在香港城市大学、美国南加州大学USC/ISI开展语言分析和机器翻译的访问研究。',
-        img:"static/solution/xiaoniu/u1622.jpg",url:"hahahahah"},
-        {teamname:'NiuTrans团队',principal:'朱靖波',
+        img:"static/solution/xiaoniu/u1622.jpg",url:"/specialistDetails/5",type:1},
+        {teamname:'NiuTrans团队',principal:'肖桐',
         detail:'国内顶级自然语言处理领域专家，任东北大学计算机学院教授、博士生导师。曾先后在香港城市大学、美国南加州大学USC/ISI开展语言分析和机器翻译的访问研究。',
-        img:"static/solution//xiaoniu/u1626.jpg",url:"hahahahah"}
+        img:"static/solution//xiaoniu/u1626.jpg",url:"http://www.yatrans.com/plus/list.php?tid=79",type:0}
         ]
       },
       cooperationData:[

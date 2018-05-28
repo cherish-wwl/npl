@@ -6,7 +6,11 @@
       </el-col>
     </el-row>
     <el-row class="icon_panel">
-      <div class="icon_panel_item" v-for="(item,index) in specialist.data" :key="index">
+      <div 
+        class="icon_panel_item" 
+        v-for="(item,index) in specialist.data" 
+        @click="linkPage(item.url, item.type)" 
+        :key="index">
         
         <div class="left">
           <img :src="item.img"/>
@@ -27,6 +31,18 @@
     data () {
       return {
       
+      }
+    },
+    methods:{
+      linkPage(url, type){
+        if(type == 0){
+          // 跳转到外网页面
+          window.open(url,'_blank')
+        }else if(type ==1){
+          // 跳转到专家详情页面
+          this.$router.push({path:url})
+        }
+
       }
     },
     props: ['specialist'],

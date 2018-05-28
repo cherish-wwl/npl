@@ -18,21 +18,36 @@
       <br />
       <el-row class="content content_support" id="innovation_support">
         <h2 class="text_center font30">扶持计划</h2>
-        <p class="text_center">旨在收集泰岳及合作伙伴的优势，为自然语言处理创新团队提供优质的自然语言研究资源。</p>
+        <p class="text_center" style="color:#666666;">集平台合作伙伴优势，为自然语言处理技术创新团队提供优质的研究资源；为业务创新团队提供全面的自然语言处理技术支撑</p>
         <el-row class="item">
           <el-col :span="12">
             <ul class="font-desc-ul">
-              <span class="font20">为团队提供自然语言资源支持</span>
-              <li>多样的自然语言服务</li>
-              <li>自然语言相关的资源（行业数据、测试数据等）</li>
-              <li>成熟的解决方案模版</li>
+              <span class="font20">为技术创新团队提供研究资源支持</span>
+              <li>多样的自然语言处理基础服务</li>
+              <li>丰富的自然语言处理相关数据资源</li>
+              <li>随需提供的计算力资源</li>
+              <li>创新成果的产业实践、效果评估及迭代优化</li>
             </ul>
           </el-col>
           <el-col :span="12">
             <img src="../../../../assets/innovation/u2491.png"/>
           </el-col>
         </el-row>
-         <el-row class="item">
+        <el-row class="item">
+          <el-col :span="12">
+            <img src="../../../../assets/innovation/u2527.png"/>
+          </el-col>
+          <el-col :span="12">
+            <ul class="font-desc-ul">
+              <span class="font20">为业务创新团队提供自然语言处理技术支撑</span>
+              <li>全面、成熟、领先的中文信息处理技术</li>
+              <li>技术专家团队线上线下指导</li>
+              <li>随需提供的技术实验环境</li>
+              <li>神州泰岳广泛丰富的行业经验与项目实施经验</li>
+            </ul>
+          </el-col>
+        </el-row>
+         <!-- <el-row class="item">
           
           <el-col :span="12">
             <img src="../../../../assets/innovation/u2503.png"/>
@@ -45,8 +60,8 @@
               <li>成熟的解决方案模版</li>
             </ul>
           </el-col>
-        </el-row>
-         <el-row class="item">
+        </el-row> -->
+         <!-- <el-row class="item">
           <el-col :span="12">
             <ul class="font-desc-ul">
               <span class="font20">为创新的成果提供产业实践机会，反馈结果、二次优化</span>
@@ -58,15 +73,15 @@
           <el-col :span="12">
             <img src="../../../../assets/innovation/u2527.png"/>
           </el-col>
-        </el-row>
-      </el-row>
+        </el-row> -->
+      </el-row> 
       <br />
       <el-row class="content text_center" id="innovation_example">
         <el-row>
           <h2 class="font30">优秀案例</h2>
         </el-row>
         <el-row>
-          <div class="colums-3 grid" v-for="(item,index) in exampleData" :key="index">
+          <div class="colums-3 grid" v-for="(item,index) in exampleData" :key="index" style="width:33%;">
             <!-- <img :src="item.img"/>
             <div class="example-panel">
               <span>{{ item.title }}</span>
@@ -76,14 +91,23 @@
             <figure class="effect-sadie">
               <img :src="item.img" onerror="this.src='/static/default.png'"/>
               <figcaption>
-                <h2>
+                <h4>
                   <span>
                     {{ item.title }}
                     <br>
+                    {{item.descr4}}
+                    <br>
                     {{ item.descr1 }}
+                    <br>
+                    {{item.descr3}}
                   </span>
-                </h2>
-                <p>{{ item.descr2 }}</p>
+                </h4>
+                <p>
+                  <span>
+                    
+                     {{ item.descr2 }}
+                  </span>
+                 </p>
               </figcaption>			
             </figure>
             
@@ -93,7 +117,7 @@
       </el-row>
       <br />
       <br />
-      <cooperation :cooperation-data="cooperationData"></cooperation>
+      <!-- <cooperation :cooperation-data="cooperationData"></cooperation> -->
       
   </div>
 </template>
@@ -106,10 +130,10 @@ export default {
   },
   data (){
     return {
-      featherData:[{id:1,year:"2018",date:"5/22",title:'平台融合多学校资',descr:'智慧语义理解开放创新平台融合多学校资源...'},
-      {id:2,year:"2018",date:"5/22",title:'平台融合多学校资',descr:'智慧语义理解开放创新平台融合多学校资源...'}
-      ,{id:3,year:"2018",date:"5/22",title:'平台融合多学校资',descr:'智慧语义理解开放创新平台融合多学校资源...'}
-      ,{id:54,year:"2018",date:"5/22",title:'平台融合多学校资',descr:'智慧语义理解开放创新平台融合多学校资源...'}
+      featherData:[{id:1,year:"2018",date:"5/28",title:'首批中文信息处理专家入驻平台',descr:''},
+      {id:2,year:"2018",date:"5/21",title:'首批自然语言处理技术服务上线',descr:''}
+      ,{id:3,year:"2018",date:"5/18",title:'深度学习服务上线',descr:''}
+      ,{id:54,year:"2018",date:"5/13",title:'中文蒙文翻译服务上线',descr:''}
       ],
       cooperationData:{
         title:'合作伙伴',
@@ -158,21 +182,27 @@ export default {
       },
       exampleData:[
         {
-          title:'Dinfo-OEC',
-          descr1:'非结构化文本分析挖掘平台',
+          title:'DINFO-OEC',
+          descr1:'',
           descr2:'DINFO-OEC非结构化文本分析挖掘平台具有非结构化文本的分析、挖掘的超凡能力，是企业实施大数据战略的强大利器，也是业界首款完全面向业务建模的非结构化文本分析挖掘平台',
+          descr3:'业界首款完全面向业务建模的文本分析挖掘开发工具',
+          descr4:'非结构化文本分析挖掘平台',
           img:require('../../../../assets/innovation/u2535.jpg')
         },
         {
           title:'泰岳语义云',
-          descr1:'基于应用场景的大数据语义分析云服务平台',
-          descr2:'泰岳语义云是为合作伙伴、企业用户和应用开发者提供基于应用场景的大数据语义分析云服务平台。其旨在培养和完善中文语义解析领域生态系统，最终实现神州泰岳在中文语义解析领域的领导地位。',
+          descr1:'合作伙伴、企业用户和应用开发者提供基于应用场景的大数据语义分析云服务平台',
+          descr2:'泰岳语义云是为合作伙伴、企业用户和应用开发者提供基于应用场景的大数据语义分析云服务平台。其旨在培养和完善中文语义解析领域生态系统，最终实现神州泰岳在中文语义解析领域的领导地位',
+          descr3:'',
+          descr4:'',
           img:require('../../../../assets/innovation/u2537.jpg')
         },
         {
-          title:'小富机器人',
-          descr1:'超强语义识别能力的智能人机互动系统',
-          descr2:'小富机器人是采用国内领先的智慧语义认知技术和DINFO-OEC非结构化大数据分析挖掘技术研发的智能人机互动系统。',
+          title:'DINFO-XIAOFU',
+          descr1:'',
+          descr2:'小富机器人是采用国内领先的智慧语义认知技术和DINFO-OEC非结构化大数据分析挖掘技术研发的智能人机互动系统',
+          descr3:'超强语义识别能力的智能人机互动系统',
+          descr4:'小富机器人',
           img:require('../../../../assets/innovation/u2539.jpg')
         },
       ]
