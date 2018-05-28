@@ -125,7 +125,13 @@ import { getToken, getUserName } from '@/utils/auth'
       },
       // 跳转页面
       jumpPage(params){
-        this.$router.push(params)
+        if(params.name == "innovation"|| params.name == "nlpschool"){
+          console.log(window.location.origin )
+          window.open(window.location.origin + '#/'+params.name,"_blank")
+        }else{
+          this.$router.push(params)
+        }
+        
       },
       //跳转到解决方案详情页面
       seeSolutionDetails(child){

@@ -33,7 +33,7 @@
                 <div class='item_num'>
                   <span class='countNum'>{{ num4 }}</span> +
                 </div>
-                <div class='item_name'>研发工程师</div>
+                <div class='item_name'>解决方案</div>
               </el-col>
             </el-row>
           </div>
@@ -259,7 +259,7 @@ export default {
         this.endNum1 = res.data.professorCount
         this.endNum2 = res.data.serviceCount
         this.endNum3 = res.data.academyCount
-        this.endNum4 = res.data.professorCount
+        this.endNum4 = res.data.solutionCount
     })
 
   }
@@ -298,8 +298,8 @@ export default {
     
     p{
       text-indent: 33px;
-      font-weight: 300;
-      font-size: 14px;
+      // font-weight: 300;
+      font-size: 16px;
       line-height: 32px;
       // z-index: 50;
     }

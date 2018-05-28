@@ -10,6 +10,9 @@
         <span> > </span> &nbsp;&nbsp;
         <a class="font36" style="margin-bottom: 20px;">{{title2}}</a>
       </div>
+      <div class="display_sort_way">
+        <span class="font14">以姓氏笔画为序</span>
+      </div>
     </el-row>
     <br >
     <!-- 专家列表展示页面 -->
@@ -79,7 +82,7 @@
               <div v-if="currentNode == 'researchDirection'" class="researchDirection">
                 <!-- 研究方向 -->
                 <div  class="item font14" v-for="(child,index) in specialistData[currentSpecialistIndex].researchDirection" :key="index">
-                    <span class="item-title">{{ child.title }}:</span>
+                    <span class="item-title">{{ child.title }}</span>
                     <span class="item-content">{{ child.content }}</span>
                 </div>
               </div>
@@ -147,7 +150,7 @@ export default {
           id:1,
           name:'赵铁军',
           img:require("../../../../assets/home/specialist/zhaotiejun1.jpg"),
-          desrc:"博士生导师，哈工大教育部-微软语言语音重点实验室主任，中国中文信息学会常务理事，中国计算机学会中文信息技术专委会副主任，《中文信息学报》编委，全国术语标准化技术委员会“语言资源建设与管理”分会委员，中国计算机学会高级会员。近年来承担国家自然科学基金项目、863计划项目、各类纵向和横向项目等14余项，曾获部级科技进步奖6项。近年来发表论文近百余篇，出版专著2部。",
+          desrc:"哈尔滨工业大学教授、博士生导师，哈工大教育部-微软语言语音重点实验室主任，中国中文信息学会常务理事，中国计算机学会中文信息技术专委会副主任，《中文信息学报》编委，全国术语标准化技术委员会“语言资源建设与管理”分会委员，中国计算机学会高级会员。近年来承担国家自然科学基金项目、863计划项目、各类纵向和横向项目等14余项，曾获部级科技进步奖6项。近年来发表论文近百余篇，出版专著2部。",
           researchResult:{
               desrc:"",
               data:[
@@ -178,6 +181,8 @@ export default {
                   childs:[
                     
                   ]
+                },{
+                  title:"国家自然科学基金重点项目，面向汉语文本理解的语义计算方法"
                 },{
                   title:"横向项目，中文产品名称分类系统开发与数据整理工程",
                   childs:[
@@ -296,25 +301,25 @@ export default {
             },
            ],
           thesis:[
-            "[1] 李超 孙健 关毅 徐兴军 侯磊 李生. 基于最大熵模型的汉语基本块分析技术研究. 中文信息学会句法分析评测（CIPS-ParsEval-2009）. 2009,pp.19-25",
-            "[2] 董喜双 关毅 李本阳 陈志杰. 基于最大熵模型的中文词与句情感分析研究. 第二届中文倾向性分析评测(COAE2009). 2009, pp.50-58.",
-            "[3] Dong, X.; Chen, X.; Guan, Y.; Xu, Z.; Li, S. An Overview of Learning to Rank for Information Retrieval. Proc. WRI World Congress on Computer Science and Information Engineering, 2009, 3, 600-606.",
-            "[4] 杜新凯 关毅 岳淑珍 徐兴军，基于Swarm的人工免疫网络算法研究，微计算机信息，2008年18期",
-            "[5] 孙广路 王晓龙 关毅 基于词聚类特征的统计中文组块分析模型，电子学报， 2008，36(12)： 2450-2453",
-            "[6] Yi Guan, Xiaolong Wang, and Qiang Wang, A New Measurement of Systematic Similarity, IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS—PART A: SYSTEMS AND HUMANS, VOL. 38, NO. 4, JULY 2008,pp 743-758",
-            "[7]Tiejun Zhao, Yi Guan, Ting Liu, Qiang Wang: Recent advances on NLP research in Harbin Institute of Technology. Frontiers of Computer Science in China 1(4): 413-428 (2007)",
-            "[8] 姜维 王晓龙 关毅 赵健，基于多知识源的中文词法分析系统，计算机学报，2007年第1期，137-145页",
-            "[9] 王强 关毅 王晓龙，基于特征类别属性分析的文本分类器分类噪声裁剪方法 自动化学报; 2007年08期",
-            "[10] Chi-Ho Li, Dongdong Zhang, Mu Li, Ming Zhou,Minghui Li, Yi Guan, A Probabilistic Approach to Syntax-based Reordering for Statistical Machine Translation,in Proceedings of the 45th Annual Meeting of the Association of Computational Linguistics, Prague, 2007",
-            "[11] 王强 关毅 基于标题类别语义识别的文本分类算法研究，电子与信息学报，第29卷第12期，2885-2890，2007年12月",
-            "[12] Chengjie Sun, Lei Lin, Xiaolong Wang, Yi Guan, Using Maximum Entropy Model to Extract Protein-Protein Interaction Information from Biomedical Literature,Lecture Notes in Computer Science of Advanced Intelligent Computing Theories and Applications with Aspects of Theoretical and Methodological Issues, Volume 4681/2007,730-737",
-            "[13] Chengjie Sun, Yi Guan, Xiaolong Wang, Lei Lin, Rich features based Conditional Random Fields for biological named entities recognition, Computers in Biology and Medicine archive, Volume 37, Issue 9, 2007",
-            "[14] Qiwen Dong, Xiaolong Wang, Lei Lin, Yi Guan, Exploiting residue-level and profile-level interface propensities for usage in binding sites prediction of proteins, BMC Bioinformatics. 2007; 8: 147.",
-            "[15] 姜维 关毅 王晓龙 刘秉权 基于支持向量机的音字转换模型, 中文信息学报, 2007年02期",
-            "[16] 何晏成 关毅 岳淑珍 一个基于免疫机制的在线机器学习算法，第三届全国信息检索与内容安全学术会议，2007.11，苏州",
-            "[17] Sun Guanglu, Guan Yi, Wang Xiaolong, A Maximum Entropy Chunking Model with N-fold Template Correction, Journal of Electronics(China) 2007 24 (5): 690-695",
-            "[18] Guan Yi, Zhao Jian, An Improved Feature Representation Method for Maximum Entropy Model Data Mining Workshops, 2006. ICDM Workshops 2006. Sixth IEEE International Conference, Volume , Issue , Dec. 2006 Page(s):400 - 406",
-            "[19] Chengjie Sun, Yi Guan, Xiaolong Wang, Lei Lin Biomedical Named Entities Recognition Using Conditional Random Fields Model,Lecture Notes in Computer Science of Fuzzy Systems and Knowledge Discovery,Volume 4223/2006, 1279-1288",
+            "李超 孙健 关毅 徐兴军 侯磊 李生. 基于最大熵模型的汉语基本块分析技术研究. 中文信息学会句法分析评测（CIPS-ParsEval-2009）. 2009,pp.19-25",
+            "董喜双 关毅 李本阳 陈志杰. 基于最大熵模型的中文词与句情感分析研究. 第二届中文倾向性分析评测(COAE2009). 2009, pp.50-58.",
+            "Dong, X.; Chen, X.; Guan, Y.; Xu, Z.; Li, S. An Overview of Learning to Rank for Information Retrieval. Proc. WRI World Congress on Computer Science and Information Engineering, 2009, 3, 600-606.",
+            "杜新凯 关毅 岳淑珍 徐兴军，基于Swarm的人工免疫网络算法研究，微计算机信息，2008年18期",
+            "孙广路 王晓龙 关毅 基于词聚类特征的统计中文组块分析模型，电子学报， 2008，36(12)： 2450-2453",
+            "Yi Guan, Xiaolong Wang, and Qiang Wang, A New Measurement of Systematic Similarity, IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS—PART A: SYSTEMS AND HUMANS, VOL. 38, NO. 4, JULY 2008,pp 743-758",
+            "Tiejun Zhao, Yi Guan, Ting Liu, Qiang Wang: Recent advances on NLP research in Harbin Institute of Technology. Frontiers of Computer Science in China 1(4): 413-428 (2007)",
+            "姜维 王晓龙 关毅 赵健，基于多知识源的中文词法分析系统，计算机学报，2007年第1期，137-145页",
+            "王强 关毅 王晓龙，基于特征类别属性分析的文本分类器分类噪声裁剪方法 自动化学报; 2007年08期",
+            "Chi-Ho Li, Dongdong Zhang, Mu Li, Ming Zhou,Minghui Li, Yi Guan, A Probabilistic Approach to Syntax-based Reordering for Statistical Machine Translation,in Proceedings of the 45th Annual Meeting of the Association of Computational Linguistics, Prague, 2007",
+            "王强 关毅 基于标题类别语义识别的文本分类算法研究，电子与信息学报，第29卷第12期，2885-2890，2007年12月",
+            "Chengjie Sun, Lei Lin, Xiaolong Wang, Yi Guan, Using Maximum Entropy Model to Extract Protein-Protein Interaction Information from Biomedical Literature,Lecture Notes in Computer Science of Advanced Intelligent Computing Theories and Applications with Aspects of Theoretical and Methodological Issues, Volume 4681/2007,730-737",
+            "Chengjie Sun, Yi Guan, Xiaolong Wang, Lei Lin, Rich features based Conditional Random Fields for biological named entities recognition, Computers in Biology and Medicine archive, Volume 37, Issue 9, 2007",
+            "Qiwen Dong, Xiaolong Wang, Lei Lin, Yi Guan, Exploiting residue-level and profile-level interface propensities for usage in binding sites prediction of proteins, BMC Bioinformatics. 2007; 8: 147.",
+            "姜维 关毅 王晓龙 刘秉权 基于支持向量机的音字转换模型, 中文信息学报, 2007年02期",
+            "何晏成 关毅 岳淑珍 一个基于免疫机制的在线机器学习算法，第三届全国信息检索与内容安全学术会议，2007.11，苏州",
+            "Sun Guanglu, Guan Yi, Wang Xiaolong, A Maximum Entropy Chunking Model with N-fold Template Correction, Journal of Electronics(China) 2007 24 (5): 690-695",
+            "Guan Yi, Zhao Jian, An Improved Feature Representation Method for Maximum Entropy Model Data Mining Workshops, 2006. ICDM Workshops 2006. Sixth IEEE International Conference, Volume , Issue , Dec. 2006 Page(s):400 - 406",
+            "Chengjie Sun, Yi Guan, Xiaolong Wang, Lei Lin Biomedical Named Entities Recognition Using Conditional Random Fields Model,Lecture Notes in Computer Science of Fuzzy Systems and Knowledge Discovery,Volume 4223/2006, 1279-1288",
           ],
           //recommendList:[2,5,3,4]
         },
@@ -417,26 +422,26 @@ export default {
             }
           ],
           thesis:[
-            "[1] “A Simple Tempo-Spectral Hybrid Method for Speech Noise Reduction”, in the Proceedings of the Sixth International Conference on Knowledge-Based Intelligent Information Engineering Systems, September 2002, Italy, pp.1142-1146",
-            "[2] “Data Driven Design of an ANN/HMM System for On-line Unconstrained Handwritten Character Recognition”, in the Proceedings of the 4th IEEE International Conference on Multimodal Interfaces (ICMI’02), October 2002, Pittsburgh, Pennsylvania, USA, pp.141-146",
-            "[3] “VQ-Based On-line Handwritten Character Recognition through Learning and Adaptive Edit Distances”, in the Proceedings of the 9th International Conference on Neural Information Processing (ICONIP'02), 18-22 November 2002, Singapore, pp.2008-2012",
-            "[4] “A Learning Edit Distance Based Method for On-line Handwriting Codebook Generation”, in the Proceedings of the 4th International Conference on Modelling and Simulation (MS'02), 11-13 November 2002, Autralia",
-            "[5] “The Complete K-level Tree and its Application to Data Warehouse Filtering”, Proceedings of the 7th International Conference for Young Computer Scientists, Harbin China, 2003, pp.223-226",
-            "[6] “禁忌搜索消除预成熟现象的聚类算法研究”，2003全国人工智能学术大会，2003年10月，pp.480-483",
-            "[7] “分段式音频检索算法”，2003全国人工智能学术大会，2003年10月，pp.609-612",
-            "[8] “面向嵌入式应用的小词汇量语音串识别系统”，2003全国人机语音通讯学术大会，2003年10月，pp.79-82",
-            "[9] “Hidden Control Neural Network and HMM Hybrid Approach for On-line Handwriting Recognition”, 2003 IEEE International Conference on Neural Networks and Signal Processing, December 2003, pp.627-670",
-            "[10] 高畅，李海峰，马琳, '基于压缩感知理论的语音信号压缩与重构方法', NCMMSC, 2011",
-            "[11]   张珑，李海峰，马琳，'利用移动设备辅助汉语普通话发音学习研究'，NCMMSC, 2011",
-            "[12]   Haifeng Li, Tian Zhang, Lin Ma, 'Confirmation Based Self-Learning Algorithm in LVCSR's Semi-supervised Incremental Learning', IWIEE, 2012",
-            "[13] Haifeng Li, Tian Zhang, Lin Ma. Confirmation Based Self-Learning Algorithm in LVCSR's Semi-supervised Incremental Learning. 2012 International Workshop on Information and Electronics Engineering (IWIEE 2012). Procedia Engineering. Vol.29: 754-759",
-            "[14] Wenjing Han，Haifeng Li，Florian Eyben，Li Ma，Jiayin Sun，Bjorn Schuller. Preserving Actual Dynamic Trend of Emotion in Dimensional Speech Emotion Recognition . Proc. Second International Audio/Visual Emotion Challenge and Workshop (AVEC 2012)，Grand Challenge and Satellite of ACM ICMI 2012，ACM，Santa Monica，CA，22-26.10.2012.",
-            "[15] Wenjing Han，Haifeng Li，Lin Ma，Xiaopeng Zhang，Bjorn Schuller. A Ranking-based Emotion Annotation Scheme and Real-life Speech Database. Proc. 4th International Workshop on Emotion Sentiment Social Signals 2012, held in conjunction with LREC 2012，Istanbul，Turkey：67-71，26.05.2012.",
-            "[16] 高畅，李海峰，马琳, 面向内容的语音信号压缩感知研究. 2012",
-            "[17]  Zhang Long, Li Haifeng, and Ma Lin. Automatic Pronunciation Error Detection Based on Extended Pronunciation Space Using the Unsupervised Clustering of Pronunciation Errors. Proceeding of Interspeech 2012.",
-            "[18] Zhang Long, Li Haifeng, and Ma Lin. An Adaptive Unsupervised Clustering of Pronunciation Errors for Automatic Pronunciation Error Detection. Proceeding of ICPR 2012.",
-            "[19] Zhenlu Wang, Haifeng Li, Lin Ma. HHT based long term feature extracting method for speech emotion classification. International Conference on Audio, Language and Image Processing 2012",
-            "[20] Yinxue Qin, Lin Ma, Haifeng Li, Qiuhua Wei. Research of pattern recognition based on the local structure topological. International Conference on Audio, Language and Image Processing 2012",
+            "“A Simple Tempo-Spectral Hybrid Method for Speech Noise Reduction”, in the Proceedings of the Sixth International Conference on Knowledge-Based Intelligent Information Engineering Systems, September 2002, Italy, pp.1142-1146",
+            "“Data Driven Design of an ANN/HMM System for On-line Unconstrained Handwritten Character Recognition”, in the Proceedings of the 4th IEEE International Conference on Multimodal Interfaces (ICMI’02), October 2002, Pittsburgh, Pennsylvania, USA, pp.141-146",
+            "“VQ-Based On-line Handwritten Character Recognition through Learning and Adaptive Edit Distances”, in the Proceedings of the 9th International Conference on Neural Information Processing (ICONIP'02), 18-22 November 2002, Singapore, pp.2008-2012",
+            "“A Learning Edit Distance Based Method for On-line Handwriting Codebook Generation”, in the Proceedings of the 4th International Conference on Modelling and Simulation (MS'02), 11-13 November 2002, Autralia",
+            "“The Complete K-level Tree and its Application to Data Warehouse Filtering”, Proceedings of the 7th International Conference for Young Computer Scientists, Harbin China, 2003, pp.223-226",
+            "“禁忌搜索消除预成熟现象的聚类算法研究”，2003全国人工智能学术大会，2003年10月，pp.480-483",
+            "“分段式音频检索算法”，2003全国人工智能学术大会，2003年10月，pp.609-612",
+            "“面向嵌入式应用的小词汇量语音串识别系统”，2003全国人机语音通讯学术大会，2003年10月，pp.79-82",
+            "“Hidden Control Neural Network and HMM Hybrid Approach for On-line Handwriting Recognition”, 2003 IEEE International Conference on Neural Networks and Signal Processing, December 2003, pp.627-670",
+            "高畅，李海峰，马琳, '基于压缩感知理论的语音信号压缩与重构方法', NCMMSC, 2011",
+            "张珑，李海峰，马琳，'利用移动设备辅助汉语普通话发音学习研究'，NCMMSC, 2011",
+            " Haifeng Li, Tian Zhang, Lin Ma, 'Confirmation Based Self-Learning Algorithm in LVCSR's Semi-supervised Incremental Learning', IWIEE, 2012",
+            "Haifeng Li, Tian Zhang, Lin Ma. Confirmation Based Self-Learning Algorithm in LVCSR's Semi-supervised Incremental Learning. 2012 International Workshop on Information and Electronics Engineering (IWIEE 2012). Procedia Engineering. Vol.29: 754-759",
+            "Wenjing Han，Haifeng Li，Florian Eyben，Li Ma，Jiayin Sun，Bjorn Schuller. Preserving Actual Dynamic Trend of Emotion in Dimensional Speech Emotion Recognition . Proc. Second International Audio/Visual Emotion Challenge and Workshop (AVEC 2012)，Grand Challenge and Satellite of ACM ICMI 2012，ACM，Santa Monica，CA，22-26.10.2012.",
+            "Wenjing Han，Haifeng Li，Lin Ma，Xiaopeng Zhang，Bjorn Schuller. A Ranking-based Emotion Annotation Scheme and Real-life Speech Database. Proc. 4th International Workshop on Emotion Sentiment Social Signals 2012, held in conjunction with LREC 2012，Istanbul，Turkey：67-71，26.05.2012.",
+            "高畅，李海峰，马琳, 面向内容的语音信号压缩感知研究. 2012",
+            "Zhang Long, Li Haifeng, and Ma Lin. Automatic Pronunciation Error Detection Based on Extended Pronunciation Space Using the Unsupervised Clustering of Pronunciation Errors. Proceeding of Interspeech 2012.",
+            "Zhang Long, Li Haifeng, and Ma Lin. An Adaptive Unsupervised Clustering of Pronunciation Errors for Automatic Pronunciation Error Detection. Proceeding of ICPR 2012.",
+            "Zhenlu Wang, Haifeng Li, Lin Ma. HHT based long term feature extracting method for speech emotion classification. International Conference on Audio, Language and Image Processing 2012",
+            "Yinxue Qin, Lin Ma, Haifeng Li, Qiuhua Wei. Research of pattern recognition based on the local structure topological. International Conference on Audio, Language and Image Processing 2012",
           ],
           //recommendList:[2,5,3,4]
         },
@@ -621,23 +626,23 @@ export default {
             }
           ],
           thesis:[
-            "1.高嘉伟 梁吉业 刘杨磊 李茹 一种基于Tri-trainging的半监督多标记学习文档分类算法,中文信息学报,29(1):104-110.,2015-01-01 00:00:00,二级学科主学报 ",
-            "2.吕国英 李茹 浅析工程教育实施探索－以软件工程为例,其他刊物,24（12）：66－69,2014-12-01 00:00:00,其他正式刊物 ",
-            "3.石佼 李茹 王智强 汉语核心框架语义分析,中文信息学报,28(6):48-55,2014-11-01 00:00:00,二级学科主学报 ",
-            "4.张欣雨 李茹 王晋宇 改进最大Lyapunov指数的瓦斯时间序列预测研究,其他刊物,2014,10:119-122,2014-07-17 00:00:00,统计源期刊 ",
-            "5.张晓梅 李茹 王斌 吴迪 高俊杰 基于融合特征的微博主客观分类方法,中文信息学报,28(4):50-57,2014-07-01 00:00:00,二级学科主学报 ",
-            "6.陈学丽 李茹 王赛 王智强 汉语框架网中未登录词元的框架选择,中文信息学报,28(3):48-54,2014-05-25 00:00:00,二级学科主学报",
-            "7.王宁 李茹 雷章章 王智强 靳晶盼 Document Oriented Gap Filling of Definite Null Instantiation in FrameNet,其他刊物,2013,8202:85-96,2013-10-15 00:00:00,其他正式刊物 ",
-            "8.李茹 王智强 李双红 梁吉业 基于框架语义分析的汉语句子相似度计算,计算机研究与发展,50（8）：1728-1736,2013-08-15 00:00:00,一级学科主学报 ",
-            "9.李国臣 张立凡 李茹 刘海静 石佼 基于词元语义特征的汉语框架排歧研究,中文信息学报,27(4):44-51,2013-07-01 00:00:00,二级学科主学报 ",
-            "10.王赛 李茹 王瑞波 王智强 张霞 SXU-Core: STS Models Integrating FrameNet Parsing Information,其他刊物,2013(1): 74 - 79,2013-06-13 00:00:00,国际会议论文集 ",
-            "11.雷章章 王宁 李茹 王智强 FrameNet 中有定的零形式识别,中文信息学报,27(3):107-112,2013-05-25 00:00:00,二级学科主学报 ",
-            "12.雷章章 王宁 李茹 王智强 FrameNet中有定的零形式识别,中文信息学报,27(3)：107-112,2013-05-01 00:00:00,二级学科主学报 ",
-            "13.王智强 李茹 阴志洲 刘海静 李双红 基于依存特征的汉语框架语义角色标注,中文信息学报,27(2):34-40,2013-03-25 00:00:00,二级学科主学报 ",
-            "14.王素格 尹学倩 李茹 吕云云 基于非完备信息系统的评价对象情感聚类,中文信息学报,26（4）：98-102,2012-07-25 00:00:00,二级学科主学报 ",
-            "15.穆文瑜 李茹 阴志洲 王齐 张宝燕 煤矿多传感器混沌时序数据融合预测,计算机应用,32（6）：1769-1773,2012-06-01 00:00:00,二级学科主学报 ",
-            "16.王素格 尹学倩 李茹 张杰* 吕云云 sentiment clustering of product object based on feature reduction,其他刊物,2012：759-763,2012-05-29 00:00:00,国际会议论文集 ",
-            "17.梁吉业 李茹 钱宇华 Distance: A more comprehensible perspective for measures in rough set theory,其他刊物,27:126-136,2012-04-01 00:00:00,sci(3区)",
+            "高嘉伟 梁吉业 刘杨磊 李茹 一种基于Tri-trainging的半监督多标记学习文档分类算法,中文信息学报,29(1):104-110.,2015-01-01 00:00:00,二级学科主学报 ",
+            "吕国英 李茹 浅析工程教育实施探索－以软件工程为例,其他刊物,24（12）：66－69,2014-12-01 00:00:00,其他正式刊物 ",
+            "石佼 李茹 王智强 汉语核心框架语义分析,中文信息学报,28(6):48-55,2014-11-01 00:00:00,二级学科主学报 ",
+            "张欣雨 李茹 王晋宇 改进最大Lyapunov指数的瓦斯时间序列预测研究,其他刊物,2014,10:119-122,2014-07-17 00:00:00,统计源期刊 ",
+            "张晓梅 李茹 王斌 吴迪 高俊杰 基于融合特征的微博主客观分类方法,中文信息学报,28(4):50-57,2014-07-01 00:00:00,二级学科主学报 ",
+            "陈学丽 李茹 王赛 王智强 汉语框架网中未登录词元的框架选择,中文信息学报,28(3):48-54,2014-05-25 00:00:00,二级学科主学报",
+            "王宁 李茹 雷章章 王智强 靳晶盼 Document Oriented Gap Filling of Definite Null Instantiation in FrameNet,其他刊物,2013,8202:85-96,2013-10-15 00:00:00,其他正式刊物 ",
+            "李茹 王智强 李双红 梁吉业 基于框架语义分析的汉语句子相似度计算,计算机研究与发展,50（8）：1728-1736,2013-08-15 00:00:00,一级学科主学报 ",
+            "李国臣 张立凡 李茹 刘海静 石佼 基于词元语义特征的汉语框架排歧研究,中文信息学报,27(4):44-51,2013-07-01 00:00:00,二级学科主学报 ",
+            "王赛 李茹 王瑞波 王智强 张霞 SXU-Core: STS Models Integrating FrameNet Parsing Information,其他刊物,2013(1): 74 - 79,2013-06-13 00:00:00,国际会议论文集 ",
+            "雷章章 王宁 李茹 王智强 FrameNet 中有定的零形式识别,中文信息学报,27(3):107-112,2013-05-25 00:00:00,二级学科主学报 ",
+            "雷章章 王宁 李茹 王智强 FrameNet中有定的零形式识别,中文信息学报,27(3)：107-112,2013-05-01 00:00:00,二级学科主学报 ",
+            "王智强 李茹 阴志洲 刘海静 李双红 基于依存特征的汉语框架语义角色标注,中文信息学报,27(2):34-40,2013-03-25 00:00:00,二级学科主学报 ",
+            "王素格 尹学倩 李茹 吕云云 基于非完备信息系统的评价对象情感聚类,中文信息学报,26（4）：98-102,2012-07-25 00:00:00,二级学科主学报 ",
+            "穆文瑜 李茹 阴志洲 王齐 张宝燕 煤矿多传感器混沌时序数据融合预测,计算机应用,32（6）：1769-1773,2012-06-01 00:00:00,二级学科主学报 ",
+            "王素格 尹学倩 李茹 张杰* 吕云云 sentiment clustering of product object based on feature reduction,其他刊物,2012：759-763,2012-05-29 00:00:00,国际会议论文集 ",
+            "梁吉业 李茹 钱宇华 Distance: A more comprehensible perspective for measures in rough set theory,其他刊物,27:126-136,2012-04-01 00:00:00,sci(3区)",
           ],
           patentApplication:[
             "汉语框架排歧系统",
@@ -713,7 +718,7 @@ export default {
           id:10,
           img:require("../../../../assets/home/specialist/wangbo1.jpg"),
           name:'王博',
-          desrc:"博士，天津大学计算机科学与技术学院副教授。研究兴趣主要集中在社会计算，自然语言处理与机器学习方法。主要从事基于信息内容分析的互联网社会媒体分析与挖掘。近年来，研究主要集中在通过深入分析互联网社会媒体中信息内容的特点，来研究信息的传播及影响力模型及应用。王博博士2010年4月入职天津大学计算机学院。在国内外高水平学术刊物和国际会议上发表论文10余篇。作为项目负责人主持国家自然科学基金和天津市自然科学基金项目各1项。",
+          desrc:"博士，天津大学计算机科学与技术学院副教授。研究兴趣主要集中在社会计算，自然语言处理与机器学习方法。主要从事基于信息内容分析的互联网社会媒体分析与挖掘。近年来，研究主要集中在通过深入分析互联网社会媒体中信息内容的特点，来研究信息的传播及影响力模型及应用。王博博士2010年4月入职天津大学计算机学院。在国内外高水平学术刊物和国际会议上发表论文10余篇。作为项目负责人主持国家自然科学基金和天津市自然科学基金项目各1项。曾先后于微软亚洲研究院、意大利帕多瓦大学、英国罗伯特戈登大学访问工作，目前为美国华盛顿大学心理学系访问学者，从事个人及群体的自动化心理画像研究。",
           researchResult:{
             data:[
                 {   
@@ -730,6 +735,8 @@ export default {
           researchDirection:[
             {
               title:"社会计算（社会媒体内容自动化分析，基于计算方法的人物及群体性格与心理画像）；自然语言处理（以人工智能为方法探索社会场景下的语义与观点自动化分析，基于语言的心理及社会关系自动化分析）。",
+            },{
+              title:"自然语言处理：利用语言学知识及深度学习等前沿方法，自动化分析自然语言的结构、语义和意图等信息。当前重点研究方向：面相社会网络中人物与人物关系画像的人物言论深度分析。主要包括人物言论的语义要素、情感倾向、意图理解等。 "
             }
           ],
           thesis:[
@@ -827,7 +834,7 @@ export default {
           id:12,
           img:require("../../../../assets/home/specialist/chenchen1.jpg"),
           name:'陈晨',
-          desrc:"博士，南开大学计算机科学与信息安全系副教授，博士毕业于哈尔滨工业大学.在南开大学计算机科学与信息安全系，从事计算机基础课程的教学和自然语言处理的科研工作。",
+          desrc:"博士，南开大学计算机科学与信息安全系副教授，博士毕业于哈尔滨工业大学.在南开大学计算机科学与信息安全系，主要研究兴趣包括自然语言处理、信息检索、社会计算和机器学习。近年来主持一项国家自然基金项目，参与多项国家级和部级的基金项目，发表论文十多篇，主编两部教材。",
           researchResult:{
             data:[
               {
@@ -839,6 +846,14 @@ export default {
                     text:"第二、移动宽带数据的分析和建模。移动宽带数据是移动通讯运营商为用户提供访问互联网服务的数据。实验室的主要研究包括用户活跃度预测和访问响应时间预测。"
                   }
                 ]
+              },{
+                title:"2016.1.1-2017.12.31教育部-中国移动科研基金—基于Spark技术的LTE网络信令数据实时分析系统研究 项目编号：MCM20150507"
+              },{
+                title:"2014.12.01-2015.12.01 教育部-中国移动科研基金—基于网络侧数据的用户特征提取与新业务受众预测研究 项目编号：MCM20130381",
+              },{
+                title:"购买行为预测。随着电子商务的快速发展，理解用户的需求和预测用户的购买行为成为研究热点。第二届中国大数据比赛和RecSys 2015 Challenge的任务，都是根据用户浏览和点击的数据，预测用户的购买行为以及最终购买的商品。实验室主要研究特征工程的方法和各种机器学习模型。",
+              },{
+                title:"移动宽带数据的分析和建模。移动宽带数据是移动通讯运营商为用户提供访问互联网服务的数据。实验室的主要研究包括用户活跃度预测和访问响应时间预测。"
               }
             ]
           },
@@ -848,8 +863,22 @@ export default {
             }
           ],
           thesis:[
-            "1.主编《大学计算机应用基础》，清华大学出版社，2015 ",
-            "2.主编《Visual Basic.Net程序设计习题集》，南开大学出版社，2016"
+            "主编《大学计算机应用基础》，清华大学出版社，2015 ",
+            "主编《Visual Basic.Net程序设计习题集》，南开大学出版社，2016",
+            "Enhancing Purchase Behavior Prediction with Temporally Popular Items,Chen Chen(#); Chunyan Hou(*); Jiakun Xiao; Yanlong Wen; Xiaojie Yuan,IEICE Transactions on Information and Systems, 2017, E100-D(9): 2237~2240",
+            "Short-term User Activity Prediction with Massive Mobile Broadband Data Jiakun Xiao(#); Chen Chen(*); Chunyan Hou; Xiaojie Yuan IEEE International Conference on Mobile Data Management, Daejeon, 2017.5.29-2017.6.2",
+            "Using Hierarchical Scenarios to Predict the Reliability of Component-based Software,Chunyan Hou(#); Jinsong Wang(*); Chen Chen,IEICE Transactions on Information and Systems, 2017, E101(2): 405~414",
+            "Improving Purchase Behavior Prediction with Most Popular Items Chen Chen(#); Jiakun Xiao; Chunyan Hou(*); Xiaojie Yuan,IEICE Transactions on Information and Systems, 2016, E100-D(2): 367~370",
+            "Purchase Behavior of E-commerce Customer, One-stage or Two-stage? Chen Chen(#); Chunyan Hou(*); Jiakun Xiao; Xiaojie Yuan 2016 International Conference on Artificial Intelligence and Computer Science, Guilin, 2016.12.23-2016.12.25 ; EI",
+            "Purchase Behavior Prediction in E-commerce with Factorization Machines Chen Chen(#); Chunyan Hou(*); Jiakun Xiao; Xiaojie Yuan,IEICE Transactions on Information and Systems, 2016, E99-D(1): 270~274",
+            "Reliability Analysis for Software Cluster Systems Based on Proportional Hazard Model Chunyan Hou(#); Chen Chen(*); Jinsong Wang; Kai Shi,IEEE 40th Annual Computer Software and Applications Conference, Atlanta, 2016.7.10-2016.7.14",
+            "A Scenario-Based Reliability Analysis Approach for Component-Based Software Chunyan Hou(#); Chen Chen; Jinsong Wang(*); Kai Shi,IEICE Transactions on Information and Systems, 2015, E98-D(3): 617~626",
+            "Personalized Recommendation of Item Category using Ranking on Time-Aware Graphs,Chen Chen(#); Chunyan Hou(*); Peng Nie; Xiaojie Yuan,IEICE Transactions on Information and Systems, 2015, E98-D(4): 948~954",
+            "Facet-based trend modeling for cold start of recommendation in social media Chen Chen(#); Chunyan Hou(*); Xiaojie Yuan IEEE International Conference on Orange Technologies, Xian, 2014.9.23-2014.9.26",
+            "Software Reliability Process Simulation Considering Imperfect Debugging,Chunyan Hou; Chen Chen; Jinsong Wang; Sheng Lin,Chinese High Technology Letters, 2014.",
+            "Facet-Based User Modeling in Social Media for Personalized Ranking Chen Chen; Dongxing Wu; Chunyan Hou; Xiaojie Yuan European Conference on Information Retrieval. Springer, Cham, 2014:443-448.",
+            "Exploiting Social Media for Stock Market Prediction with Factorization Machine Chen Chen; Dongxing Wu; Chunyan Hou,; Xiaojie Yuan International Joint Conferences on Web Intelligence. IEEE Computer Society, 2014:142-149.",
+            "Relevance Feedback Fusion via Query Expansion,Chen Chen; Chunyan Hou; Xiaojie Yuan,International Conferences on Web Intelligence and Intelligent Agent Technology. IEEE, 2013:122-126."
           ],
         },
         13:{
@@ -922,145 +951,145 @@ export default {
           ],
           thesis:[
             "2018年:",
-                "	Xiaohui Xie, Yiqun Liu, Maarten de Rijke, Jiyin He, Min Zhang and Shaoping Ma. Why People Search for Images using Web Search Engines. The eleventh ACM International Conference on Web Search and Data Mining (WSDM 2018) ",
-                "	Ning Su, Jiyin He, Yiqun Liu, Min Zhang and Shaoping Ma. User Intent, Behaviour, and Perceived Satisfaction in Product Search. The eleventh ACM International Conference on Web Search and Data Mining(WSDM 2018)",
+                "Xiaohui Xie, Yiqun Liu, Maarten de Rijke, Jiyin He, Min Zhang and Shaoping Ma. Why People Search for Images using Web Search Engines. The eleventh ACM International Conference on Web Search and Data Mining (WSDM 2018) ",
+                "Ning Su, Jiyin He, Yiqun Liu, Min Zhang and Shaoping Ma. User Intent, Behaviour, and Perceived Satisfaction in Product Search. The eleventh ACM International Conference on Web Search and Data Mining(WSDM 2018)",
             "2017年:",
-                "	Xiangsheng Li, Cheng Luo, Yiqun Liu and Shaoping Ma. Chinese Translation of SIGIR Forum 2017 ",
-                "	Yiqun Liu, Chao Wang, Min Zhang and Shaoping Ma. User behavior modeling for better web search ranking. Frontiers in Computer Science 2017. Preprint Version. ",
-                "	Ye Chen, Yiqun Liu, Min Zhang and Shaoping Ma. User Satisfaction Prediction with Mouse Movement Information in Heterogeneous Search Environment. IEEE Transactions on Knowledge and Data Engineering. (TKDE) ",
-                "	Fan Zhang, Yiqun Liu, Xin Li, Min Zhang, Yinghui Xu and Shaoping Ma. Evaluating Web Search with a Bejeweled Player Model. The 39th ACM SIGIR International Conference on Research and Development in Information Retrieval (SIGIR2017 Best Student Paper Award). Preprint Version",
-                "	Cheng Luo, Yiqun Liu, Tetsuya Sakai, Fan Zhang, Min Zhang and Shaoping Ma. Evaluating Mobile Search with Height-Biased Gain. The 39th ACM SIGIR International Conference on Research and Development in Information Retrieval (SIGIR2017). Preprint Version",
-                "	Ye Chen, Ke Zhou, Yiqun Liu, Min Zhang and Shaoping Ma. Meta-evaluation of Online and Offline Web Search Evaluation Metrics. The 39th ACM SIGIR International Conference on Research and Development in Information Retrieval (SIGIR2017). Preprint Version Data Description Dataset",
-                "	Xiaohui Xie, Yiqun Liu, Xiaochuan Wang, Meng Wang, Zhijing Wu, Yingying Wu, Min Zhang and Shaoping Ma. Investigating Examination Behavior of Image Search Users. The 39th ACM SIGIR International Conference on Research and Development in Information Retrieval (SIGIR2017). Preprint Version",
-                "	Jiaxin Mao, Yiqun Liu, Huanbo Luan, Min Zhang and Shaoping Ma. Understanding and Predicting Usefulness Judgment in Web Search. (Short paper). The 39th ACM SIGIR International Conference on Research and Development in Information Retrieval (SIGIR2017). Preprint Version",
-                "	Cheng Luo, Yukun Zheng, Yiqun Liu, Xiaochuan Wang, Jingfang Xu, Min Zhang and Shaoping Ma. SogouT-16: A New Web Corpus to Embrace IR Research. (Short paper). The 39th ACM SIGIR International Conference on Research and Development in Information Retrieval (SIGIR2017). Preprint Version",
-                "	Zeyang Liu, Jiaxin Mao, Chao Wang, Qingyao Ai, Yiqun Liu, Jian-Yun Nie. Enhancing click models with mouse movement information. Information Retrieval Journal, 20(1), 53-80. Preprint Version. ",
-                "	Xiao Lin, Min Zhang, Yongfeng Zhang, Yiqun Liu and Shaoping Ma. Learning and Transferring Social and Item Visibilities for Personalized Recommendation. The 26th ACM International Conference on Information and Knowledge Management (CIKM 2017). ",
-                "	Bin Liu, Min Zhang, Weizhi Ma, Xin Li, Yiqun Liu and Shaoping Ma. A Two-step Information Accumulation Strategy for Learning from Highly Imbalanced Data. The 26th ACM International Conference on Information and Knowledge Management (CIKM 2017). ",
-                "	Yuli Liu, Yiqun Liu, Ke Zhou, Min Zhang and Shaoping Ma. Detecting Collusive Spamming Activities in Community Question Answering. The 26th International World Wide Web Conference (WWW 2017). Preprint PDF Dataset",
-                "	Yingying Wu, Yiqun Liu, Ning Su, Shaoping Ma and Wenwu Ou. Predicting Search Satisfaction with Electrodermal Activity. The 26th International World Wide Web Conference (WWW 2017). Preprint PDF",
-                "	Cheng Luo, Yiqun Liu, Tetsuya Sakai, Ke Zhou, Fan Zhang, Xue Li and Shaoping Ma. Does Document Relevance Affect the Searcher’s Perception of Time? The Tenth ACM International Conference on Web Search and Data Mining (WSDM 2017) Preprint PDF ",
-                "	Xin Li, Yiqun Liu, Rongjie Cai and Shaoping Ma. Investigation of User Search Behavior While Facing Heterogeneous Search Services. The Tenth ACM International Conference on Web Search and Data Mining (WSDM 2017) Preprint PDF Dataset",
-                "	Cheng Luo, Xue Li, Yiqun Liu, Tetsuya Sakai, Fan Zhang, Min Zhang and Shaoping Ma. Investigating Users’ Time Perception during Web Search. The 2nd ACM SIGIR Conference on Human Information Interaction & Retrieval (CHIIR 2017). Preprint PDF",
+                "Xiangsheng Li, Cheng Luo, Yiqun Liu and Shaoping Ma. Chinese Translation of SIGIR Forum 2017 ",
+                "Yiqun Liu, Chao Wang, Min Zhang and Shaoping Ma. User behavior modeling for better web search ranking. Frontiers in Computer Science 2017. Preprint Version. ",
+                "Ye Chen, Yiqun Liu, Min Zhang and Shaoping Ma. User Satisfaction Prediction with Mouse Movement Information in Heterogeneous Search Environment. IEEE Transactions on Knowledge and Data Engineering. (TKDE) ",
+                "Fan Zhang, Yiqun Liu, Xin Li, Min Zhang, Yinghui Xu and Shaoping Ma. Evaluating Web Search with a Bejeweled Player Model. The 39th ACM SIGIR International Conference on Research and Development in Information Retrieval (SIGIR2017 Best Student Paper Award). Preprint Version",
+                "Cheng Luo, Yiqun Liu, Tetsuya Sakai, Fan Zhang, Min Zhang and Shaoping Ma. Evaluating Mobile Search with Height-Biased Gain. The 39th ACM SIGIR International Conference on Research and Development in Information Retrieval (SIGIR2017). Preprint Version",
+                "Ye Chen, Ke Zhou, Yiqun Liu, Min Zhang and Shaoping Ma. Meta-evaluation of Online and Offline Web Search Evaluation Metrics. The 39th ACM SIGIR International Conference on Research and Development in Information Retrieval (SIGIR2017). Preprint Version Data Description Dataset",
+                "Xiaohui Xie, Yiqun Liu, Xiaochuan Wang, Meng Wang, Zhijing Wu, Yingying Wu, Min Zhang and Shaoping Ma. Investigating Examination Behavior of Image Search Users. The 39th ACM SIGIR International Conference on Research and Development in Information Retrieval (SIGIR2017). Preprint Version",
+                "Jiaxin Mao, Yiqun Liu, Huanbo Luan, Min Zhang and Shaoping Ma. Understanding and Predicting Usefulness Judgment in Web Search. (Short paper). The 39th ACM SIGIR International Conference on Research and Development in Information Retrieval (SIGIR2017). Preprint Version",
+                "Cheng Luo, Yukun Zheng, Yiqun Liu, Xiaochuan Wang, Jingfang Xu, Min Zhang and Shaoping Ma. SogouT-16: A New Web Corpus to Embrace IR Research. (Short paper). The 39th ACM SIGIR International Conference on Research and Development in Information Retrieval (SIGIR2017). Preprint Version",
+                "Zeyang Liu, Jiaxin Mao, Chao Wang, Qingyao Ai, Yiqun Liu, Jian-Yun Nie. Enhancing click models with mouse movement information. Information Retrieval Journal, 20(1), 53-80. Preprint Version. ",
+                "Xiao Lin, Min Zhang, Yongfeng Zhang, Yiqun Liu and Shaoping Ma. Learning and Transferring Social and Item Visibilities for Personalized Recommendation. The 26th ACM International Conference on Information and Knowledge Management (CIKM 2017). ",
+                "Bin Liu, Min Zhang, Weizhi Ma, Xin Li, Yiqun Liu and Shaoping Ma. A Two-step Information Accumulation Strategy for Learning from Highly Imbalanced Data. The 26th ACM International Conference on Information and Knowledge Management (CIKM 2017). ",
+                "Yuli Liu, Yiqun Liu, Ke Zhou, Min Zhang and Shaoping Ma. Detecting Collusive Spamming Activities in Community Question Answering. The 26th International World Wide Web Conference (WWW 2017). Preprint PDF Dataset",
+                "Yingying Wu, Yiqun Liu, Ning Su, Shaoping Ma and Wenwu Ou. Predicting Search Satisfaction with Electrodermal Activity. The 26th International World Wide Web Conference (WWW 2017). Preprint PDF",
+                "Cheng Luo, Yiqun Liu, Tetsuya Sakai, Ke Zhou, Fan Zhang, Xue Li and Shaoping Ma. Does Document Relevance Affect the Searcher’s Perception of Time? The Tenth ACM International Conference on Web Search and Data Mining (WSDM 2017) Preprint PDF ",
+                "Xin Li, Yiqun Liu, Rongjie Cai and Shaoping Ma. Investigation of User Search Behavior While Facing Heterogeneous Search Services. The Tenth ACM International Conference on Web Search and Data Mining (WSDM 2017) Preprint PDF Dataset",
+                "Cheng Luo, Xue Li, Yiqun Liu, Tetsuya Sakai, Fan Zhang, Min Zhang and Shaoping Ma. Investigating Users’ Time Perception during Web Search. The 2nd ACM SIGIR Conference on Human Information Interaction & Retrieval (CHIIR 2017). Preprint PDF",
             "2016年:",
-                "	Yiqun Liu, Xiaohui Xie, Chao Wang, Jian-Yun Nie, Min Zhang and Shaoping Ma. Time-Aware Click Model. ACM Transactions on Information Systems (TOIS). Vol. 35, No. 3, Article 16. Preprint PDF Code Sample Data",
-                "	Cheng Luo, Yiqun Liu, Min Zhang, and Shaoping Ma. Search Success Evaluation with Translation Model. The 12th Asia Information Retrieval Societies Conference (AIRS2016 Best Paper Honorable Mention). Preprint PDF",
-                "	Yuli Liu, Yiqun Liu, Ke Zhou, Min Zhang and Shaoping Ma. Detecting Promotion Campaigns in Query Auto Completion. The 25th ACM International Conference on Information and Knowledge Management (CIKM 2016). Preprint PDF Dataset ",
-                "	Yiqun Liu, Zeyang Liu, Ke Zhou, Meng Wang, Huanbo Luan, Chao Wang, Min Zhang, Shaoping Ma. Predicting Search User Examination with Visual Saliency Information. The 39th ACM SIGIR International Conference on Research and Development in Information Retrieval (SIGIR2016). Preprint PDF Dataset",
-                "	Jiaxin Mao, Yiqun Liu, Ke Zhou, Jian-Yun Nie, Min Zhang, Shaoping Ma. When does Relevance Mean Usefulness and User Satisfaction in Web Search? The 39th ACM SIGIR International Conference on Research and Development in Information Retrieval (SIGIR2016). Preprint PDF Dataset",
-                "	Yuli Liu, Yiqun Liu, Min Zhang and Shaoping Ma. Pay Me and I’ll Follow You: Detection of Crowdturfing Following Activities in Microblog Environment. The 25th International Joint Conference on Artificial Intelligence (IJCAI2016). Preprint PDF Dataset",
-                "	Chao Wang, Yiqun Liu, Shaoping Ma. Building a click model: From idea to practice. CAAI Transactions on Intelligence Technology. Volume 1(2016) 313-322. Preprint PDF",
-                "	Yunzhi Tan, Min Zhang, Yiqun Liu and Shaoping Ma. Rating-Boosted Latent Topics: Understanding Users and Items with Ratings and Reviews. The 25th International Joint Conference on Artificial Intelligence (IJCAI2016)",
-                "	Weizhi Ma, Min Zhang, Yiqun Liu and Shaoping Ma. Multi-grained Role Labeling Based on Multi-modality Information for Real Customer Service Telephone Conversation. The 25th International Joint Conference on Artificial Intelligence (IJCAI2016)",
-                "	Yongfeng Zhang, Qi Zhao, Yi Zhang, Daniel Friedman, Min Zhang, Yiqun Liu, Shaoping Ma. Economic Recommendation with Surplus Maximization. In Proceedings of the 25th International World Wide Web Conference (WWW 2016). Preprint PDF",
-                "	Cheng Luo, Fan Zhang, Xue Li, Yiqun Liu, Min Zhang, Shaoping Ma. Manipulating Time Perception of Web Search Users. First ACM SIGIR Conference on Human Information Interaction and Retrieval (CHIIR 2016). Preprint PDF Poster",
+                "Yiqun Liu, Xiaohui Xie, Chao Wang, Jian-Yun Nie, Min Zhang and Shaoping Ma. Time-Aware Click Model. ACM Transactions on Information Systems (TOIS). Vol. 35, No. 3, Article 16. Preprint PDF Code Sample Data",
+                "Cheng Luo, Yiqun Liu, Min Zhang, and Shaoping Ma. Search Success Evaluation with Translation Model. The 12th Asia Information Retrieval Societies Conference (AIRS2016 Best Paper Honorable Mention). Preprint PDF",
+                "Yuli Liu, Yiqun Liu, Ke Zhou, Min Zhang and Shaoping Ma. Detecting Promotion Campaigns in Query Auto Completion. The 25th ACM International Conference on Information and Knowledge Management (CIKM 2016). Preprint PDF Dataset ",
+                "Yiqun Liu, Zeyang Liu, Ke Zhou, Meng Wang, Huanbo Luan, Chao Wang, Min Zhang, Shaoping Ma. Predicting Search User Examination with Visual Saliency Information. The 39th ACM SIGIR International Conference on Research and Development in Information Retrieval (SIGIR2016). Preprint PDF Dataset",
+                "Jiaxin Mao, Yiqun Liu, Ke Zhou, Jian-Yun Nie, Min Zhang, Shaoping Ma. When does Relevance Mean Usefulness and User Satisfaction in Web Search? The 39th ACM SIGIR International Conference on Research and Development in Information Retrieval (SIGIR2016). Preprint PDF Dataset",
+                "Yuli Liu, Yiqun Liu, Min Zhang and Shaoping Ma. Pay Me and I’ll Follow You: Detection of Crowdturfing Following Activities in Microblog Environment. The 25th International Joint Conference on Artificial Intelligence (IJCAI2016). Preprint PDF Dataset",
+                "Chao Wang, Yiqun Liu, Shaoping Ma. Building a click model: From idea to practice. CAAI Transactions on Intelligence Technology. Volume 1(2016) 313-322. Preprint PDF",
+                "Yunzhi Tan, Min Zhang, Yiqun Liu and Shaoping Ma. Rating-Boosted Latent Topics: Understanding Users and Items with Ratings and Reviews. The 25th International Joint Conference on Artificial Intelligence (IJCAI2016)",
+                "Weizhi Ma, Min Zhang, Yiqun Liu and Shaoping Ma. Multi-grained Role Labeling Based on Multi-modality Information for Real Customer Service Telephone Conversation. The 25th International Joint Conference on Artificial Intelligence (IJCAI2016)",
+                "Yongfeng Zhang, Qi Zhao, Yi Zhang, Daniel Friedman, Min Zhang, Yiqun Liu, Shaoping Ma. Economic Recommendation with Surplus Maximization. In Proceedings of the 25th International World Wide Web Conference (WWW 2016). Preprint PDF",
+                "Cheng Luo, Fan Zhang, Xue Li, Yiqun Liu, Min Zhang, Shaoping Ma. Manipulating Time Perception of Web Search Users. First ACM SIGIR Conference on Human Information Interaction and Retrieval (CHIIR 2016). Preprint PDF Poster",
             "2015年:",
-                "	Chao Wang, Yiqun Liu, Meng Wang, Ke Zhou, Jian-Yun Nie, Shaoping Ma, Incorporating Non-sequential Behavior into Click Models. Proceedings of the 38th ACM SIGIR International Conference on Research and Development in Information Retrieval (SIGIR2015 Best Paper Honorable Mention).Preprint PDF Code and Dataset",
-                "	Ye Chen, Yiqun Liu, Ke Zhou, Min Zhang, Shaoping Ma. Does Vertical Bring more Satisfaction? Predicting Search Satisfaction in a Heterogeneous Environment. The 24th ACM International Conference on Information and Knowledge Management (CIKM 2015) Preprint PDF",
-                "	Fei Jiang, Yiqun Liu, Huanbo Luan, Jiashen Sun, Xuan Zhu, Min Zhang, Shaoping Ma. Microblog Sentiment Analysis with Emoticon Space Model. Journal of Computer Science and Technology (JCST). 2015 Preprint PDF",
-                "	Yiqun Liu, Ye Chen, Jinhui Tang, Jiashen Sun, Min Zhang, Shaoping Ma, Xuan Zhu, Different users, Different Opinions: Predicting Search Satisfaction with Mouse Movement Information. Proceedings of the 38th ACM SIGIR International Conference on Research and Development in Information Retrieval (SIGIR2015).Preprint PDF ",
-                "	Zeyang Liu, Yiqun Liu, Ke Zhou, Min Zhang, Shaoping Ma, Influence of Vertical Result in Web Search Examination. Proceedings of the 38th ACM SIGIR International Conference on Research and Development in Information Retrieval (SIGIR2015).Preprint PDF",
-                "	Xin Li, Yiqun Liu, Min Zhang, Shaoping Ma, Xuan Zhu, Jiashen Sun, Detecting Promotion Campaigns in Community Question Answering, International Joint Conference on Artificial Intelligence (IJCAI 2015).Preprint PDF",
-                "	Ilya Markov, Aleksandr Chuklin, and Yiqun Liu. Modeling search behavior in heterogeneous environments. The First Workshop on Heterogeneous Information Access at WSDM 2015, Shanghai, China, pp. 22-24. ",
-                "	Yongfeng Zhang, Min Zhang, Yi Zhang, Yiqun Liu and Shaoping Ma. Daily-Aware Personalized Recommendation based on Feature-Level Time Series Analysis. The 24th International World Wide Web conference (WWW2015)",
-                "	Yongfeng Zhang, Yunzhi Tan, Min Zhang, Yiqun Liu, Shaoping Ma, Catch the Black Sheep: Unified Shilling Attack Detection based on Fraudulent Action Propagation. International Joint Conference on Artificial Intelligence (IJCAI 2015). ",
+                "Chao Wang, Yiqun Liu, Meng Wang, Ke Zhou, Jian-Yun Nie, Shaoping Ma, Incorporating Non-sequential Behavior into Click Models. Proceedings of the 38th ACM SIGIR International Conference on Research and Development in Information Retrieval (SIGIR2015 Best Paper Honorable Mention).Preprint PDF Code and Dataset",
+                "Ye Chen, Yiqun Liu, Ke Zhou, Min Zhang, Shaoping Ma. Does Vertical Bring more Satisfaction? Predicting Search Satisfaction in a Heterogeneous Environment. The 24th ACM International Conference on Information and Knowledge Management (CIKM 2015) Preprint PDF",
+                "Fei Jiang, Yiqun Liu, Huanbo Luan, Jiashen Sun, Xuan Zhu, Min Zhang, Shaoping Ma. Microblog Sentiment Analysis with Emoticon Space Model. Journal of Computer Science and Technology (JCST). 2015 Preprint PDF",
+                "Yiqun Liu, Ye Chen, Jinhui Tang, Jiashen Sun, Min Zhang, Shaoping Ma, Xuan Zhu, Different users, Different Opinions: Predicting Search Satisfaction with Mouse Movement Information. Proceedings of the 38th ACM SIGIR International Conference on Research and Development in Information Retrieval (SIGIR2015).Preprint PDF ",
+                "Zeyang Liu, Yiqun Liu, Ke Zhou, Min Zhang, Shaoping Ma, Influence of Vertical Result in Web Search Examination. Proceedings of the 38th ACM SIGIR International Conference on Research and Development in Information Retrieval (SIGIR2015).Preprint PDF",
+                "Xin Li, Yiqun Liu, Min Zhang, Shaoping Ma, Xuan Zhu, Jiashen Sun, Detecting Promotion Campaigns in Community Question Answering, International Joint Conference on Artificial Intelligence (IJCAI 2015).Preprint PDF",
+                "Ilya Markov, Aleksandr Chuklin, and Yiqun Liu. Modeling search behavior in heterogeneous environments. The First Workshop on Heterogeneous Information Access at WSDM 2015, Shanghai, China, pp. 22-24. ",
+                "Yongfeng Zhang, Min Zhang, Yi Zhang, Yiqun Liu and Shaoping Ma. Daily-Aware Personalized Recommendation based on Feature-Level Time Series Analysis. The 24th International World Wide Web conference (WWW2015)",
+                "Yongfeng Zhang, Yunzhi Tan, Min Zhang, Yiqun Liu, Shaoping Ma, Catch the Black Sheep: Unified Shilling Attack Detection based on Fraudulent Action Propagation. International Joint Conference on Artificial Intelligence (IJCAI 2015). ",
             "2014年:",
-                "	Yiqun Liu, Ruihua Song, Min Zhang, Zhicheng Dou, Takehiro Yamamoto, Makoto Kato, Hiroaki Ohshima, Ke Zhou. Overview of the NTCIR-11 IMine Task. Proceedings of the 11th NTCIR conference. ",
-                "	Yiqun Liu, Chao Wang, Ke Zhou, Jianyun Nie, Min Zhang, Shaoping Ma, From Skimming to Reading: A Two-stage Examination Model for Web Search, The 23rd ACM International Conference on Information and Knowledge Management (CIKM 2014) Preprint PDF Data Set SLIDES,Shuai Huo, Min Zhang, Yiqun Liu, Shaoping Ma, Improving Tail Query Performance by Fusion Model. The 23rd ACM International Conference on Information and Knowledge Management (CIKM 2014) ",
-                "	Yongfeng Zhang, Min Zhang, Yi Zhang, Yiqun Liu, Shaoping Ma, Understanding the Sparsity: Augmented Matrix Factorization with Sampled Constraints on Unobservables. The 23rd ACM International Conference on Information and Knowledge Management (CIKM 2014)",
-                "	Xin Li, Yiqun Liu, Min Zhang, Shaoping Ma, Fraudulent Support Telephone Number Identification Based on Co-occurrence Information on the Web, Proceedings of the Twenty-Eighth AAAI Conference on Artificial Intelligence (AAAI 2014). Preprint PDF Data Set",
-                "	Yongfeng Zhang, Guokun Lai, Min Zhang, Yi Zhang, Yiqun Liu, Shaoping Ma. Explicit Factor Models for Explainable Recommendation based on Phrase-level Sentiment Analysis, The 37th ACM SIGIR conference (SIGIR 2014). Preprint PDF ",
-                "	Yongfeng Zhang, Haochen Zhang, Min Zhang, Yiqun Liu, Shaoping Ma. Do users rate or review?: boost phrase-level sentiment labeling with review-level sentiment classification. The 37th ACM SIGIR conference(SIGIR 2014). ",
-                "	Xiangnan He, Ming Gao, Min-Yen Kan, Yiqun Liu, Kazunari Sugiyama. Predicting the Popularity of Web 2.0 Items Based on User Comments. The 37th ACM SIGIR conference (SIGIR 2014)",
-                "	Xin Li, Min Zhang, Yiqun Liu, Shaoping Ma, Yijiang Jin and Liyun Ru. Search Engine Click Spam Detection Based on Bipartite Graph Propagation. Proceedings of the 7th ACM International Conference on Web Search and Data Mining (WSDM 2014). Preprint PDF",
-                "	Fei Chen, Yiqun Liu, Jian Li, Min Zhang and Shaoping Ma. A Pruning Algorithm for Optimal Diversified Search. Poster proceedings of the 23th International World Wide Web conference (WWW2014). Preprint PDF",
-                "	Jiaxin Mao, Yiqun Liu, Min Zhang and Shaoping Ma. Social Influence Analysis for Microblog User based on User Behavior. Chinese Journal of Computer. 37(4):1-10. (in Chinese) Preprint PDF",
-                "	Zeyang Liu, Yiqun Liu, Min Zhang, and Shaoping Ma. How Do Sponsored Search Results Affect User Behavior in Web Search? Proceedings of the 10th Asia Information Retrieval Society Conference (AIRS 2014). Preprint PDF Data Set",
-                "	Fei Chen, Yiqun Liu, Zhicheng Dou, Keyang Xu, Yujie Cao, Min Zhang, and Shaoping Ma. Revisiting the Evaluation of Diversified Search Evaluation Metrics with User Preferences. Proceedings of the 10th Asia Information Retrieval Society Conference (AIRS 2014). Preprint PDF",
-                "	Cheng Luo, Yiqun Liu, Min Zhang, and Shaoping Ma. Query Ambiguity Identification Based on User Behavior Information. Proceedings of the 10th Asia Information Retrieval Society Conference (AIRS 2014). Preprint PDF",
-                "	Haochen Zhang, Min-Yen Kan, Yiqun Liu, and Shaoping Ma. Online Social Network Profile Linkage. Proceedings of the 10th Asia Information Retrieval Society Conference (AIRS 2014). Preprint PDF",
-                "	Jiaxin Mao, Yiqun Liu, Min Zhang, and Shaoping Ma. Estimating Credibility of User Clicks with Mouse Movement and Eye-tracking Information. The 3rd CCF Conference on Natural Language Processing & Chinese Computing (NLPCC 2014). Preprint PDF ",
-                "	Bin Liang, Yiqun Liu, Min Zhang, Shaoping Ma, Liyun Ru, Kuo Zhang: Searching for people to follow in social networks. Expert System with Applications 41(16): 7455-7465 (2014) ",
-                "	Fei Jiang, Yiqun Liu, Huanbo Luan, Min Zhang, and Shaoping Ma. Microblog Sentiment Analysis with Emoticon Space Model. The 3rd National Conference on Social Media Processing (SMP2014). Preprint PDF",
+                "Yiqun Liu, Ruihua Song, Min Zhang, Zhicheng Dou, Takehiro Yamamoto, Makoto Kato, Hiroaki Ohshima, Ke Zhou. Overview of the NTCIR-11 IMine Task. Proceedings of the 11th NTCIR conference. ",
+                "Yiqun Liu, Chao Wang, Ke Zhou, Jianyun Nie, Min Zhang, Shaoping Ma, From Skimming to Reading: A Two-stage Examination Model for Web Search, The 23rd ACM International Conference on Information and Knowledge Management (CIKM 2014) Preprint PDF Data Set SLIDES,Shuai Huo, Min Zhang, Yiqun Liu, Shaoping Ma, Improving Tail Query Performance by Fusion Model. The 23rd ACM International Conference on Information and Knowledge Management (CIKM 2014) ",
+                "Yongfeng Zhang, Min Zhang, Yi Zhang, Yiqun Liu, Shaoping Ma, Understanding the Sparsity: Augmented Matrix Factorization with Sampled Constraints on Unobservables. The 23rd ACM International Conference on Information and Knowledge Management (CIKM 2014)",
+                "Xin Li, Yiqun Liu, Min Zhang, Shaoping Ma, Fraudulent Support Telephone Number Identification Based on Co-occurrence Information on the Web, Proceedings of the Twenty-Eighth AAAI Conference on Artificial Intelligence (AAAI 2014). Preprint PDF Data Set",
+                "Yongfeng Zhang, Guokun Lai, Min Zhang, Yi Zhang, Yiqun Liu, Shaoping Ma. Explicit Factor Models for Explainable Recommendation based on Phrase-level Sentiment Analysis, The 37th ACM SIGIR conference (SIGIR 2014). Preprint PDF ",
+                "Yongfeng Zhang, Haochen Zhang, Min Zhang, Yiqun Liu, Shaoping Ma. Do users rate or review?: boost phrase-level sentiment labeling with review-level sentiment classification. The 37th ACM SIGIR conference(SIGIR 2014). ",
+                "Xiangnan He, Ming Gao, Min-Yen Kan, Yiqun Liu, Kazunari Sugiyama. Predicting the Popularity of Web 2.0 Items Based on User Comments. The 37th ACM SIGIR conference (SIGIR 2014)",
+                "Xin Li, Min Zhang, Yiqun Liu, Shaoping Ma, Yijiang Jin and Liyun Ru. Search Engine Click Spam Detection Based on Bipartite Graph Propagation. Proceedings of the 7th ACM International Conference on Web Search and Data Mining (WSDM 2014). Preprint PDF",
+                "Fei Chen, Yiqun Liu, Jian Li, Min Zhang and Shaoping Ma. A Pruning Algorithm for Optimal Diversified Search. Poster proceedings of the 23th International World Wide Web conference (WWW2014). Preprint PDF",
+                "Jiaxin Mao, Yiqun Liu, Min Zhang and Shaoping Ma. Social Influence Analysis for Microblog User based on User Behavior. Chinese Journal of Computer. 37(4):1-10. (in Chinese) Preprint PDF",
+                "Zeyang Liu, Yiqun Liu, Min Zhang, and Shaoping Ma. How Do Sponsored Search Results Affect User Behavior in Web Search? Proceedings of the 10th Asia Information Retrieval Society Conference (AIRS 2014). Preprint PDF Data Set",
+                "Fei Chen, Yiqun Liu, Zhicheng Dou, Keyang Xu, Yujie Cao, Min Zhang, and Shaoping Ma. Revisiting the Evaluation of Diversified Search Evaluation Metrics with User Preferences. Proceedings of the 10th Asia Information Retrieval Society Conference (AIRS 2014). Preprint PDF",
+                "Cheng Luo, Yiqun Liu, Min Zhang, and Shaoping Ma. Query Ambiguity Identification Based on User Behavior Information. Proceedings of the 10th Asia Information Retrieval Society Conference (AIRS 2014). Preprint PDF",
+                "Haochen Zhang, Min-Yen Kan, Yiqun Liu, and Shaoping Ma. Online Social Network Profile Linkage. Proceedings of the 10th Asia Information Retrieval Society Conference (AIRS 2014). Preprint PDF",
+                "Jiaxin Mao, Yiqun Liu, Min Zhang, and Shaoping Ma. Estimating Credibility of User Clicks with Mouse Movement and Eye-tracking Information. The 3rd CCF Conference on Natural Language Processing & Chinese Computing (NLPCC 2014). Preprint PDF ",
+                "Bin Liang, Yiqun Liu, Min Zhang, Shaoping Ma, Liyun Ru, Kuo Zhang: Searching for people to follow in social networks. Expert System with Applications 41(16): 7455-7465 (2014) ",
+                "Fei Jiang, Yiqun Liu, Huanbo Luan, Min Zhang, and Shaoping Ma. Microblog Sentiment Analysis with Emoticon Space Model. The 3rd National Conference on Social Media Processing (SMP2014). Preprint PDF",
             "2013年:",
-                "	Qianli Xing, Yiqun Liu, Min Zhang, Shaoping Ma, Jianyun Nie, Kuo Zhang. Incorporating User Preferences into Click Models. The 22nd ACM International Conference on Information and Knowledge Management (CIKM 2013) Preprint PDF ",
-                "	Jian Liu, Yiqun Liu, Min Zhang, Shaoping Ma, Kuo Zhang. A Study of Long-term Search Engine Users' Behavior. The 22nd ACM International Conference on Information and Knowledge Management (CIKM 2013) (short paper) Preprint PDF ",
-                "	Qianli Xing, Yiqun Liu, Min Zhang, Shaoping Ma, and Kuo Zhang. Characterizing Expertise of Search Engine Users. The ninth Asian Information Retrieval Societies Conference (AIRS 2013) Preprint PDF ",
-                "	Cheng Luo, Yiqun Liu, Shaoping Ma, Min Zhang, Liyun Ru, and Kuo Zhang. Pornography Detection with the Wisdom of Crowds. The ninth Asian Information Retrieval Societies Conference (AIRS 2013) Preprint PDF",
-                "	Yiqun Liu, Jie Tang. Introduction to the 22nd World Wide Web conference. Communications of the CCF 9(6):61-64. 2013.6. (in Chinese) Preprint PDF ",
-                "	Yongfeng Zhang, Min Zhang, Yiqun Liu, Shaoping Ma and Shi Feng. Localized Matrix Factorization for Recommendation based on Matrix Block Diagonal Forms. The 22nd International World Wide Web conference (WWW2013). pp.1511-1520. PDF ",
-                "	Chao Wang, Yiqun Liu, Min Zhang, Shaoping Ma, Meihong Zheng, Jing Qian, Kuo Zhang. Incorporating Vertical Results into Search Click Models. The 36th ACM SIGIR conference (SIGIR 2013). Preprint PDF",
-                "	Jianxun Cao, Yiqun Liu, Rongwei Cen, Shaoping Ma, Liyun Ru. Identifying Porn Sites with User Behavior Analysis. Journal of Computer Research and Development. 50(2):430-436. 2013 (in Chinese) ",
-                "	Yongfeng Zhang, Min Zhang, Yiqun Liu, Shaoping Ma. Improve Collaborative Filtering Through Bordered Block Diagonal Form Matrices. The 36th ACM SIGIR conference (SIGIR 2013). ",
+                "Qianli Xing, Yiqun Liu, Min Zhang, Shaoping Ma, Jianyun Nie, Kuo Zhang. Incorporating User Preferences into Click Models. The 22nd ACM International Conference on Information and Knowledge Management (CIKM 2013) Preprint PDF ",
+                "Jian Liu, Yiqun Liu, Min Zhang, Shaoping Ma, Kuo Zhang. A Study of Long-term Search Engine Users' Behavior. The 22nd ACM International Conference on Information and Knowledge Management (CIKM 2013) (short paper) Preprint PDF ",
+                "Qianli Xing, Yiqun Liu, Min Zhang, Shaoping Ma, and Kuo Zhang. Characterizing Expertise of Search Engine Users. The ninth Asian Information Retrieval Societies Conference (AIRS 2013) Preprint PDF ",
+                "Cheng Luo, Yiqun Liu, Shaoping Ma, Min Zhang, Liyun Ru, and Kuo Zhang. Pornography Detection with the Wisdom of Crowds. The ninth Asian Information Retrieval Societies Conference (AIRS 2013) Preprint PDF",
+                "Yiqun Liu, Jie Tang. Introduction to the 22nd World Wide Web conference. Communications of the CCF 9(6):61-64. 2013.6. (in Chinese) Preprint PDF ",
+                "Yongfeng Zhang, Min Zhang, Yiqun Liu, Shaoping Ma and Shi Feng. Localized Matrix Factorization for Recommendation based on Matrix Block Diagonal Forms. The 22nd International World Wide Web conference (WWW2013). pp.1511-1520. PDF ",
+                "Chao Wang, Yiqun Liu, Min Zhang, Shaoping Ma, Meihong Zheng, Jing Qian, Kuo Zhang. Incorporating Vertical Results into Search Click Models. The 36th ACM SIGIR conference (SIGIR 2013). Preprint PDF",
+                "Jianxun Cao, Yiqun Liu, Rongwei Cen, Shaoping Ma, Liyun Ru. Identifying Porn Sites with User Behavior Analysis. Journal of Computer Research and Development. 50(2):430-436. 2013 (in Chinese) ",
+                "Yongfeng Zhang, Min Zhang, Yiqun Liu, Shaoping Ma. Improve Collaborative Filtering Through Bordered Block Diagonal Form Matrices. The 36th ACM SIGIR conference (SIGIR 2013). ",
           ],
         },
-        14:{
-          id:14,
-          img:require("../../../../assets/home/specialist/lijuanzi1.jpg"),
-          name:'李娟子',
-          desrc:"博士，清华大学教授，计算机科学与技术系软件研究所副所长，知识工程研究室主任。中国中文信息学会常务理事，中国计算机学会: 中文信息技术专业委员会委员，在清华大学获得博士学位，2001年博士后出站后留校工作至今，多篇论文发表在重要国际会议(如 WWW、SIGMOD、SIGMOD、SIGIR、ISWC、SIGKDD) 和学术期刊(JoWS、TKDE、JoDS)。主持多项国家级、部委级和国际合作项目研究,包括国家自然科学项目重点,以及欧盟第七合作框架、新华社、国家环保总局等项目。获得2013年人工智能学会创新一等奖，2013 年电子学会自然科学二等奖,2011年王选新闻科学技术进步奖一等奖。",
-          researchResult:{
-            data:[
-              {
-                title:"国家自然科学基金项目: 大规模动态本体映射模型研究 ；"
-              },{
-                title:"国家自然科学基金项目: 限定领域中基于语义的内容管理的关键技术及应用;"
-              },{
-                title:"国家自然科学基金项目: 分布式本体系统中本体粒度划分机制研究;"
-              },{
-                title:"973二级课题: 需求模型验证与管理;"
-              },{
-                title:"新华社项目: “中文新闻信息置标语言CNML”标准管理系统;"
-              },{
-                title:"国家环境保护部项目: 处置环境与核恐怖袭击事件应急项目——核与辐射环境数据交换技术规范与应用接口开发;"
-              },{
-                title:"IBM国际合作项目: 智慧城市中集群体智慧的数据间关联关系挖掘;"
-              },{
-                title:"IBM国际合作项目: 基于主动学习的大规模本体映射的语义集成方法研究;"
-              },{
-                title:"IBM国际合作项目: 分布知识库查询关键技术;"
-              },{
-                title:"IBM国际合作项目: 语义内容管理关键技术;"
-              },{
-                title:"“清华—鲁汶”国际合作研究项目: Webinsight：万维网文档关联和演化分析模型研究；"
-              },{
-                title:"国家自然科学基金重点项目：基于云计算的海量数据挖掘关键技术；"
-              },{
-                title:"新华社项目：“中文新闻信息置标语言CNML”标准管理系统升级；"
-              },
-            ]
-          },
-          researchDirection:[
-            {
-              title:"融合语义Web、文本与社会网络挖掘技术，研究基于语义的内容管理关键技术，并应用于包括新闻、研究者社会网络和Web服务在内的多个领域。主要工作包括："
-            },{
-              title:"1. 基于语义的内容管理关键技术。在本体映射研究中，提出基于贝叶斯决策的多策略本体映射模型，解决了多种映射策略的融合问题；提出动态选择的多策略本体映射模型，解决了针对不同本体映射任务，动态选择映射策略的问题，并进一步提高了映射精度。研究成果发表在SIGMOD、Journal of Web Semantics（JoWS）和TKDE等国际重要学术期刊和会议上 。据Google Scholar统计，发表在JoWS上的论文被引用73次。在语义标注研究中，针对标注对象所具有的不同特点，研究不同的语义标注方法，提出基于规则、分类模型和序列模型的条件随机场的三类语义标注方法。这些标注方法已经成功应用于研究者个人信息、会议信息和公司信息的语义标注中，取得了良好的应用效果。上述研究工作得到国家自然科学基金和973项目的支持。"
-            },{
-              title:"2. 新闻与社会网络挖掘。在新闻挖掘中，提出基于索引树和命名实体的话题发现和跟踪模型、基于话题的新闻分析模型，研究成果发表在SIGIR 2007，并在SIGKDD 2009上做demo演示；在社会网络挖掘研究中，提出面向专家的研究者社会网络搜索模型，并对专家发现、研究兴趣发现和会议挖掘等问题进行了深入研究。"
-            },{
-              title:"3. 新闻领域XML数据处理应用研究。我是国家标准 “中文新闻信息标识语言（CNML）”（GB/T20092-2006）的第四起草人，并作为项目负责人，承担了CNML标准管理系统的研制任务。目前，该软件部署在新华社文字编辑系统、图片编辑系统、信息部多媒体编辑系统、多媒体数据库、视音频编辑系统、产品生成系统等重要业务系统中，全面满足了技术建设和日常运维的需求。该项目获得“2009年王选新闻科学技术进步二等奖”。"
-            }
-          ],
-          thesis:[
-            "1、Zi Yang, Jie Tang, Juanzi Li, Social Community Analysis via Factor Graph Model. IEEE Intelligent Systems. (accepted)",
-            "2、Ali Daud, Juanzi Li, Lizhu Zhou, and Faqir Muhammad. Temporal Expert Finding through Generalized Time Topic Modeling. Knowledge Based System Journal. (Accepted)",
-            "3、Zhifeng Gu, Bin Xu, Juanzi Li, Service Data Correlation Modeling and Its Application in Data-Driven Service Composition, IEEE Trans. Service Computing. (Accepted)",
-            "4、Juanzi Li, Jie Tang begin_of_the_skype_highlightingend_of_the_skype_highlighting, Yi Li, Qiong Luo: RiMOM: A Dynamic Multistrategy Ontology Alignment Framework. IEEE Trans. Knowl. Data Eng. 21(8): 1218-1232 (2009)",
-            "5、Gang Wu, Juan-Zi Li, Jianqiang Hu, Kehong Wang: System Pi: A Native RDF Repository Based on the Hypergraph Representation for RDF Data Model. J. Comput. Sci. Technol. 24(4): 652-664 (2009)",
-            "6、Jie Tang, Juanzi Li, Bangyong Liang, Xiaotong Huang, Yi Li, and Kehong Wang, Using Bayesian Decision for Ontology Mapping. Journal of Web Semantics: Science, Services and Agents on the World Wide Web, Vol(4) 4:243-262, December 2006.",
-            "7、Qian Zhong, Hanyu Li, Juanzi Li, Guo Tong Xie, Jie Tang, Lizhu Zhou and Yue Pan: A Gauss Function based Approach for Unbalanced Ontology Matching. Proc. 35th International Conference on Management of Data(SIGMOD2009), Providence, Rhode Island, USA, 2009: 669-680.",
-            "8、Feng Shi, Juanzi Li, Jie Tang, Guotong Xie, Hanyu Li, Actively Learning Ontology Matching via User Interaction, Proc. 2009 International Semantic Web Conference (ISWC2009), Washington D.C, USA, 2009 : 585-600.",
-            "9、Ali Daud, Juanzi Li, Lizhu Zhou, and Faqir Muhammad. Conference Mining via Generalized Topic Modeling. Proc. International European Conference on Machine Learning and Principles and Practices of Knowledge Discovery in Databases (ECML PKDD2009), Bled, Slovenia, 2009: 244–259.",
-            "10、Gang Wu, Juanzi Li, Ling Feng, Kehong Wang, Identifying Potentially Important Concepts and Relations in an Ontology, Proc. 2008 International Conference on Semantic Web (ISWC2008), Karlsruhe, Germany, 2008:33-49",
-            "11、Xin Xin, Juanzi Li, Jie Tang, Qiong Luo, Academic Conference Homepage Understanding Using Constrained Hierarchical Conditional Random Fields, Proc. the 17th ACM Conference on Information and Knowledge Management(CIKM2008), Napa Valley, California, 2008: 1301-1310",
-            "12、Zhifeng Gu, Juanzi Li, Bin Xu, Automatic Service Composition Based on Enhanced Service Dependency Graph, Proc. the IEEE International Conference on Web Services (ICWS2008), Beijing, China, 2008: 246-253",
-            "13、Jie Tang, Jing Zhang, Limin Yao, Juanzi Li, Li Zhang, and Zhong Su. Extraction and Mining of Academic Social Network. Proc. Fourteenth ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (SIGKDD2008), Las Vegas, Nevada, USA, ACM 2008: 990-998.",
-            "14、Kuo Zhang, Juanzi Li, Gang Wu, Event Detection Based on Indexing-tree and Named Entity, Proc. 30th Annual International ACM SIGIR Conference on Research and Development in Information Retrieval(SIGIR2007), Amsterdam, The Netherlands, ACM 2007: 215-222",
-            "15、Duo Zhang, Jie Tang, Juanzi Li, and Kehong Wang. A Constraint-Based Probabilistic Framework for Name Disambiguation. Proc. Sixteenth Conference on Information and Knowledge Management (CIKM2007), Lisbon, Portugal.: 1019-1022",
-            "16、Jie Tang, Mingcai Hong, Juanzi Li, Bangyong Liang, Tree-structured conditional random fields for semantic annotation, Proc. 5th International Conference of Semantic Web (ISWC2006). Athens, GA, USA:640-653.",
+        // 14:{
+        //   id:14,
+        //   img:require("../../../../assets/home/specialist/lijuanzi1.jpg"),
+        //   name:'李娟子',
+        //   desrc:"博士，清华大学教授，计算机科学与技术系软件研究所副所长，知识工程研究室主任。中国中文信息学会常务理事，中国计算机学会: 中文信息技术专业委员会委员，在清华大学获得博士学位，2001年博士后出站后留校工作至今，多篇论文发表在重要国际会议(如 WWW、SIGMOD、SIGMOD、SIGIR、ISWC、SIGKDD) 和学术期刊(JoWS、TKDE、JoDS)。主持多项国家级、部委级和国际合作项目研究,包括国家自然科学项目重点,以及欧盟第七合作框架、新华社、国家环保总局等项目。获得2013年人工智能学会创新一等奖，2013 年电子学会自然科学二等奖,2011年王选新闻科学技术进步奖一等奖。",
+        //   researchResult:{
+        //     data:[
+        //       {
+        //         title:"国家自然科学基金项目: 大规模动态本体映射模型研究 ；"
+        //       },{
+        //         title:"国家自然科学基金项目: 限定领域中基于语义的内容管理的关键技术及应用;"
+        //       },{
+        //         title:"国家自然科学基金项目: 分布式本体系统中本体粒度划分机制研究;"
+        //       },{
+        //         title:"973二级课题: 需求模型验证与管理;"
+        //       },{
+        //         title:"新华社项目: “中文新闻信息置标语言CNML”标准管理系统;"
+        //       },{
+        //         title:"国家环境保护部项目: 处置环境与核恐怖袭击事件应急项目——核与辐射环境数据交换技术规范与应用接口开发;"
+        //       },{
+        //         title:"IBM国际合作项目: 智慧城市中集群体智慧的数据间关联关系挖掘;"
+        //       },{
+        //         title:"IBM国际合作项目: 基于主动学习的大规模本体映射的语义集成方法研究;"
+        //       },{
+        //         title:"IBM国际合作项目: 分布知识库查询关键技术;"
+        //       },{
+        //         title:"IBM国际合作项目: 语义内容管理关键技术;"
+        //       },{
+        //         title:"“清华—鲁汶”国际合作研究项目: Webinsight：万维网文档关联和演化分析模型研究；"
+        //       },{
+        //         title:"国家自然科学基金重点项目：基于云计算的海量数据挖掘关键技术；"
+        //       },{
+        //         title:"新华社项目：“中文新闻信息置标语言CNML”标准管理系统升级；"
+        //       },
+        //     ]
+        //   },
+        //   researchDirection:[
+        //     {
+        //       title:"融合语义Web、文本与社会网络挖掘技术，研究基于语义的内容管理关键技术，并应用于包括新闻、研究者社会网络和Web服务在内的多个领域。主要工作包括："
+        //     },{
+        //       title:"基于语义的内容管理关键技术。在本体映射研究中，提出基于贝叶斯决策的多策略本体映射模型，解决了多种映射策略的融合问题；提出动态选择的多策略本体映射模型，解决了针对不同本体映射任务，动态选择映射策略的问题，并进一步提高了映射精度。研究成果发表在SIGMOD、Journal of Web Semantics（JoWS）和TKDE等国际重要学术期刊和会议上 。据Google Scholar统计，发表在JoWS上的论文被引用73次。在语义标注研究中，针对标注对象所具有的不同特点，研究不同的语义标注方法，提出基于规则、分类模型和序列模型的条件随机场的三类语义标注方法。这些标注方法已经成功应用于研究者个人信息、会议信息和公司信息的语义标注中，取得了良好的应用效果。上述研究工作得到国家自然科学基金和973项目的支持。"
+        //     },{
+        //       title:"新闻与社会网络挖掘。在新闻挖掘中，提出基于索引树和命名实体的话题发现和跟踪模型、基于话题的新闻分析模型，研究成果发表在SIGIR 2007，并在SIGKDD 2009上做demo演示；在社会网络挖掘研究中，提出面向专家的研究者社会网络搜索模型，并对专家发现、研究兴趣发现和会议挖掘等问题进行了深入研究。"
+        //     },{
+        //       title:"新闻领域XML数据处理应用研究。我是国家标准 “中文新闻信息标识语言（CNML）”（GB/T20092-2006）的第四起草人，并作为项目负责人，承担了CNML标准管理系统的研制任务。目前，该软件部署在新华社文字编辑系统、图片编辑系统、信息部多媒体编辑系统、多媒体数据库、视音频编辑系统、产品生成系统等重要业务系统中，全面满足了技术建设和日常运维的需求。该项目获得“2009年王选新闻科学技术进步二等奖”。"
+        //     }
+        //   ],
+        //   thesis:[
+        //     "Zi Yang, Jie Tang, Juanzi Li, Social Community Analysis via Factor Graph Model. IEEE Intelligent Systems. (accepted)",
+        //     "Ali Daud, Juanzi Li, Lizhu Zhou, and Faqir Muhammad. Temporal Expert Finding through Generalized Time Topic Modeling. Knowledge Based System Journal. (Accepted)",
+        //     "Zhifeng Gu, Bin Xu, Juanzi Li, Service Data Correlation Modeling and Its Application in Data-Driven Service Composition, IEEE Trans. Service Computing. (Accepted)",
+        //     "Juanzi Li, Jie Tang begin_of_the_skype_highlightingend_of_the_skype_highlighting, Yi Li, Qiong Luo: RiMOM: A Dynamic Multistrategy Ontology Alignment Framework. IEEE Trans. Knowl. Data Eng. 21(8): 1218-1232 (2009)",
+        //     "Gang Wu, Juan-Zi Li, Jianqiang Hu, Kehong Wang: System Pi: A Native RDF Repository Based on the Hypergraph Representation for RDF Data Model. J. Comput. Sci. Technol. 24(4): 652-664 (2009)",
+        //     "Jie Tang, Juanzi Li, Bangyong Liang, Xiaotong Huang, Yi Li, and Kehong Wang, Using Bayesian Decision for Ontology Mapping. Journal of Web Semantics: Science, Services and Agents on the World Wide Web, Vol(4) 4:243-262, December 2006.",
+        //     "Qian Zhong, Hanyu Li, Juanzi Li, Guo Tong Xie, Jie Tang, Lizhu Zhou and Yue Pan: A Gauss Function based Approach for Unbalanced Ontology Matching. Proc. 35th International Conference on Management of Data(SIGMOD2009), Providence, Rhode Island, USA, 2009: 669-680.",
+        //     "Feng Shi, Juanzi Li, Jie Tang, Guotong Xie, Hanyu Li, Actively Learning Ontology Matching via User Interaction, Proc. 2009 International Semantic Web Conference (ISWC2009), Washington D.C, USA, 2009 : 585-600.",
+        //     "Ali Daud, Juanzi Li, Lizhu Zhou, and Faqir Muhammad. Conference Mining via Generalized Topic Modeling. Proc. International European Conference on Machine Learning and Principles and Practices of Knowledge Discovery in Databases (ECML PKDD2009), Bled, Slovenia, 2009: 244–259.",
+        //     "Gang Wu, Juanzi Li, Ling Feng, Kehong Wang, Identifying Potentially Important Concepts and Relations in an Ontology, Proc. 2008 International Conference on Semantic Web (ISWC2008), Karlsruhe, Germany, 2008:33-49",
+        //     "Xin Xin, Juanzi Li, Jie Tang, Qiong Luo, Academic Conference Homepage Understanding Using Constrained Hierarchical Conditional Random Fields, Proc. the 17th ACM Conference on Information and Knowledge Management(CIKM2008), Napa Valley, California, 2008: 1301-1310",
+        //     "Zhifeng Gu, Juanzi Li, Bin Xu, Automatic Service Composition Based on Enhanced Service Dependency Graph, Proc. the IEEE International Conference on Web Services (ICWS2008), Beijing, China, 2008: 246-253",
+        //     "Jie Tang, Jing Zhang, Limin Yao, Juanzi Li, Li Zhang, and Zhong Su. Extraction and Mining of Academic Social Network. Proc. Fourteenth ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (SIGKDD2008), Las Vegas, Nevada, USA, ACM 2008: 990-998.",
+        //     "Kuo Zhang, Juanzi Li, Gang Wu, Event Detection Based on Indexing-tree and Named Entity, Proc. 30th Annual International ACM SIGIR Conference on Research and Development in Information Retrieval(SIGIR2007), Amsterdam, The Netherlands, ACM 2007: 215-222",
+        //     "Duo Zhang, Jie Tang, Juanzi Li, and Kehong Wang. A Constraint-Based Probabilistic Framework for Name Disambiguation. Proc. Sixteenth Conference on Information and Knowledge Management (CIKM2007), Lisbon, Portugal.: 1019-1022",
+        //     "Jie Tang, Mingcai Hong, Juanzi Li, Bangyong Liang, Tree-structured conditional random fields for semantic annotation, Proc. 5th International Conference of Semantic Web (ISWC2006). Athens, GA, USA:640-653.",
 
-          ],
-        },
+        //   ],
+        // },
         15:{
           id:15,
           img:require("../../../../assets/home/specialist/wanghoufeng1.jpg"),
@@ -1122,9 +1151,9 @@ export default {
           researchResult:{
             data:[
               {
-                title:"	大数据背景下汉语句法语义分析技术，具有较好的可计算性和较高的形式化程度。研发面向实际应用的、具有高鲁棒性、高正确率和低时间复杂度的中文句法语义分析器。分析器可协调句法、语义和语用三个语言层面的互动，做到语义分析以句法结构为指导，以语言应用中的语用需求为牵引。分析器的设计和实现要考虑实现符号计算、统计计算和联结计算融合的方法。重点以汉语为核心，构建谓词句法及其论元结构资源，通过深度学习方法，学习句法和语义嵌入算法，构建歧义消解模型，采用网格分析技术进行句法分析选优。技术研究语言大数据下，语言知识获取途径和方法。以BCC为基础，建立汉语言大数据管理和应用的技术平台，采用语言学的变换方法，建立语言变换表达式，抽取各种结构类型的语块实例，包括连续语块、词语搭配、框架式表达和离合词语等。这一汉语句法语义分析工具，可为汉语教学、汉语研究、深度汉语信息处理提供服务。"
+                title:"大数据背景下汉语句法语义分析技术，具有较好的可计算性和较高的形式化程度。研发面向实际应用的、具有高鲁棒性、高正确率和低时间复杂度的中文句法语义分析器。分析器可协调句法、语义和语用三个语言层面的互动，做到语义分析以句法结构为指导，以语言应用中的语用需求为牵引。分析器的设计和实现要考虑实现符号计算、统计计算和联结计算融合的方法。重点以汉语为核心，构建谓词句法及其论元结构资源，通过深度学习方法，学习句法和语义嵌入算法，构建歧义消解模型，采用网格分析技术进行句法分析选优。技术研究语言大数据下，语言知识获取途径和方法。以BCC为基础，建立汉语言大数据管理和应用的技术平台，采用语言学的变换方法，建立语言变换表达式，抽取各种结构类型的语块实例，包括连续语块、词语搭配、框架式表达和离合词语等。这一汉语句法语义分析工具，可为汉语教学、汉语研究、深度汉语信息处理提供服务。"
               },{
-                title:"	BCC汉语语料库：总字数约 150 亿字，包括：报刊（20 亿）、文学（30 亿）、微博（30 亿）、科技（30 亿）、综合（10 亿）和古汉语（20 亿）等多领域语料，是可以全面反映当今社会语言生活的大规模语料库。BCC汉语语料库，总字数约 150 亿字，包括：报刊（20 亿）、文学（30 亿）、微博（30 亿）、科技（30 亿）、综合（10 亿）和古汉语（20 亿）等多领域语料，是可以全面反映当今社会语言生活的大规模语料库。http://bcc.blcu.edu.cn/",
+                title:"BCC汉语语料库：总字数约 150 亿字，包括：报刊（20 亿）、文学（30 亿）、微博（30 亿）、科技（30 亿）、综合（10 亿）和古汉语（20 亿）等多领域语料，是可以全面反映当今社会语言生活的大规模语料库。BCC汉语语料库，总字数约 150 亿字，包括：报刊（20 亿）、文学（30 亿）、微博（30 亿）、科技（30 亿）、综合（10 亿）和古汉语（20 亿）等多领域语料，是可以全面反映当今社会语言生活的大规模语料库。http://bcc.blcu.edu.cn/",
                 childs:[
                     {
                       text:"检索：在单句范围内，检符合检索式的语言片段。"
@@ -1147,11 +1176,11 @@ export default {
                     }
                 ]
               },{
-                title:"	汉语老师可以快速地制作生动活泼的教学课件，每个课件由多张交互式的多媒体卡片组成。课件发布后，老师在上课时可以从云端下载和全屏播放课件，课后学生还可以在手机或平板电脑上浏览，不需要安装任何插件。由于每张卡片都是交互式的，学生可以用点击、滑动等常见的交互方式来浏览，真正做到了课上课下一体，随时随地学习。“卡片汉语”提供了多种知识卡片的模板，还有一个常用的知识卡片库供老师选用，如对6763个常用汉字制作了包含笔顺、发音、拼音的字卡；对汉语水平考试（HSK）3级词汇制作了包含拼音、例句和配图的词卡；对基础语法点制作了包含微视频的情景对话卡等等。在卡片制作界面中，老师可以定制自己的卡片，也可以上传自己的图片、声音、视频，还可以录制自己的声音。这些上传的资源经过质量和重复度审核后，进入网站资源库，成为公共资源。"
+                title:"汉语老师可以快速地制作生动活泼的教学课件，每个课件由多张交互式的多媒体卡片组成。课件发布后，老师在上课时可以从云端下载和全屏播放课件，课后学生还可以在手机或平板电脑上浏览，不需要安装任何插件。由于每张卡片都是交互式的，学生可以用点击、滑动等常见的交互方式来浏览，真正做到了课上课下一体，随时随地学习。“卡片汉语”提供了多种知识卡片的模板，还有一个常用的知识卡片库供老师选用，如对6763个常用汉字制作了包含笔顺、发音、拼音的字卡；对汉语水平考试（HSK）3级词汇制作了包含拼音、例句和配图的词卡；对基础语法点制作了包含微视频的情景对话卡等等。在卡片制作界面中，老师可以定制自己的卡片，也可以上传自己的图片、声音、视频，还可以录制自己的声音。这些上传的资源经过质量和重复度审核后，进入网站资源库，成为公共资源。"
               },{
-                title:"	汉字字形计算系统（帮助学生书写汉字）以学习汉字书写的学生为研究对象，采用数字媒体处理、模式识别、机器学习等信息技术，对汉字书写正确性和规范性的自动评测进行基础理论和应用技术方面的研究。其目标是实现计算机辅助的、无人值守的汉字书写教学和评测。"
+                title:"汉字字形计算系统（帮助学生书写汉字）以学习汉字书写的学生为研究对象，采用数字媒体处理、模式识别、机器学习等信息技术，对汉字书写正确性和规范性的自动评测进行基础理论和应用技术方面的研究。其目标是实现计算机辅助的、无人值守的汉字书写教学和评测。"
               },{
-                title:"	非母语写作水平计算机自动评测技术：研究非母语学生作文的计算机评测系统的技术，以非母语教学中中介语语料库为训练语料, 建立写作水平计算机自动评测数学统计模型和基于Internet网络的写作水平自动评测原型系统。目前主要以外国人学习汉语的作文评阅为背景，研究成果将直接服务于我国对外汉语教学的汉语水平考试（HSK），为HSK考试实现计算机自动做汉语写作水平评测做前期理论和实践研究。同时作为一种自测手段，帮助外国人学习和提高中文写作水平。"
+                title:"非母语写作水平计算机自动评测技术：研究非母语学生作文的计算机评测系统的技术，以非母语教学中中介语语料库为训练语料, 建立写作水平计算机自动评测数学统计模型和基于Internet网络的写作水平自动评测原型系统。目前主要以外国人学习汉语的作文评阅为背景，研究成果将直接服务于我国对外汉语教学的汉语水平考试（HSK），为HSK考试实现计算机自动做汉语写作水平评测做前期理论和实践研究。同时作为一种自测手段，帮助外国人学习和提高中文写作水平。"
               },
             ]
           },
@@ -1161,18 +1190,18 @@ export default {
             }
           ],
           thesis:[
-            "1. 荀恩东，李生，英汉机器翻译中基于目标语同现的词义消歧方法1999 情报学报",
-            "2. Xun, Endong, A New Rule Processing Method Based on Decision Trees 1999 高技术通讯(英文版)",
-            "3. 荀恩东，李生，匹配树和决策树方法识别英语句子中的BaseNPs 1999 计算机研究与发展",
-            "4. Xun Endong, Decision Tree Based Rule Processing in Machine Translation 1999 The Second International Conference on Multimodal Interface",
-            "5. Xun Endong ,Huang hangning, A unified statistical model for identification of English baseNP 2000 Annual computing linguistics",
-            "6. Gao Jianfeng, Xun Endong , TREC-9 CLIR experiments at MSRCN 2001 the Ninth Text Retrieval Conference",
-            "7. Xun Endong ,Extract Chinese Term definition from database and Internet 2003 the 6th East Asia Forum on Terminology",
-            "8. 颜伟，荀恩东，基于WordNet的英文词语相似度计算 2004 第二届全国学生计算语言学研讨会论文集",
-            "9. 王洁，荀恩东，兼类词排岐的一种方法 2004 第二届全国学生计算语言学研讨会论文集",
-            "10. 荀恩东，钱揖丽，应用二叉树剪枝识别韵律短语边界，2006，中文信息学报，第三期",
-            "11. 荀恩东，颜伟，基于语义网计算英语词语相似度，2005，情报学报，第一期",
-            "12. 荀恩东，宋柔，非母语写作水平自动评测，2006, 哈佛大学汉语书面语研讨会",
+            "荀恩东，李生，英汉机器翻译中基于目标语同现的词义消歧方法1999 情报学报",
+            "Xun, Endong, A New Rule Processing Method Based on Decision Trees 1999 高技术通讯(英文版)",
+            "荀恩东，李生，匹配树和决策树方法识别英语句子中的BaseNPs 1999 计算机研究与发展",
+            "Xun Endong, Decision Tree Based Rule Processing in Machine Translation 1999 The Second International Conference on Multimodal Interface",
+            "Xun Endong ,Huang hangning, A unified statistical model for identification of English baseNP 2000 Annual computing linguistics",
+            "Gao Jianfeng, Xun Endong , TREC-9 CLIR experiments at MSRCN 2001 the Ninth Text Retrieval Conference",
+            "Xun Endong ,Extract Chinese Term definition from database and Internet 2003 the 6th East Asia Forum on Terminology",
+            "颜伟，荀恩东，基于WordNet的英文词语相似度计算 2004 第二届全国学生计算语言学研讨会论文集",
+            "王洁，荀恩东，兼类词排岐的一种方法 2004 第二届全国学生计算语言学研讨会论文集",
+            "荀恩东，钱揖丽，应用二叉树剪枝识别韵律短语边界，2006，中文信息学报，第三期",
+            "荀恩东，颜伟，基于语义网计算英语词语相似度，2005，情报学报，第一期",
+            "荀恩东，宋柔，非母语写作水平自动评测，2006, 哈佛大学汉语书面语研讨会",
 
           ],
         },
@@ -1288,39 +1317,39 @@ export default {
               },{
                 title:"知识关联和推理类问题求解技术, 主持, 国家级, 2015-01--2017-"
               },{
-                title:"	国家自然科学基金重点项目：大规模知识关联和文本语义计算方法及应用验证（61533018，2016-2020）"
+                title:"国家自然科学基金重点项目：大规模知识关联和文本语义计算方法及应用验证（61533018，2016-2020）"
               },{
-                title:"	国家973项目：中文深度分析与开放域内容理解（No. 2014CB340503, 2014-2018）"
+                title:"国家973项目：中文深度分析与开放域内容理解（No. 2014CB340503, 2014-2018）"
               },{
-                title:"	国家自然科学基金项目：基于内容分析和行为分析的社区问答关键技术研究（61272332, 2013-2016）"
+                title:"国家自然科学基金项目：基于内容分析和行为分析的社区问答关键技术研究（61272332, 2013-2016）"
               },{
-                title:"	国家自然科学基金项目：基于Web知识挖掘与融合的命名实体消歧技术研究（61070106，2011-2013）"
+                title:"国家自然科学基金项目：基于Web知识挖掘与融合的命名实体消歧技术研究（61070106，2011-2013）"
               },{
-                title:"	华为技术有限公司科技项目：开放域实体关系抽取（2011-2014）"
+                title:"华为技术有限公司科技项目：开放域实体关系抽取（2011-2014）"
               },{
-                title:"	讯飞科技项目：融合推理的百科知识问答系统（2013-2014）"
+                title:"讯飞科技项目：融合推理的百科知识问答系统（2013-2014）"
               },{
-                title:"	中国出版集团科研项目：百科在线工程（2008-2015）"
+                title:"中国出版集团科研项目：百科在线工程（2008-2015）"
               },{
-                title:"	国家自然科学基金项目：汉语依存分析的概率化决策动作模型及自适应技术研究（60875041，2009-2011）"
+                title:"国家自然科学基金项目：汉语依存分析的概率化决策动作模型及自适应技术研究（60875041，2009-2011）"
               },{
-                title:"	863项目：汉英双语命名实体对应和术语对应的获取技术研究（2006AA01Z144，2006-2009）"
+                title:"863项目：汉英双语命名实体对应和术语对应的获取技术研究（2006AA01Z144，2006-2009）"
               },{
-                title:"	国家自然科学基金项目：汉语文本中观点信息的提取和倾向性分析技术研究（60673042，2006-2009） "
+                title:"国家自然科学基金项目：汉语文本中观点信息的提取和倾向性分析技术研究（60673042，2006-2009） "
               },{
-                title:"	国家自然科学基金项目：多语言智能文本处理中基于主题语义空间的文本表示研究 （60372016，2004-2006）"
+                title:"国家自然科学基金项目：多语言智能文本处理中基于主题语义空间的文本表示研究 （60372016，2004-2006）"
               },{
-                title:"	北京市自然科学基金项目：面向异构WEB信息源的汉语问答式检索技术研究 (4052027)"
+                title:"北京市自然科学基金项目：面向异构WEB信息源的汉语问答式检索技术研究 (4052027)"
               },{
-                title:"	北京市自然科学基金项目：面向信息安全的网络文本分析技术研究 (4073043)"
+                title:"北京市自然科学基金项目：面向信息安全的网络文本分析技术研究 (4073043)"
               },{
-                title:"	中国大百科全书出版社科研项目：百科在线——百科全书的自动标引和问答式知识服务平台建设"
+                title:"中国大百科全书出版社科研项目：百科在线——百科全书的自动标引和问答式知识服务平台建设"
               },{
-                title:"	国际合作项目（富士通研究开发中心有限公司）：汉语产品名识别和标注工具的研发"
+                title:"国际合作项目（富士通研究开发中心有限公司）：汉语产品名识别和标注工具的研发"
               },{
-                title:"	国际合作项目（富士通研究开发中心有限公司）：汉语分词、词性标注和命名实体标注软件工具的研发"
+                title:"国际合作项目（富士通研究开发中心有限公司）：汉语分词、词性标注和命名实体标注软件工具的研发"
               },{
-                title:"	国家重点基础研究发展规划项目(973)子项：中文语言资源联盟的建设 (G1998030501A-06)"
+                title:"国家重点基础研究发展规划项目(973)子项：中文语言资源联盟的建设 (G1998030501A-06)"
               },
             ]
           },
@@ -1731,24 +1760,24 @@ export default {
             }
           ],
           thesis:[
-            "	Hongjie Ji, Shujian Huang, Qi Hou, Cunyan Yin, Jiajun Chen. RGraph: Generating Reference Graphs for Better Machine Translation Evaluation. In: Wong D., Xiong D. (eds) Machine Translation. CWMT 2017. Communications in Computer and Information Science, vol 787, pages 55-67. Springer, Singapore ",
-            "	hen Wu, Xin-Yu Dai, Cun-yan Yin, Shujian Huang, Jiajun Chen. Improving Review Representations with User Attention and Product Attention for Sentiment Classification. accepted by AAAI'18.",
-            "	Zaixiang Zheng*, Hao Zhou*, Shujian Huang, Lili Mou, Xinyu Dai, Jiajun Chen, and Zhaopeng Tu. Modeling Past and Future for Neural Machine Translation. accepted by TACL'2017.",
-            "	Guang-Neng Hu, Xin-Yu Dai*, Feng-Yu Qiu, Rui Xia, Tao Li, Shu-Jian Huang, Jia-Jun Chen. Collaborative Filtering with Topic and Social Latent Factors Incorporating Implicit Feedback. accepted by ACM TKDD. ",
-            "	Hao Zhou*, Zhenting Yu*, Yue Zhang, Shujian Huang, Xin-Yu Dai, and Jiajun Chen. Word Context Character Embeddings for Chinese Word Segmentation. (Short paper) Conference on Empirical Methods in Natural Language Processing (EMNLP), pages 760-766, Copenhagen, Denmark, 2017. ",
-            "	Rongxiang Weng, Shujian Huang, Zaixiang Zheng, Xinyu Dai and Jiajun Chen. Neural Machine Translation with Word Predictions. Conference on Empirical Methods in Natural Language Processing (EMNLP), pages 136-145, Copenhagen, Denmark, 2017. ",
-            "	Huadong Chen, Shujian Huang, David Chiang, XIN-YU DAI and Jiajun CHEN. Top-rank Enhanced Listwise Optimization for Statistical Machine Translation. Conference on Computational Natural Language Learning (CoNLL), pages 90-99, Vancouver, Canada, 2017. ",
-            "	Hong-Jian Xue, Xin-Yu Dai, Jianbing Zhang, Shujian Huang, Jiajun Chen. Deep Matrix Factorization Models for Recommender Systems. International Joint Conference on Artificial Intelligence (IJCAI), pages 3203-3209, 2017. ",
-            "	Jianbing Zhang, Yixin Sun, Shujian Huang*, Cam-Tu Nguyen, Xiaoliang Wang, Xinyu Dai, Jiajun Chen, Yang Yu. AGRA: An Analysis-Generation-Ranking Framework for Automatic Abbreviation from Paper Titles. International Joint Conference on Artificial Intelligence (IJCAI), pages 4221-4227, 2017. ",
-            "	Hao Zhou, Yue Zhang, Chuan Chen, Shujian Huang, Xin-Yu Dai, and Jiajun Chen. A Neural Probabilistic Structured-Prediction Method for Transition-Based Natural Language Processing. Journal of Artificial Intelligence Research (JAIR), Volume 58, pages 703-729. ",
-            "	Huadong Chen, Shujian Huang, David Chiang, Jiajun Chen, Improved Neural Machine Translation with a Syntax-Aware Encoder and Decoder. Meeting of the Association for Computational Linguistics (ACL), pages 580-585, Vancouver Canada, 2017. ",
-            "	Hao Zhou, Zhaopeng Tu, Shujian Huang, Xiaohua Liu, Hang Li and Jiajun Chen. Chunk-based Bi-Scale Decoder for Neural Machine Translation. Meeting of the Association for Computational Linguistics (ACL), pages 1936-1945, Vancouver Canada, 2017. ",
-            "	Hao Zhou, Yue Zhang, Shujian Huang, Junsheng Zhou, XIN-YU DAI and Jiajun Chen. A Search-Based Dynamic Reranking Model for Dependency Parsing. Meeting of the Association for Computational Linguistics (ACL), 2016:1393-1402. ",
-            "	Hao Zhou, Yue Zhang, Shujian Huang, Xin-Yu Dai, and Jiajun Chen. Evaluating a Deterministic Shift-Reduce Neural Parser for Constituent Parsing. in Proceedings of the Tenth International Conference on Language Resources and Evaluation (LREC 2016), pages 659-663, Slovenia, Portoroz, May 23-28, 2016. ",
-            "	Shanbo Cheng, Shujian Huang, Huadong Chen, Xinyu DAI and Jiajun Chen. PRIMT: A Pick-Revise Framework for Interactive Machine Translation. Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (NAACL), 2016:1240-1249. ",
-            "	Shujian Huang, Huifeng Sun, Chengqi Zhao, Jinsong Su, Xinyu DAI and Jiajun Chen. Tree-state based Rule Selection Models for Hierarchical Phrase-based Machine Translation. Proceedings of the Twenty-Fifth International Joint Conference on Artificial Intelligence (IJCAI). AAAI Press, 2016: 2817-2823. ",
-            "	Yinggong Zhao, Shujian Huang*, Xinyu Dai, and Jiajun Chen. Adaptation of Langage Models for SMT Using Neural Networks with Topic Information. ACM Transactions on Asian and Low-Resource Language Information Processing (TALLIP), 2016, 15(3): 19:1-19:15. ",
-            "	Hao Zhou, Shujian Huang*, Junsheng Zhou, Yue Zhang, Huadong Chen, Xinyu Dai, Chuan Cheng, Jiajun Chen. Enhancing Shift-Reduce Constituent Parsing with Action N-Gram Model. ACM Transactions on Asian and Low-Resource Language Information Processing (TALLIP), 2016, 15(3): 13:1-13:17. "
+            "Hongjie Ji, Shujian Huang, Qi Hou, Cunyan Yin, Jiajun Chen. RGraph: Generating Reference Graphs for Better Machine Translation Evaluation. In: Wong D., Xiong D. (eds) Machine Translation. CWMT 2017. Communications in Computer and Information Science, vol 787, pages 55-67. Springer, Singapore ",
+            "hen Wu, Xin-Yu Dai, Cun-yan Yin, Shujian Huang, Jiajun Chen. Improving Review Representations with User Attention and Product Attention for Sentiment Classification. accepted by AAAI'18.",
+            "Zaixiang Zheng*, Hao Zhou*, Shujian Huang, Lili Mou, Xinyu Dai, Jiajun Chen, and Zhaopeng Tu. Modeling Past and Future for Neural Machine Translation. accepted by TACL'2017.",
+            "Guang-Neng Hu, Xin-Yu Dai*, Feng-Yu Qiu, Rui Xia, Tao Li, Shu-Jian Huang, Jia-Jun Chen. Collaborative Filtering with Topic and Social Latent Factors Incorporating Implicit Feedback. accepted by ACM TKDD. ",
+            "Hao Zhou*, Zhenting Yu*, Yue Zhang, Shujian Huang, Xin-Yu Dai, and Jiajun Chen. Word Context Character Embeddings for Chinese Word Segmentation. (Short paper) Conference on Empirical Methods in Natural Language Processing (EMNLP), pages 760-766, Copenhagen, Denmark, 2017. ",
+            "Rongxiang Weng, Shujian Huang, Zaixiang Zheng, Xinyu Dai and Jiajun Chen. Neural Machine Translation with Word Predictions. Conference on Empirical Methods in Natural Language Processing (EMNLP), pages 136-145, Copenhagen, Denmark, 2017. ",
+            "Huadong Chen, Shujian Huang, David Chiang, XIN-YU DAI and Jiajun CHEN. Top-rank Enhanced Listwise Optimization for Statistical Machine Translation. Conference on Computational Natural Language Learning (CoNLL), pages 90-99, Vancouver, Canada, 2017. ",
+            "Hong-Jian Xue, Xin-Yu Dai, Jianbing Zhang, Shujian Huang, Jiajun Chen. Deep Matrix Factorization Models for Recommender Systems. International Joint Conference on Artificial Intelligence (IJCAI), pages 3203-3209, 2017. ",
+            "Jianbing Zhang, Yixin Sun, Shujian Huang*, Cam-Tu Nguyen, Xiaoliang Wang, Xinyu Dai, Jiajun Chen, Yang Yu. AGRA: An Analysis-Generation-Ranking Framework for Automatic Abbreviation from Paper Titles. International Joint Conference on Artificial Intelligence (IJCAI), pages 4221-4227, 2017. ",
+            "Hao Zhou, Yue Zhang, Chuan Chen, Shujian Huang, Xin-Yu Dai, and Jiajun Chen. A Neural Probabilistic Structured-Prediction Method for Transition-Based Natural Language Processing. Journal of Artificial Intelligence Research (JAIR), Volume 58, pages 703-729. ",
+            "Huadong Chen, Shujian Huang, David Chiang, Jiajun Chen, Improved Neural Machine Translation with a Syntax-Aware Encoder and Decoder. Meeting of the Association for Computational Linguistics (ACL), pages 580-585, Vancouver Canada, 2017. ",
+            "Hao Zhou, Zhaopeng Tu, Shujian Huang, Xiaohua Liu, Hang Li and Jiajun Chen. Chunk-based Bi-Scale Decoder for Neural Machine Translation. Meeting of the Association for Computational Linguistics (ACL), pages 1936-1945, Vancouver Canada, 2017. ",
+            "Hao Zhou, Yue Zhang, Shujian Huang, Junsheng Zhou, XIN-YU DAI and Jiajun Chen. A Search-Based Dynamic Reranking Model for Dependency Parsing. Meeting of the Association for Computational Linguistics (ACL), 2016:1393-1402. ",
+            "Hao Zhou, Yue Zhang, Shujian Huang, Xin-Yu Dai, and Jiajun Chen. Evaluating a Deterministic Shift-Reduce Neural Parser for Constituent Parsing. in Proceedings of the Tenth International Conference on Language Resources and Evaluation (LREC 2016), pages 659-663, Slovenia, Portoroz, May 23-28, 2016. ",
+            "Shanbo Cheng, Shujian Huang, Huadong Chen, Xinyu DAI and Jiajun Chen. PRIMT: A Pick-Revise Framework for Interactive Machine Translation. Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (NAACL), 2016:1240-1249. ",
+            "Shujian Huang, Huifeng Sun, Chengqi Zhao, Jinsong Su, Xinyu DAI and Jiajun Chen. Tree-state based Rule Selection Models for Hierarchical Phrase-based Machine Translation. Proceedings of the Twenty-Fifth International Joint Conference on Artificial Intelligence (IJCAI). AAAI Press, 2016: 2817-2823. ",
+            "Yinggong Zhao, Shujian Huang*, Xinyu Dai, and Jiajun Chen. Adaptation of Langage Models for SMT Using Neural Networks with Topic Information. ACM Transactions on Asian and Low-Resource Language Information Processing (TALLIP), 2016, 15(3): 19:1-19:15. ",
+            "Hao Zhou, Shujian Huang*, Junsheng Zhou, Yue Zhang, Huadong Chen, Xinyu Dai, Chuan Cheng, Jiajun Chen. Enhancing Shift-Reduce Constituent Parsing with Action N-Gram Model. ACM Transactions on Asian and Low-Resource Language Information Processing (TALLIP), 2016, 15(3): 13:1-13:17. "
             
           ],
         },
@@ -1828,57 +1857,57 @@ export default {
 
           ],
         },
-        27:{
-          id:27,
-          img:require("../../../../assets/home/specialist/yaotianfang1.jpg"),
-          name:'姚天昉',
-          desrc:" 博士，上海交通大学计算机科学与工程系副教授，中国中文信息学会理事、中国中文信息学会计算语言学专委会委员、中国中文信息学会信息检索专委会委员。2005年获得德国萨尔州大学计算机科学专业工学博士学位。曾在德国康斯坦茨大学进修，在德国人工智能研究中心担任访问学者。在德国萨尔州大学计算语言学系从事研究工作。曾获得国家级教学成果二等奖一项，上海市教学成果一等奖二项以及校内教学成果奖和教学优秀奖多项。主持和参加了多项国家自然科学基金项目、国家863计划项目、973计划项目。此外，在国内外重要刊物和会议上发表了多篇论文。",
-          researchResult:{
-            data:[
-              {
-                title:"脱机手写体汉字自动识别系统的研究；"
-              },{
-                title:"德汉题录机器翻译系统研究，项目获得第三届上海科学技术博览会金奖；"
-              },{
-                title:"主持了国家自然科学基金项目，自然语言多语种文本生成模型的研究；"
-              },{
-                title:"德国大众基金会 （Volkswagen-Stiftung）的国际合作项目，自然语言生成技术在中国的应用；"
-              },{
-                title:"上海市科技发展基金国际合作项目，自然语言多语种文本生成理论、技术及应用研究；"
-              },{
-                title:"自然科学基金项目，基于信息抽取和模板生成的多语种信息检索模型的研究；"
-              },{
-                title:"德国教育和研究部（BMBF）的研究项目COLLATE（Computational Linguistics and Language Technology for Real Life Applications）；"
-              },{
-                title:"国家自然科学基金项目，细颗粒度汉语文本意见挖掘方法的研究，此项目与德国萨尔州大学计算语言学系和德国人工智能研究中心合作进行；"
-              },
-            ]
-          },
-          researchDirection:[
-            {
-              title:"主要研究领域包括文本挖掘、信息抽取、信息检索、自然语言生成等。"
-            }
-          ],
-          thesis:[ 
-            "Tianfang Yao and Mosha Chen. Constructing Chinese Opinion-Element Collocation Dataset using Search Engine and Ontology. Chinese Lexical Semantics. Lecture Notes in Computer Science. Vol. 7717, 2013. pp. 332-343.",
-            "Tianfang Yao, Jun Liu, Wei Qiu. Mining Space-time Elements of Opinion. Proceeding of 2012 International Conference on Asian Language Processing (IALP 2012). Nov. 13-15, 2012. Hanoi, Vietnam. pp. 89-92.",
-            "顾正甲，姚天昉. 评价对象及其倾向性的抽取. 中文信息学报. 第26卷第4期. 2012年7月. 第91-97页.",
-            "卡哈尔江•阿比的热西提，吐尔根•依布拉音，姚天昉，艾山•吾买尔，艾山•毛力尼亚孜. 一种改进的维吾尔语句子相似度计算方法.中文信息学报. 第25卷第4期. 2011年7月. 第50页-53页.",
-            "刘军，姚天昉，仇伟. 意见时空元素的研究. 中文信息学报. 第25卷第3期. 2011年5月. 第72页-78页.",
-            "李婷玉，葛正荣，姚天昉. 汉语情感问题类型分类研究. 中文信息学报. 第25卷第2期. 2011年3月. 第94页-98页.",
-            "杨瑞，胡弘思，张文波，姚天昉. 一种分布式网络爬虫的设计与实现. 第八届全国信息检索学术会议（CCIR 2012）. 南昌. 2012年11月.",
-            "Bao Jiana, Li Tingyu, and Yao Tianfang. Event Information Extraction Approach based on Complex Chinese Texts. Proceeding of 2012 International Conference on Asian Language Processing (IALP 2012). Nov. 13-15, 2012. Hanoi, Vietnam. pp. 61-64.",
-            "Hu Hongsi, Zhang Wenbo, Yao Tianfang. Paraphrase Extraction from Interactive Q&A Communities. Proceeding of the 8th International Conference on Computing and Networking Technology (ICCNT 2012, INC 2012, ICCIS 2012, ICMIC 2012). Aug. 27-29, 2012. Gyeongju, Korea. pp. 268-272.",
-            "张文波，蒋春华，姚天昉. 基于贝叶斯及多模式串模糊匹配算法的不良短信甄别混合模型. 微型电脑应用. 第28卷第2期，2012年2月. 第31-34页.• Tianfang Yao and Jianchao Li. A Token-based Online Web-Snippet Clustering Approach based on Directed Probability Graph. Journal of Computational Information Systems, Vol. 5, No. 3, 2009. pp 1235-1244.",
-            "张冬茉, 葛永, 姚天昉. 多语种自然语言生成系统中的预映射句子规划器. 计算机研究与发展. 2001年4月.• Tianfang Yao, Dongmo Zhang, Qian Wang. MLWFA: A Multilingual Weather Forecast Text Generation System. In Proc. of 38 th Annual Meeting of the Association for Computational Linguistics (ACL 2000): Tutorial Abstracts and Demonstration Notes. Hong Kong, China, Oct., 2000, 13~14. ",
-            "张冬茉, 葛永, 姚天昉. 多语种自然语言生成系统中的语言模型. 上海交通大学学报. 2000年7月. 944-947页. ",
-            "姚天昉, 汤学彦. 文本规划中焦点移动控制算法的研究. 软件学报. 第11卷第二期. 2000年2月. 277~284页.",
-            "姚天昉, 黄海. 基于GPSG的汉语语义表达结构CFAS. 云南大学学报 （自然科学版）. 1997年第19期",
-            "姚天昉, 林莉, 玉素甫.艾白都拉. 基于德语语料库词性标注和统计方法的研究. 上海交通大学学报. 1996年第六期.",
-            "姚天昉, 高国栋, 何厚存. 德汉题录机器翻译系统中句法分析器的设计与实现. 上海交通大学学报. 1996年第六期.",
+        // 27:{
+        //   id:27,
+        //   img:require("../../../../assets/home/specialist/yaotianfang1.jpg"),
+        //   name:'姚天昉',
+        //   desrc:" 博士，上海交通大学计算机科学与工程系副教授，中国中文信息学会理事、中国中文信息学会计算语言学专委会委员、中国中文信息学会信息检索专委会委员。2005年获得德国萨尔州大学计算机科学专业工学博士学位。曾在德国康斯坦茨大学进修，在德国人工智能研究中心担任访问学者。在德国萨尔州大学计算语言学系从事研究工作。曾获得国家级教学成果二等奖一项，上海市教学成果一等奖二项以及校内教学成果奖和教学优秀奖多项。主持和参加了多项国家自然科学基金项目、国家863计划项目、973计划项目。此外，在国内外重要刊物和会议上发表了多篇论文。",
+        //   researchResult:{
+        //     data:[
+        //       {
+        //         title:"脱机手写体汉字自动识别系统的研究；"
+        //       },{
+        //         title:"德汉题录机器翻译系统研究，项目获得第三届上海科学技术博览会金奖；"
+        //       },{
+        //         title:"主持了国家自然科学基金项目，自然语言多语种文本生成模型的研究；"
+        //       },{
+        //         title:"德国大众基金会 （Volkswagen-Stiftung）的国际合作项目，自然语言生成技术在中国的应用；"
+        //       },{
+        //         title:"上海市科技发展基金国际合作项目，自然语言多语种文本生成理论、技术及应用研究；"
+        //       },{
+        //         title:"自然科学基金项目，基于信息抽取和模板生成的多语种信息检索模型的研究；"
+        //       },{
+        //         title:"德国教育和研究部（BMBF）的研究项目COLLATE（Computational Linguistics and Language Technology for Real Life Applications）；"
+        //       },{
+        //         title:"国家自然科学基金项目，细颗粒度汉语文本意见挖掘方法的研究，此项目与德国萨尔州大学计算语言学系和德国人工智能研究中心合作进行；"
+        //       },
+        //     ]
+        //   },
+        //   researchDirection:[
+        //     {
+        //       title:"主要研究领域包括文本挖掘、信息抽取、信息检索、自然语言生成等。"
+        //     }
+        //   ],
+        //   thesis:[ 
+        //     "Tianfang Yao and Mosha Chen. Constructing Chinese Opinion-Element Collocation Dataset using Search Engine and Ontology. Chinese Lexical Semantics. Lecture Notes in Computer Science. Vol. 7717, 2013. pp. 332-343.",
+        //     "Tianfang Yao, Jun Liu, Wei Qiu. Mining Space-time Elements of Opinion. Proceeding of 2012 International Conference on Asian Language Processing (IALP 2012). Nov. 13-15, 2012. Hanoi, Vietnam. pp. 89-92.",
+        //     "顾正甲，姚天昉. 评价对象及其倾向性的抽取. 中文信息学报. 第26卷第4期. 2012年7月. 第91-97页.",
+        //     "卡哈尔江•阿比的热西提，吐尔根•依布拉音，姚天昉，艾山•吾买尔，艾山•毛力尼亚孜. 一种改进的维吾尔语句子相似度计算方法.中文信息学报. 第25卷第4期. 2011年7月. 第50页-53页.",
+        //     "刘军，姚天昉，仇伟. 意见时空元素的研究. 中文信息学报. 第25卷第3期. 2011年5月. 第72页-78页.",
+        //     "李婷玉，葛正荣，姚天昉. 汉语情感问题类型分类研究. 中文信息学报. 第25卷第2期. 2011年3月. 第94页-98页.",
+        //     "杨瑞，胡弘思，张文波，姚天昉. 一种分布式网络爬虫的设计与实现. 第八届全国信息检索学术会议（CCIR 2012）. 南昌. 2012年11月.",
+        //     "Bao Jiana, Li Tingyu, and Yao Tianfang. Event Information Extraction Approach based on Complex Chinese Texts. Proceeding of 2012 International Conference on Asian Language Processing (IALP 2012). Nov. 13-15, 2012. Hanoi, Vietnam. pp. 61-64.",
+        //     "Hu Hongsi, Zhang Wenbo, Yao Tianfang. Paraphrase Extraction from Interactive Q&A Communities. Proceeding of the 8th International Conference on Computing and Networking Technology (ICCNT 2012, INC 2012, ICCIS 2012, ICMIC 2012). Aug. 27-29, 2012. Gyeongju, Korea. pp. 268-272.",
+        //     "张文波，蒋春华，姚天昉. 基于贝叶斯及多模式串模糊匹配算法的不良短信甄别混合模型. 微型电脑应用. 第28卷第2期，2012年2月. 第31-34页.• Tianfang Yao and Jianchao Li. A Token-based Online Web-Snippet Clustering Approach based on Directed Probability Graph. Journal of Computational Information Systems, Vol. 5, No. 3, 2009. pp 1235-1244.",
+        //     "张冬茉, 葛永, 姚天昉. 多语种自然语言生成系统中的预映射句子规划器. 计算机研究与发展. 2001年4月.• Tianfang Yao, Dongmo Zhang, Qian Wang. MLWFA: A Multilingual Weather Forecast Text Generation System. In Proc. of 38 th Annual Meeting of the Association for Computational Linguistics (ACL 2000): Tutorial Abstracts and Demonstration Notes. Hong Kong, China, Oct., 2000, 13~14. ",
+        //     "张冬茉, 葛永, 姚天昉. 多语种自然语言生成系统中的语言模型. 上海交通大学学报. 2000年7月. 944-947页. ",
+        //     "姚天昉, 汤学彦. 文本规划中焦点移动控制算法的研究. 软件学报. 第11卷第二期. 2000年2月. 277~284页.",
+        //     "姚天昉, 黄海. 基于GPSG的汉语语义表达结构CFAS. 云南大学学报 （自然科学版）. 1997年第19期",
+        //     "姚天昉, 林莉, 玉素甫.艾白都拉. 基于德语语料库词性标注和统计方法的研究. 上海交通大学学报. 1996年第六期.",
+        //     "姚天昉, 高国栋, 何厚存. 德汉题录机器翻译系统中句法分析器的设计与实现. 上海交通大学学报. 1996年第六期.",
 
-          ],
-        }
+        //   ],
+        // }
       },
       currentSpecialistIndex:''
 
@@ -1975,12 +2004,19 @@ export default {
       top: 0;
       display: flex;
       bottom: 0;
-      left: 17%;
+      left: 11%;
       align-items: center;
       color: #fff;
       a:first-child:hover{
         text-decoration: underline;
       }
+  }
+  .display_sort_way {
+    position: absolute;
+    /* top: 0; */
+    bottom: 20px;
+    right: 11%;
+    color: #ffffffbf;
   }
   .back-img {
       min-width: 1240px;
@@ -2029,8 +2065,8 @@ export default {
       .left{
         margin: auto;
         img{
-          width: 135px;
-          height: 180px;
+          width: 155px;
+          height: 191px;
         }
       }
       .right{
@@ -2129,7 +2165,7 @@ export default {
         }
         .scientificResearchProject{
           ul{
-            list-style: none;
+            // list-style: none;
             li{
               line-height: 32px;
             }
@@ -2138,7 +2174,7 @@ export default {
         }
         .thesis{
           ul{
-            list-style: none;
+            // list-style: none;
             li{
               line-height: 32px;
             }
@@ -2147,7 +2183,7 @@ export default {
         }
         .patentApplication{
           ul{
-            list-style: none;
+            // list-style: none;
             li{
               line-height: 32px;
             }
